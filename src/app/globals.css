@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/*
+  Semantic tokens from docs/DESIGN-SYSTEM.md.
+  Hex values live here once. Tailwind color utilities reference them.
+  --container-max stays outside @theme: Tailwind maps --container-* to max-w-*.
+*/
+:root {
+  --background: #070b14;
+  --background-secondary: #0b1020;
+  --background-tertiary: #111827;
+
+  --surface: #111827;
+  --surface-secondary: #151d2e;
+  --surface-hover: #1b2436;
+
+  --foreground: #f9fafb;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --text-subtle: #6b7280;
+
+  --primary: #8b5cf6;
+  --primary-hover: #6d28d9;
+  --primary-strong: #4c1d95;
+
+  --accent: #10b981;
+  --accent-hover: #047857;
+  --accent-strong: #064e3b;
+
+  --info: #3b82f6;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --success: #10b981;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-primary: rgba(139, 92, 246, 0.5);
+  --border-accent: rgba(16, 185, 129, 0.5);
+
+  --focus: #8b5cf6;
+
+  --radius-full: 9999px;
+  --container-max: 1440px;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-hover: var(--surface-hover);
+
+  --color-foreground: var(--foreground);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-strong: var(--primary-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-strong: var(--accent-strong);
+
+  --color-info: var(--info);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-success: var(--success);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-primary: var(--border-primary);
+  --color-border-accent: var(--border-accent);
+
+  --color-focus: var(--focus);
+}
+
+@theme {
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+}
+
+html {
+  color-scheme: dark;
+  background-color: var(--background);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
