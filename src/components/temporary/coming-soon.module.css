@@ -1,0 +1,375 @@
+.page {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100dvh;
+  overflow-x: clip;
+  padding: clamp(20px, 4vh, 36px) clamp(20px, 4vw, 48px)
+    max(18px, env(safe-area-inset-bottom));
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.backdrop,
+.waveLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb,
+.grid,
+.noise {
+  position: absolute;
+  inset: 0;
+}
+
+.orbPurple,
+.orbCyan,
+.orbGreen {
+  position: absolute;
+  border-radius: 9999px;
+}
+
+.orbPurple {
+  width: min(46rem, 78vw);
+  height: min(46rem, 78vw);
+  left: -12%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.34), transparent 68%);
+}
+
+.orbCyan {
+  width: min(36rem, 62vw);
+  height: min(36rem, 62vw);
+  right: -8%;
+  top: 18%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2), transparent 70%);
+}
+
+.orbGreen {
+  width: min(34rem, 70vw);
+  height: min(34rem, 70vw);
+  right: 6%;
+  bottom: -18%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.22), transparent 70%);
+}
+
+.grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at 50% 45%, black 10%, transparent 72%);
+  opacity: 0.45;
+}
+
+.noise {
+  background-image: url("/brand/noise.png");
+  background-size: 180px 180px;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+.waveLayer {
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.waveSvg {
+  width: min(1680px, 148%);
+  height: auto;
+  overflow: visible;
+}
+
+.center {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  overflow: clip;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  width: min(100%, 46rem);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -45% -18%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(7, 11, 20, 0.78) 0%,
+    rgba(7, 11, 20, 0.35) 48%,
+    transparent 74%
+  );
+}
+
+.mark {
+  width: clamp(124px, 16vw, 172px);
+  height: auto;
+  filter:
+    drop-shadow(0 0 18px rgba(139, 92, 246, 0.35))
+    drop-shadow(0 10px 22px rgba(16, 185, 129, 0.18));
+}
+
+.headline {
+  margin-top: clamp(22px, 4vh, 36px);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2.15rem, 1.1rem + 4.6vw, 5rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.line {
+  display: block;
+}
+
+.narrowBreak {
+  display: none;
+}
+
+.gradient {
+  background-image: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.copy {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 34rem;
+  margin-top: clamp(16px, 2.4vh, 24px);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.125rem);
+  line-height: 1.6;
+}
+
+.copy p:first-child {
+  color: var(--text-secondary);
+}
+
+.copy p:last-child {
+  color: var(--text-muted);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: clamp(22px, 3.5vh, 34px);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
+}
+
+.credit {
+  position: relative;
+  z-index: 3;
+  margin-top: clamp(28px, 5vh, 48px);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: var(--text-subtle);
+}
+
+.aura {
+  opacity: 0.55;
+}
+
+.core {
+  stroke-linecap: round;
+}
+
+.hairline {
+  stroke-linecap: round;
+  fill: none;
+}
+
+.spark {
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0;
+}
+
+@media (max-width: 430px) {
+  .narrowBreak {
+    display: initial;
+  }
+
+  .headline {
+    font-size: clamp(2.05rem, 11.4vw, 2.7rem);
+  }
+
+  .waveSvg {
+    width: 190%;
+  }
+
+  .aura,
+  .particleLate,
+  .orbCyan {
+    display: none;
+  }
+
+  .grid {
+    opacity: 0.28;
+    background-size: 56px 56px;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 767px) {
+  .aura,
+  .particleLate {
+    display: none;
+  }
+
+  .waveSvg {
+    width: 160%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .enter {
+    animation: rise 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .drift {
+    animation: drift 18s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .driftEcho {
+    animation: drift 22s ease-in-out infinite reverse;
+    transform-origin: center;
+  }
+
+  .aura {
+    animation: breathe 7.5s ease-in-out infinite;
+  }
+
+  .spark {
+    opacity: 0.9;
+    stroke-dasharray: 36 2200;
+    animation: travel 11s linear infinite;
+  }
+
+  .flow {
+    stroke-dasharray: 1.5 14;
+    animation: travel 28s linear infinite;
+  }
+
+  .dot {
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+
+  .orbPurple {
+    animation: float 16s ease-in-out infinite;
+  }
+
+  .orbGreen {
+    animation: float 20s ease-in-out infinite reverse;
+  }
+
+  .particle {
+    animation: twinkle 4.8s ease-in-out infinite;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+
+  50% {
+    opacity: 0.62;
+  }
+}
+
+@keyframes travel {
+  to {
+    stroke-dashoffset: -2236;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.45);
+  }
+
+  50% {
+    opacity: 0.55;
+    box-shadow: 0 0 12px 4px rgba(16, 185, 129, 0.18);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.95;
+  }
+}

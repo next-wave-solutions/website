@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     default: "Next Wave Solutions",
     template: "%s | Next Wave Solutions",
   },
-  description: "Next Wave Solutions",
+  description:
+    "Estamos preparando a próxima onda. Em breve, uma nova experiência da Next Wave Solutions.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
