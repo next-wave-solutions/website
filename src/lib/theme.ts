@@ -13,4 +13,5 @@ export function applyThemePreference(preference: ThemePreference) {
   root.dataset.theme = resolved;
   root.dataset.themeSource = preference === "system" ? "system" : "manual";
   root.style.colorScheme = resolved;
+  window.dispatchEvent(new Event("nw-theme-change"));
 }

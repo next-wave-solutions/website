@@ -1,0 +1,7 @@
+.text {
+  display: inline;
+  background-image: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
