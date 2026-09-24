@@ -1,808 +1,564 @@
 # Next Wave Solutions — Design System
 
-> Visual design system and UI implementation guidelines for the Next Wave Solutions website.
+## 1. Objetivo
 
-This document is the source of truth for visual consistency.
+Este documento define a linguagem visual da Next Wave Solutions e deve orientar todas as decisões de interface do site institucional.
 
-For animation and interaction behavior, also read:
+O Design System deve permitir uma experiência:
 
-- `/docs/MOTION-GUIDELINES.md`
+- clara;
+- acolhedora;
+- premium;
+- contemporânea;
+- autoral;
+- elegante;
+- acessível;
+- responsiva;
+- consistente.
 
-For project context and product decisions, read:
+A identidade da Next Wave deve ser percebida principalmente através de:
 
-- `/docs/briefing.md`
+- composição;
+- tipografia;
+- ritmo;
+- movimento;
+- contraste;
+- pequenos detalhes;
+- microinterações;
+- uso intencional da Wave;
+- aplicação controlada das cores da marca.
 
-Approved wireframes remain the visual source of truth for section composition.
+A identidade não deve depender de excesso de efeitos.
 
----
+Princípio:
 
-# 1. Design Philosophy
-
-The Next Wave Solutions visual identity should feel:
-
-- technological
-- premium
-- modern
-- innovative
-- confident
-- immersive
-- clean
-- precise
-
-The website should visually demonstrate the quality of software and digital experiences that Next Wave Solutions can build.
-
-The experience should NOT look like:
-
-- a generic SaaS template
-- a generic corporate website
-- a component library demo
-- a cyberpunk game interface
-- an excessively futuristic concept
-- a collection of unrelated visual effects
-
-The desired balance is:
-
-> Technology + sophistication + motion + clarity.
+> Identidade está nos detalhes.
 
 ---
 
-# 2. Brand Concept
+## 2. Filosofia visual
 
-The Next Wave brand represents:
+A Next Wave deve equilibrar simplicidade e personalidade.
 
-- movement
-- evolution
-- transformation
-- technology
-- progress
-- partnership
+O objetivo não é criar uma interface visualmente complexa apenas para demonstrar capacidade técnica.
 
-The visual system is built around two main colors:
+Também não queremos cair no extremo oposto de uma interface tão minimalista que poderia pertencer a qualquer empresa.
 
-```text
-Purple → Idea / Technology / Innovation
-Green  → Evolution / Result / Growth
-```
+A experiência deve transmitir:
 
-These colors are connected by the official brand gradient.
+- confiança;
+- cuidado;
+- sofisticação;
+- proximidade;
+- personalidade;
+- qualidade técnica.
 
-The Wave is the visual element responsible for connecting this transformation throughout the experience.
+O visitante deve perceber que existe intenção em cada decisão visual.
 
 ---
 
-# 3. Primary Brand Colors
+## 3. Light-first
 
-## Primary
+O tema claro é a expressão visual principal da Next Wave.
+
+Isso não significa utilizar branco puro em toda a página.
+
+A direção deve priorizar:
+
+- off-white;
+- neutros levemente quentes;
+- superfícies claras;
+- texto grafite;
+- bastante espaço negativo;
+- contraste confortável.
+
+A sensação desejada é:
+
+> clara, elegante, humana e acolhedora.
+
+Evitar aparência:
+
+- hospitalar;
+- excessivamente branca;
+- excessivamente bege;
+- corporativa genérica.
+
+---
+
+## 4. Dark Mode
+
+A Next Wave também possuirá Dark Mode.
+
+Dark Mode deve representar exatamente a mesma marca.
+
+A mudança deve afetar principalmente:
+
+- backgrounds;
+- surfaces;
+- foreground;
+- borders;
+- shadows;
+- contraste.
+
+Dark Mode não significa:
+
+- cyberpunk;
+- synthwave;
+- neon;
+- interface gamer;
+- excesso de glow;
+- excesso de partículas.
+
+A mesma composição deve continuar elegante e acolhedora.
+
+Princípio:
+
+> O ambiente muda. A personalidade não.
+
+---
+
+## 5. Paleta da marca
+
+As cores históricas da Next Wave continuam sendo Purple e Green.
+
+Elas são cores de assinatura.
+
+Não são cores obrigatórias em todos os elementos.
+
+### Purple
 
 ```css
 --primary: #8B5CF6;
-```
-
-Usage:
-
-- primary actions
-- important highlights
-- interactive elements
-- selected states
-- brand accents
-- Wave starting color
-
----
-
-## Primary Hover
-
-```css
 --primary-hover: #6D28D9;
-```
-
-Usage:
-
-- primary button hover
-- interactive purple elements
-- emphasized states
-
----
-
-## Primary Strong
-
-```css
 --primary-strong: #4C1D95;
+
+--primary-soft: #F5F3FF;
+--primary-soft-strong: #EDE9FE;
+--primary-muted: #C4B5FD;
 ```
 
-Usage:
+O Purple está associado principalmente a:
 
-- dark purple surfaces
-- strong accents
-- gradient depth
+- criatividade;
+- ideia;
+- transformação;
+- digital;
+- experimentação.
 
-Do not use it as the default primary color.
-
----
-
-# 4. Accent Colors
-
-## Accent
+### Green
 
 ```css
 --accent: #10B981;
-```
-
-Usage:
-
-- success-like brand accents
-- evolution
-- growth
-- secondary highlights
-- Wave ending color
-- CTA details
-
----
-
-## Accent Hover
-
-```css
 --accent-hover: #047857;
-```
-
----
-
-## Accent Strong
-
-```css
 --accent-strong: #064E3B;
+
+--accent-soft: #ECFDF5;
+--accent-soft-strong: #D1FAE5;
+--accent-muted: #6EE7B7;
 ```
 
-Use darker accent colors sparingly.
+O Green está associado principalmente a:
+
+- evolução;
+- movimento;
+- resultado;
+- continuidade;
+- crescimento.
+
+Essas associações são conceituais.
+
+Não criar regras rígidas onde determinada cor obrigatoriamente significa determinada categoria.
 
 ---
 
-# 5. Brand Gradient
+## 6. Tema claro
 
-The primary Next Wave gradient is:
-
-```css
-linear-gradient(
-  90deg,
-  #8B5CF6 0%,
-  #10B981 100%
-);
-```
-
-Conceptually:
-
-```text
-PURPLE                         GREEN
-IDEA                         EVOLUTION
-
-#8B5CF6  ───────────────────  #10B981
-```
-
-The gradient may appear in:
-
-- Wave
-- important text
-- primary CTA
-- borders
-- highlights
-- selected icons
-- visual effects
-
-Do not apply the gradient to everything.
-
-The gradient should remain special.
-
----
-
-# 6. Extended Gradient
-
-For large atmospheric elements, the gradient may transition through blue/cyan.
-
-Example:
+Direção inicial de tokens:
 
 ```css
-linear-gradient(
-  90deg,
-  #8B5CF6 0%,
-  #6366F1 30%,
-  #3B82F6 50%,
-  #06B6D4 70%,
-  #10B981 100%
-);
-```
+:root {
+  --background: #FAF9F7;
+  --background-secondary: #F5F3EF;
+  --background-tertiary: #EFEEE9;
 
-Use this version primarily for:
+  --surface: #FFFFFF;
+  --surface-secondary: #F7F6F3;
+  --surface-hover: #F1EFEA;
 
-- large Wave elements
-- ambient backgrounds
-- glow
-- large visual compositions
+  --foreground: #111827;
 
-The official brand endpoints must remain:
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #6B7280;
+  --text-subtle: #9CA3AF;
 
-```text
-#8B5CF6
-→
-#10B981
-```
+  --border: rgba(17, 24, 39, 0.10);
+  --border-strong: rgba(17, 24, 39, 0.18);
 
----
-
-# 7. Background
-
-The production website should primarily use a dark theme.
-
-The wireframes define the general visual direction.
-
-Recommended base:
-
-```css
---background: #070B14;
-```
-
-Alternative dark layers:
-
-```css
---background-secondary: #0B1020;
---background-tertiary: #111827;
-```
-
-The background should NOT be pure black.
-
-Avoid:
-
-```css
-#000000
-```
-
-as the main website background.
-
-The slight blue/navy tone reinforces the technological identity.
-
----
-
-# 8. Surface Colors
-
-Cards and elevated elements should use subtle contrast against the background.
-
-```css
---surface: #111827;
---surface-secondary: #151D2E;
---surface-hover: #1B2436;
-```
-
-Glass surfaces may use transparent versions.
-
-Example:
-
-```css
-background: rgba(17, 24, 39, 0.65);
-```
-
-with:
-
-```css
-backdrop-filter: blur(...);
-```
-
-Use backdrop blur carefully due to performance cost.
-
----
-
-# 9. Foreground and Text Colors
-
-## Main Foreground
-
-```css
---foreground: #F9FAFB;
-```
-
-Use for:
-
-- H1
-- H2
-- important content
-
----
-
-## Text Primary
-
-```css
---text-primary: #F3F4F6;
-```
-
----
-
-## Text Secondary
-
-```css
---text-secondary: #D1D5DB;
-```
-
----
-
-## Text Muted
-
-```css
---text-muted: #9CA3AF;
-```
-
----
-
-## Text Subtle
-
-```css
---text-subtle: #6B7280;
-```
-
-Avoid using muted text when information is essential.
-
-Contrast must remain accessible.
-
----
-
-# 10. Border Colors
-
-Default:
-
-```css
---border: rgba(255, 255, 255, 0.10);
-```
-
-Strong:
-
-```css
---border-strong: rgba(255, 255, 255, 0.18);
-```
-
-Interactive purple:
-
-```css
---border-primary: rgba(139, 92, 246, 0.50);
-```
-
-Interactive green:
-
-```css
---border-accent: rgba(16, 185, 129, 0.50);
-```
-
-Borders should usually be subtle.
-
----
-
-# 11. Semantic Colors
-
-Semantic colors must not reuse brand colors when the semantic meaning could become ambiguous.
-
-## Information
-
-```css
---info: #3B82F6;
-```
-
-Use for:
-
-- informational states
-- informational messages
-- neutral notices
-
----
-
-## Warning
-
-```css
---warning: #F59E0B;
-```
-
-Use for:
-
-- warnings
-- attention states
-- non-destructive alerts
-
----
-
-## Error
-
-```css
---error: #EF4444;
-```
-
-Use for:
-
-- validation errors
-- failed actions
-- destructive feedback
-
----
-
-## Success
-
-The brand accent may be used carefully for success:
-
-```css
---success: #10B981;
-```
-
-Because green is already part of the brand, context must clearly communicate when it represents a success state.
-
----
-
-# 12. Focus
-
-Keyboard focus must always remain visible.
-
-Recommended:
-
-```css
---focus: #8B5CF6;
-```
-
-Example:
-
-```css
-outline: 2px solid var(--focus);
-outline-offset: 3px;
-```
-
-Gradient effects must never replace accessible focus indicators.
-
----
-
-# 13. Selection
-
-Recommended selection:
-
-```css
-::selection {
-  background: rgba(139, 92, 246, 0.35);
-  color: #F9FAFB;
+  --focus: #8B5CF6;
 }
 ```
 
----
+Esses valores são ponto de partida.
 
-# 14. Typography
+Pequenos ajustes de temperatura e contraste são permitidos durante implementação e QA visual.
 
-The official typography combination is:
-
-```text
-Headings / Display
-→ Manrope
-
-Body / UI
-→ Inter
-```
-
-Both should be loaded using Next.js font optimization.
-
-Prefer:
-
-```text
-next/font
-```
-
-Do not load fonts through arbitrary third-party runtime scripts.
+Não alterar a filosofia geral sem revisão da direção visual.
 
 ---
 
-# 15. Manrope
+## 7. Tema escuro
 
-Use Manrope for:
-
-- H1
-- H2
-- H3
-- large numbers
-- important CTA text
-- strong brand statements
-
-Recommended weights:
-
-```text
-600
-700
-800
-```
-
-Avoid using very light Manrope weights for major headings.
-
----
-
-# 16. Inter
-
-Use Inter for:
-
-- body text
-- navigation
-- labels
-- metadata
-- badges
-- descriptions
-- UI controls
-
-Recommended weights:
-
-```text
-400
-500
-600
-```
-
----
-
-# 17. Typography Scale
-
-Use fluid typography when appropriate.
-
-## Display / Hero
-
-Desktop target:
-
-```text
-64px – 80px
-```
-
-Mobile target:
-
-```text
-40px – 52px
-```
-
-Recommended:
+Direção inicial:
 
 ```css
-font-size: clamp(2.75rem, 6vw, 5rem);
+[data-theme="dark"] {
+  --background: #0D1017;
+  --background-secondary: #121720;
+  --background-tertiary: #171D27;
+
+  --surface: #151B24;
+  --surface-secondary: #1A222D;
+  --surface-hover: #202A37;
+
+  --foreground: #F9FAFB;
+
+  --text-primary: #F3F4F6;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+  --text-subtle: #6B7280;
+
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --focus: #A78BFA;
+}
 ```
+
+Evitar preto absoluto como background predominante.
+
+O Dark Mode deve continuar possuindo alguma temperatura e profundidade.
 
 ---
 
-## H1
+## 8. Cores semânticas
 
-```text
-48px – 72px desktop
-40px – 52px mobile
+```css
+--info: #3B82F6;
+--success: #10B981;
+--warning: #F59E0B;
+--error: #EF4444;
 ```
+
+As cores semânticas devem ser utilizadas para significado funcional.
+
+Exemplos:
+
+- sucesso;
+- aviso;
+- erro;
+- informação;
+- validação;
+- feedback.
+
+Nunca depender exclusivamente da cor para comunicar estado.
+
+Quando necessário, combinar:
+
+- ícone;
+- texto;
+- label;
+- forma.
 
 ---
 
-## H2
+## 9. Regra cromática
 
-```text
-40px – 56px desktop
-32px – 40px mobile
-```
+A página deve continuar visualmente forte mesmo se quase todas as cores da marca forem removidas.
 
----
+Purple e Green devem adicionar reconhecimento.
 
-## H3
+Não sustentar toda a composição.
 
-```text
-24px – 32px
-```
+A ordem de decisão deve ser:
 
----
+> neutros → hierarquia → composição → cor.
 
-## Body Large
-
-```text
-18px – 20px
-```
+Evitar utilizar Purple ou Green apenas porque existe espaço disponível.
 
 ---
 
-## Body
+## 10. Gradiente da marca
 
-```text
-16px – 18px
+O gradiente histórico continua fazendo parte da identidade.
+
+### Gradiente principal
+
+```css
+linear-gradient(
+  90deg,
+  #8B5CF6 0%,
+  #6366F1 35%,
+  #06B6D4 65%,
+  #10B981 100%
+);
 ```
+
+O azul/ciano funciona como transição entre Purple e Green.
+
+Não deve necessariamente ser tratado como uma terceira cor principal da marca.
 
 ---
 
-## Small
+## 11. Uso de gradientes
 
-```text
-14px
-```
+Gradientes devem ser utilizados de maneira controlada.
 
----
+Bons usos:
 
-## Label
+- Wave;
+- pequenos detalhes gráficos;
+- trechos específicos de texto;
+- elementos especiais;
+- estados de destaque;
+- ilustrações abstratas;
+- momentos específicos de CTA.
 
-```text
-12px – 14px
-```
+Evitar:
 
-Labels may use uppercase with increased letter spacing.
+- todos os títulos em gradiente;
+- todos os botões em gradiente;
+- fundos inteiros constantemente em gradiente;
+- bordas em gradiente em todos os cards;
+- vários gradientes competindo simultaneamente.
 
-Example:
+Princípio:
 
-```text
-01. SOLUÇÕES
-02. COMO TRABALHAMOS
-03. TECNOLOGIA
-```
-
----
-
-# 18. Line Height
-
-Large headings:
-
-```text
-0.95 – 1.1
-```
-
-Body:
-
-```text
-1.5 – 1.7
-```
-
-UI labels:
-
-```text
-1.2 – 1.4
-```
-
-Do not use excessively tight body text.
+> Gradiente é assinatura, não preenchimento.
 
 ---
 
-# 19. Letter Spacing
+## 12. Tipografia
 
-Display headings:
+A tipografia deve transmitir:
 
-```text
--0.02em → -0.04em
-```
+- clareza;
+- confiança;
+- modernidade;
+- personalidade.
 
-Body:
+### Headings
 
-```text
-normal
-```
+Utilizar:
 
-Uppercase labels:
+> Manrope
 
-```text
-0.08em → 0.14em
-```
+Aplicações principais:
+
+- H1;
+- H2;
+- H3;
+- grandes mensagens;
+- CTAs importantes quando apropriado.
+
+### Body / UI
+
+Utilizar:
+
+> Inter
+
+Aplicações:
+
+- parágrafos;
+- navegação;
+- labels;
+- formulários;
+- metadata;
+- componentes de interface.
+
+As fontes devem continuar sendo carregadas através de `next/font`.
 
 ---
 
-# 20. Text Width
+## 13. Hierarquia tipográfica
 
-Avoid extremely wide paragraphs.
+A escala deve ser fluida e responsiva.
 
-Recommended readable body width:
+Preferir `clamp()` quando apropriado.
 
-```text
-55ch – 70ch
+Direção conceitual:
+
+```css
+--text-xs: 0.75rem;
+--text-sm: 0.875rem;
+--text-base: 1rem;
+--text-lg: 1.125rem;
+--text-xl: 1.25rem;
+--text-2xl: 1.5rem;
+--text-3xl: 1.875rem;
+--text-4xl: 2.25rem;
+--text-5xl: 3rem;
+--text-6xl: 3.75rem;
 ```
 
-Hero supporting text:
+Display typography pode ultrapassar essa escala quando fizer parte da composição.
 
-```text
-45ch – 60ch
-```
+Não transformar números fixos acima em restrição absoluta.
 
 ---
 
-# 21. Layout Container
+## 14. Display Typography
 
-Use a consistent page container.
+Grandes títulos podem funcionar como elementos gráficos.
 
-Recommended maximum width:
+Permitido:
+
+- quebras de linha intencionais;
+- palavras isoladas;
+- diferentes alinhamentos;
+- composição assimétrica;
+- pequenas interferências da Wave;
+- acentos cromáticos pontuais.
+
+Evitar:
+
+- títulos gigantes sem função;
+- sacrificar leitura por composição;
+- textos que só funcionam em desktop.
+
+O conteúdo deve permanecer compreensível sem animação.
+
+---
+
+## 15. Peso tipográfico
+
+Evitar utilizar bold em tudo.
+
+Criar contraste através de:
+
+- tamanho;
+- peso;
+- espaço;
+- posição;
+- cor;
+- largura.
+
+Manrope pode assumir maior presença nos títulos.
+
+Inter deve permanecer confortável para leitura contínua.
+
+---
+
+## 16. Texto em gradiente
+
+Texto em gradiente é permitido.
+
+Deve ser exceção.
+
+Exemplo possível:
+
+> Cada ideia tem seu próprio **fluxo**.
+
+Somente uma palavra ou pequeno trecho pode receber tratamento especial.
+
+Evitar transformar headlines inteiras em arco-íris.
+
+---
+
+## 17. Layout
+
+A composição deve combinar:
+
+- grid;
+- espaço negativo;
+- assimetria controlada;
+- hierarquia forte;
+- áreas de respiro.
+
+O site não deve parecer um dashboard.
+
+Também não deve parecer uma sequência infinita de containers centralizados idênticos.
+
+---
+
+## 18. Container
+
+Direção inicial:
 
 ```css
 --container-max: 1440px;
 ```
 
-Standard desktop content may use:
+O conteúdo principal deve respeitar margens confortáveis.
 
-```text
-1200px – 1360px
-```
+O container máximo não significa que todos os elementos devem possuir essa largura.
 
-depending on the section.
-
-Large atmospheric effects such as the Wave may escape the container.
-
-Content should not.
+Textos longos devem utilizar medidas menores para preservar leitura.
 
 ---
 
-# 22. Horizontal Padding
+## 19. Grid editorial
 
-Recommended:
+A Next Wave pode utilizar composição editorial.
 
-Desktop:
+Isso significa permitir:
 
-```text
-48px – 80px
-```
+- títulos deslocados;
+- numeração de seção;
+- pequenos labels laterais;
+- elementos fora do eixo principal;
+- diferenças de proporção;
+- whitespace proposital;
+- imagens maiores que o bloco textual;
+- pequenas quebras controladas de grid.
 
-Tablet:
+Assimetria não significa desorganização.
 
-```text
-32px – 48px
-```
-
-Mobile:
-
-```text
-20px – 24px
-```
-
-Prefer fluid spacing where appropriate.
+Toda composição deve possuir lógica visual.
 
 ---
 
-# 23. Section Spacing
+## 20. Espaçamento
 
-The website should feel spacious.
+Espaço negativo é parte da identidade.
 
-Recommended vertical section spacing:
+A página deve respirar.
 
-Desktop:
+Seções importantes podem possuir espaçamento generoso.
 
-```text
-120px – 180px
-```
+Entretanto, evitar:
 
-Mobile:
+- áreas enormes sem propósito;
+- scroll excessivo apenas por estética;
+- distâncias que quebrem relação entre conteúdos.
 
-```text
-80px – 120px
-```
-
-Important storytelling sections may intentionally occupy more vertical space.
-
-Do not compress sections simply to reduce page length.
-
-Whitespace is part of the premium experience.
+O espaçamento deve reforçar hierarquia.
 
 ---
 
-# 24. Spacing Scale
+## 21. Section Rhythm
 
-Prefer a consistent spacing system.
+As seções não precisam possuir a mesma densidade.
 
-Suggested base:
+Algumas podem ser:
 
-```text
-4px
-```
+- abertas;
+- silenciosas;
+- minimalistas.
 
-Scale:
+Outras podem ser:
 
-```text
-4
-8
-12
-16
-20
-24
-32
-40
-48
-64
-80
-96
-120
-160
-```
+- mais densas;
+- mais interativas;
+- mais expressivas.
 
-Avoid arbitrary values unless required by the composition.
+Esse contraste ajuda a representar a ideia de equilíbrio.
 
 ---
 
-# 25. Border Radius
+## 22. Radius
 
-The visual identity uses modern rounded geometry.
-
-Suggested tokens:
+Direção:
 
 ```css
 --radius-sm: 8px;
@@ -813,1088 +569,1014 @@ Suggested tokens:
 --radius-full: 9999px;
 ```
 
-Usage:
+Não aplicar radius automaticamente em todos os elementos.
 
-```text
-Buttons       → 12px / 16px / full depending on design
-Cards         → 16px / 24px
-Large panels  → 24px / 32px
-Badges        → full
-```
+Evitar aparência de:
 
-Do not use a different arbitrary radius for every component.
+> tudo é um card dentro de outro card.
 
 ---
 
-# 26. Buttons
+## 23. Borders
 
-Primary button:
+Borders devem ser discretos.
 
-```text
-Background:
-Purple → Green gradient
+Preferir:
 
-Text:
-Light
+- contraste de superfície;
+- linhas finas;
+- separadores;
+- whitespace.
 
-Font:
-Manrope / 600
-
-Shape:
-Rounded
-```
-
-Primary buttons should feel premium, not oversized.
-
-Possible visual behavior:
-
-```text
-default
-↓
-subtle gradient
-
-hover
-↓
-slightly stronger glow
-slight elevation
-arrow movement
-```
-
-Motion behavior is defined in:
-
-`/docs/MOTION-GUIDELINES.md`
+Antes de adicionar sombra, verificar se border ou contraste de superfície já resolve.
 
 ---
 
-# 27. Secondary Button
+## 24. Shadows
 
-Recommended style:
+No tema claro, sombras podem ajudar a separar superfícies.
 
-```text
-transparent background
-subtle border
-light foreground
-```
-
-Hover:
-
-```text
-slightly brighter surface
-stronger border
-```
-
-Secondary buttons should not compete with the primary CTA.
-
----
-
-# 28. Button Sizes
-
-Recommended:
-
-Small:
-
-```text
-36px – 40px height
-```
-
-Medium:
-
-```text
-44px – 48px
-```
-
-Large:
-
-```text
-52px – 56px
-```
-
-Touch targets should remain accessible.
-
----
-
-# 29. Cards
-
-Cards should feel integrated into the environment.
-
-Recommended characteristics:
-
-```text
-dark surface
-subtle border
-soft glow
-large radius
-comfortable spacing
-```
-
-Cards should not look like isolated white rectangles placed on a dark page.
-
-Possible base:
+Direção conceitual:
 
 ```css
-background:
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,0.04),
-    rgba(255,255,255,0.015)
-  );
+--shadow-sm:
+  0 1px 2px rgba(0, 0, 0, 0.03);
 
-border:
-  1px solid rgba(255,255,255,0.10);
+--shadow-md:
+  0 8px 24px rgba(0, 0, 0, 0.05);
+
+--shadow-lg:
+  0 20px 50px rgba(0, 0, 0, 0.08);
 ```
 
----
+Usar com moderação.
 
-# 30. Interactive Cards
+Evitar:
 
-Interactive cards may introduce:
+- sombras pesadas;
+- sombras dramáticas;
+- sombras coloridas recorrentes;
+- neon shadow.
 
-- gradient border
-- spotlight
-- glow
-- icon highlight
-- subtle depth
-
-Do not permanently show every interactive effect.
-
-The resting state should remain clean.
+No Dark Mode, preferir diferença de superfície e border antes de sombras.
 
 ---
 
-# 31. Glassmorphism
+## 25. Glow
 
-Glass may be used selectively.
+Glow não é um elemento padrão do Design System.
 
-Good candidates:
+Pode existir excepcionalmente em:
 
-- header
-- floating panels
-- important technology panels
-- small overlays
+- Wave;
+- uma interação especial;
+- um elemento gráfico;
+- um momento específico da experiência.
 
-Avoid turning every card into glass.
+Não utilizar glow como linguagem visual dominante.
 
-Glassmorphism should reinforce depth, not become the entire design language.
+Especialmente evitar:
+
+- cards brilhando;
+- textos brilhando;
+- todos os botões brilhando;
+- backgrounds permanentemente iluminados.
 
 ---
 
-# 32. Glow
+## 26. Wave
 
-Glow is part of the visual identity but must remain controlled.
+A Wave é o principal elemento gráfico proprietário da Next Wave.
 
-Purple:
+Ela representa:
+
+- movimento;
+- continuidade;
+- transformação;
+- adaptação;
+- evolução;
+- fluxo.
+
+A Wave não precisa representar literalmente água.
+
+Pode assumir diferentes formas.
+
+Exemplos:
+
+- linha;
+- trajetória;
+- múltiplos fios;
+- superfície abstrata;
+- distorção;
+- máscara;
+- transição;
+- underline;
+- separador;
+- interação.
+
+---
+
+## 27. Aparência da Wave
+
+A Wave deve ser:
+
+- elegante;
+- leve;
+- fluida;
+- reconhecível;
+- adaptável.
+
+Ela pode utilizar o gradiente da marca.
+
+Entretanto, não precisa estar sempre colorida.
+
+Também pode existir como:
+
+- linha neutra;
+- relevo;
+- sombra;
+- recorte;
+- diferença de superfície;
+- distorção.
+
+Isso ajuda a evitar repetição visual.
+
+---
+
+## 28. Frequência da Wave
+
+A Wave não precisa aparecer em todas as seções.
+
+Se utilizada constantemente, deixa de ser assinatura e vira decoração.
+
+Priorizar momentos em que ela possui função:
+
+- introdução;
+- conexão;
+- transformação;
+- navegação;
+- progressão;
+- encerramento.
+
+---
+
+## 29. Referências marítimas
+
+Referências marítimas devem permanecer sutis.
+
+Evitar como linguagem recorrente:
+
+- faróis;
+- barcos;
+- âncoras;
+- timões;
+- oceanos;
+- praias;
+- bússolas;
+- fotografias de ondas.
+
+Esses elementos podem existir excepcionalmente quando houver motivo narrativo real.
+
+Nunca utilizar apenas para lembrar ao visitante que o nome da empresa possui "Wave".
+
+Princípio:
+
+> A Next Wave não representa o mar. Ela se comporta como ele.
+
+---
+
+## 30. Imagens
+
+Imagens devem possuir função.
+
+Possíveis usos:
+
+- projetos;
+- produtos;
+- contexto;
+- pessoas reais;
+- detalhes humanos;
+- storytelling.
+
+Evitar banco de imagens genérico de:
+
+- pessoas sorrindo em reunião;
+- programadores olhando monitores;
+- código em telas;
+- equipes fictícias;
+- escritórios que não pertencem à empresa.
+
+Nunca apresentar algo fictício como real.
+
+---
+
+## 31. Pessoas
+
+Quando a Next Wave possuir material real de equipe ou bastidores, imagens humanas podem ajudar a reduzir distância e aumentar confiança.
+
+Preferir imagens:
+
+- naturais;
+- honestas;
+- pouco encenadas;
+- coerentes com a marca.
+
+Não é obrigatório utilizar pessoas em todas as páginas.
+
+---
+
+## 32. Projetos
+
+Projetos devem possuir grande importância visual.
+
+A apresentação deve se aproximar de uma galeria editorial.
+
+Preferir:
+
+- mockups grandes;
+- diferentes proporções;
+- boa direção de arte;
+- contexto suficiente;
+- informação objetiva.
+
+Evitar simplesmente repetir:
+
+```text
+[ card ]
+[ card ]
+[ card ]
+```
+
+em uma grade genérica.
+
+O trabalho deve ser protagonista.
+
+---
+
+## 33. Conteúdo fictício
+
+Nunca inventar:
+
+- clientes;
+- marcas atendidas;
+- métricas;
+- resultados;
+- depoimentos;
+- números;
+- projetos;
+- prêmios.
+
+Durante desenvolvimento:
+
+- identificar placeholder explicitamente;
+- utilizar projetos Labs/Demo quando apropriado;
+- ou esconder a seção até existir conteúdo real.
+
+---
+
+## 34. Botões
+
+Botões devem possuir personalidade sem chamar mais atenção que o conteúdo.
+
+### Primary
+
+Características:
+
+- alto contraste;
+- leitura imediata;
+- presença;
+- área de clique confortável.
+
+Pode utilizar Purple.
+
+Gradiente pode ser utilizado quando houver justificativa visual.
+
+Não assumir que todo Primary Button precisa ser gradiente.
+
+### Secondary
+
+Preferir:
+
+- superfície neutra;
+- border discreto;
+- texto forte.
+
+### Tertiary
+
+Pode utilizar:
+
+- texto;
+- seta;
+- underline;
+- pequena microinteração.
+
+---
+
+## 35. Button Shape
+
+Evitar extremos.
+
+Botões não precisam ser:
+
+- completamente quadrados;
+- pills gigantes em todos os casos.
+
+Radius deve acompanhar contexto e hierarquia.
+
+CTAs principais podem possuir mais presença.
+
+---
+
+## 36. Cards
+
+Cards devem existir quando ajudam a agrupar conteúdo.
+
+Não utilizar card simplesmente porque existe um bloco de informação.
+
+Antes de criar um card, considerar:
+
+- whitespace;
+- border;
+- linha;
+- grid;
+- composição editorial.
+
+Quando cards forem utilizados:
+
+- superfície discreta;
+- border sutil;
+- radius consistente;
+- hover delicado;
+- hierarquia clara.
+
+---
+
+## 37. Glassmorphism
+
+Glassmorphism não é linguagem principal.
+
+Pode ser utilizado excepcionalmente em um contexto onde exista motivo visual.
+
+Evitar:
+
+- todos os cards translúcidos;
+- blur pesado;
+- estética de dashboard futurista.
+
+---
+
+## 38. Ícones
+
+Preferir iconografia:
+
+- simples;
+- linear;
+- consistente;
+- facilmente compreensível.
+
+Ícones devem ajudar a leitura.
+
+Não utilizar ícones futuristas apenas para parecer tecnológico.
+
+---
+
+## 39. Labels
+
+Labels pequenos podem contribuir para a linguagem editorial.
+
+Exemplos:
+
+```text
+01 / SOLUÇÕES
+02 / PROCESSO
+03 / TECNOLOGIA
+```
+
+Também podem existir pequenas palavras de contexto.
+
+Usar com moderação.
+
+Não transformar a interface em uma ficha técnica.
+
+---
+
+## 40. Linhas e separadores
+
+Linhas finas podem ser elementos importantes da linguagem visual.
+
+Podem:
+
+- organizar;
+- conectar;
+- criar ritmo;
+- separar;
+- servir como origem para microinterações.
+
+Algumas linhas podem adquirir comportamento inspirado na Wave.
+
+---
+
+## 41. Background
+
+O background principal deve permanecer simples.
+
+Permitido:
+
+- pequenas mudanças de tonalidade;
+- textura extremamente sutil;
+- noise quase imperceptível;
+- linhas abstratas ocasionais;
+- elementos gráficos pontuais.
+
+Evitar:
+
+- grids tecnológicos constantes;
+- partículas permanentes;
+- grandes glows;
+- fundos visualmente ocupados.
+
+---
+
+## 42. Noise / Texture
+
+Uma textura muito sutil pode ajudar a remover a sensação de interface excessivamente digital.
+
+Se utilizada:
+
+- quase imperceptível;
+- baixo contraste;
+- sem prejudicar performance;
+- sem prejudicar legibilidade.
+
+Não deve parecer filtro vintage.
+
+---
+
+## 43. Header
+
+O Header deve ser simples.
+
+Prioridades:
+
+- marca;
+- navegação;
+- CTA;
+- Theme Toggle.
+
+Ele pode começar integrado ao Hero e ganhar superfície conforme scroll, caso isso faça sentido durante implementação.
+
+Evitar Header excessivamente grande.
+
+---
+
+## 44. Logo
+
+A logo atual da Next Wave permanece como referência oficial até decisão explícita em contrário.
+
+Não redesenhar automaticamente a logo para combinar com determinada seção.
+
+A identidade visual deve se adaptar à marca, não exigir rebranding sem necessidade.
+
+Garantir versões adequadas para:
+
+- fundo claro;
+- fundo escuro;
+- tamanhos pequenos.
+
+---
+
+## 45. Hero
+
+O Hero pode ser uma das áreas mais expressivas da página.
+
+Direção:
+
+- light-first;
+- muito espaço negativo;
+- headline forte;
+- composição editorial;
+- Wave abstrata;
+- Purple e Green controlados;
+- detalhes de movimento;
+- mensagem compreensível para público não técnico.
+
+Mensagem principal atual:
+
+> Cada ideia tem seu próprio fluxo.
+
+O Hero pode utilizar uma quantidade de experimentação maior que o restante da Home.
+
+Isso não significa que sua intensidade visual deve ser repetida em todas as seções.
+
+---
+
+## 46. Solutions
+
+A seção de soluções deve ser extremamente clara.
+
+O visitante deve entender rapidamente que a Next Wave pode construir:
+
+- sistemas web;
+- aplicativos;
+- automações;
+- integrações.
+
+Evitar linguagem excessivamente técnica.
+
+Visualmente, evitar automaticamente uma grade SaaS de quatro cards idênticos.
+
+Explorar composição antes de recorrer a cards.
+
+---
+
+## 47. Process
+
+O Process é uma das principais oportunidades de expressão da identidade.
+
+A Wave pode conectar:
+
+1. Entendemos
+2. Planejamos
+3. Desenvolvemos
+4. Entregamos
+5. Evoluímos
+
+A seção pode possuir maior intensidade visual.
+
+Mesmo assim, compreensão do processo vem antes do efeito.
+
+---
+
+## 48. Technology
+
+Tecnologia deve possuir tratamento elegante e acessível.
+
+Mensagem conceitual:
+
+> Construímos hoje pensando no amanhã.
+
+Evitar utilizar uma parede de logos como protagonista.
+
+Tecnologias podem aparecer como segunda camada de leitura.
+
+O visitante não técnico deve entender a seção mesmo ignorando completamente os nomes das ferramentas.
+
+---
+
+## 49. About
+
+A seção About deve ajudar a humanizar a Next Wave.
+
+Pode ser mais tranquila visualmente.
+
+Priorizar:
+
+- proximidade;
+- confiança;
+- filosofia;
+- maneira de trabalhar.
+
+Evitar discurso corporativo genérico.
+
+---
+
+## 50. Final CTA
+
+O Final CTA pode recuperar um pouco mais da presença visual da marca.
+
+Pode utilizar:
+
+- Wave;
+- cor;
+- composição mais expressiva;
+- uma microinteração especial.
+
+Ainda assim, deve permanecer claro e simples.
+
+CTA principal:
+
+> Falar com a Next Wave
+
+---
+
+## 51. Theme Toggle
+
+O site possuirá Light e Dark Mode.
+
+O Theme Toggle deve:
+
+- ser acessível por teclado;
+- possuir nome acessível;
+- indicar estado;
+- persistir escolha;
+- evitar flash de tema incorreto;
+- funcionar sem depender de hover.
+
+A implementação deve considerar `prefers-color-scheme`.
+
+Quando houver escolha manual do usuário, ela deve ter precedência.
+
+---
+
+## 52. Theme Transition
+
+A transição entre temas pode possuir personalidade.
+
+Uma microinteração envolvendo a Wave pode ser explorada.
+
+Entretanto:
+
+- não bloquear a interface;
+- não criar uma animação longa;
+- respeitar reduced motion;
+- não adicionar complexidade desnecessária.
+
+Uma troca simples e bem executada é preferível a um efeito complexo mal executado.
+
+---
+
+## 53. Focus
+
+Todos os elementos interativos devem possuir estado `focus-visible`.
+
+Direção:
 
 ```css
-rgba(139, 92, 246, ...)
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
 ```
 
-Green:
+A implementação pode variar conforme o componente.
+
+Nunca remover focus sem fornecer alternativa acessível.
+
+---
+
+## 54. Selection
+
+A seleção de texto pode carregar discretamente a identidade.
+
+Exemplo conceitual:
 
 ```css
-rgba(16, 185, 129, ...)
+::selection {
+  background: var(--primary);
+  color: #ffffff;
+}
 ```
 
-Cyan may appear as a transitional atmospheric color.
-
-Use glow for:
-
-- Wave
-- primary CTA
-- active process step
-- interactive cards
-- major visual elements
-
-Avoid glowing all text.
+Validar contraste em ambos os temas.
 
 ---
 
-# 33. Shadows
+## 55. Links
 
-Traditional dark drop shadows should remain subtle.
+Links dentro de conteúdo devem ser identificáveis.
 
-Prefer atmospheric glow and surface contrast.
+Não depender exclusivamente de hover.
 
-Example:
+Podem utilizar:
 
-```css
-box-shadow:
-  0 20px 60px rgba(0, 0, 0, 0.35);
-```
+- underline;
+- peso;
+- cor;
+- seta;
+- microinteração.
 
-Avoid extremely sharp shadows.
-
----
-
-# 34. Icons
-
-Use a consistent icon library.
-
-Prefer simple outline icons.
-
-Icons should feel:
-
-- modern
-- geometric
-- clean
-
-Do not mix multiple icon styles.
-
-Avoid using emojis as production UI icons.
+Links de navegação podem possuir tratamento diferente.
 
 ---
 
-# 35. Icon Containers
+## 56. Responsive
 
-Service icons may appear inside:
+Mobile não é desktop reduzido.
 
-```text
-rounded square
-circle
-subtle glass container
-```
+Cada seção deve ser reconsiderada.
 
-with brand-colored glow.
+Prioridades no mobile:
 
-Icons should not overpower headings.
+1. conteúdo;
+2. legibilidade;
+3. interação;
+4. hierarquia;
+5. identidade;
+6. efeitos.
 
----
+Elementos decorativos podem ser:
 
-# 36. Badges
-
-Badges are appropriate for:
-
-- technologies
-- project categories
-- section metadata
-
-Recommended:
-
-```text
-dark surface
-subtle border
-small radius/full radius
-Inter 500
-```
-
-Technology badges should not resemble colorful advertising stickers.
+- simplificados;
+- reposicionados;
+- reduzidos;
+- removidos.
 
 ---
 
-# 37. Technology Logos
+## 57. Breakpoints
 
-Official technology logos may retain recognizable brand identity where appropriate.
+Os breakpoints devem seguir a estratégia do Tailwind quando possível.
 
-However:
-
-- avoid excessive visual color noise
-- keep sizing consistent
-- do not let logos dominate the section
-- maintain accessible contrast
-
-Technology exists to support the message, not become the product.
-
----
-
-# 38. Section Labels
-
-Major sections should use a consistent numbered label.
-
-Example:
-
-```text
-01. SOLUÇÕES
-02. COMO TRABALHAMOS
-03. TECNOLOGIA
-04. PROJETOS
-05. SOBRE A NEXT WAVE
-```
-
-Style:
-
-```text
-Inter
-500 / 600
-uppercase
-small size
-increased tracking
-purple or gradient accent
-```
-
-The numbering may be adjusted according to the final approved page order.
-
-Do not derive final numbering from generated wireframe text without checking the actual page structure.
-
----
-
-# 39. The Wave
-
-The Wave is a brand component.
-
-Visual properties:
-
-```text
-fluid
-continuous
-luminous
-purple → green
-technological
-organic but controlled
-```
-
-The Wave may use:
-
-- gradient stroke
-- soft glow
-- particles
-- layered paths
-- subtle transparency
-
-Do not replace the Wave with generic decorative blobs.
-
-Detailed animation behavior:
-
-`/docs/MOTION-GUIDELINES.md`
-
----
-
-# 40. Wave Thickness
-
-The Wave may have multiple representations.
-
-Ambient Wave:
-
-```text
-thin / subtle
-```
-
-Process Wave:
-
-```text
-more visible
-```
-
-Hero / CTA Wave:
-
-```text
-large / atmospheric
-```
-
-Thickness should adapt to context.
-
-Do not force one SVG style everywhere.
-
-The visual identity should remain consistent even when the Wave changes scale.
-
----
-
-# 41. Background Decoration
-
-Allowed:
-
-- subtle grid
-- particles
-- gradient light
-- Wave
-- blurred light sources
-- minimal noise texture
-- subtle geometric lines
-
-Avoid combining all decorations at maximum intensity.
-
-Content readability always wins.
-
----
-
-# 42. Grid
-
-A subtle technological grid may appear in selected backgrounds.
-
-It should have very low contrast.
-
-Example:
-
-```css
-rgba(255,255,255,0.02)
-```
-
-The grid should almost disappear when the user focuses on content.
-
----
-
-# 43. Noise / Texture
-
-Very subtle noise may be used to prevent gradients from feeling overly digital or flat.
-
-Keep opacity extremely low.
-
-Do not use visible grain that reduces text clarity.
-
----
-
-# 44. Images
-
-When real imagery becomes available:
-
-Prefer:
-
-- authentic project screenshots
-- product interfaces
-- team/work environment when appropriate
-- real company material
-
-Avoid generic stock imagery whenever possible.
-
-Do not invent people, clients, offices or products and present them as real Next Wave assets.
-
----
-
-# 45. Project Screenshots
-
-Project imagery should be presented as premium product showcases.
-
-Possible treatments:
-
-- browser frame
-- device frame
-- floating UI
-- perspective
-- subtle depth
-- controlled glow
-
-Do not distort screenshots so much that the actual product becomes impossible to understand.
-
----
-
-# 46. Responsive Design
-
-Responsive behavior must be intentionally designed.
-
-Do not treat mobile as:
-
-> desktop but smaller.
-
-Desktop may use:
-
-- horizontal composition
-- atmospheric negative space
-- pointer interaction
-- layered depth
-
-Mobile should prioritize:
-
-- vertical storytelling
-- readability
-- touch interaction
-- simplified atmospheric effects
-- performance
-
----
-
-# 47. Mobile Typography
-
-Hero headings must remain impactful without consuming the entire viewport.
-
-Avoid single words creating awkward line breaks when possible.
-
-Test important headings around:
+QA visual deve considerar aproximadamente:
 
 ```text
 320px
 375px
 390px
 430px
+768px
+1024px
+1280px
+1440px
+1920px
 ```
 
-widths.
+Não desenvolver apenas para 1440px.
 
 ---
 
-# 48. Mobile Cards
+## 58. Accessibility
 
-Cards generally stack vertically.
+A identidade nunca pode comprometer acessibilidade.
 
-Maintain:
+Validar:
 
-- comfortable padding
-- visible hierarchy
-- accessible touch targets
-- reduced motion complexity
+- contraste;
+- focus;
+- keyboard;
+- headings;
+- landmarks;
+- aria;
+- reduced motion;
+- touch targets;
+- zoom;
+- legibilidade.
 
-Do not shrink desktop cards until they become unreadable.
-
----
-
-# 49. Desktop
-
-The desktop experience should take advantage of space.
-
-Recommended design behavior:
-
-- asymmetric compositions
-- larger typography
-- deeper visual layering
-- larger Wave presence
-- pointer interactions
-- generous whitespace
-
-Avoid simply centering every section.
+WCAG deve ser considerada durante desenvolvimento, não apenas no final.
 
 ---
 
-# 50. Header
+## 59. Reduced Motion
 
-Header should remain visually lightweight.
+A interface deve permanecer visualmente completa com `prefers-reduced-motion: reduce`.
 
-Recommended structure:
+Quando ativo:
 
-```text
-Logo
-
-Soluções
-Como trabalhamos
-Projetos
-Sobre
-
-CTA
-```
-
-At the top of the page it may visually integrate with the Hero.
-
-After scroll it may receive:
-
-```text
-dark translucent surface
-subtle blur
-subtle border
-```
-
-Do not make the header visually heavier than the Hero.
+- reduzir movimentos contínuos;
+- remover parallax;
+- remover pointer-following;
+- simplificar transições;
+- manter Wave visível quando relevante;
+- preservar todo conteúdo.
 
 ---
 
-# 51. Logo
+## 60. Performance visual
 
-Use the official Next Wave Solutions logo.
+Evitar que decisões estéticas causem degradação desnecessária.
 
-Preferred production asset:
+Utilizar com cuidado:
 
-```text
-SVG
-```
+- blur;
+- backdrop-filter;
+- filtros;
+- grandes imagens;
+- SVGs complexos;
+- partículas;
+- efeitos contínuos;
+- sombras pesadas.
 
-The logo should have:
-
-- transparent background
-- light version
-- dark-compatible version if necessary
-- symbol-only version
-
-Do not redraw the logo with CSS.
-
-Do not modify logo proportions.
-
-Do not apply random effects to the logo.
+O próprio site é uma demonstração da qualidade técnica da Next Wave.
 
 ---
 
-# 52. Logo Clear Space
+## 61. Tailwind
 
-Always maintain visual breathing room around the logo.
+Tokens devem ser centralizados.
 
-Do not place:
+Tailwind deve consumir o Design System.
 
-- text
-- borders
-- icons
-- Wave paths
+Evitar valores arbitrários repetidos espalhados pelos componentes.
 
-directly against it.
+Quando um valor representa uma decisão recorrente de design, transformá-lo em token.
 
----
-
-# 53. Hero
-
-The Hero is the highest-impact area of the website.
-
-Priorities:
-
-```text
-1. Brand
-2. Value proposition
-3. Primary CTA
-4. Visual impact
-5. Wave
-```
-
-The visual effect must not reduce the clarity of the value proposition.
-
-The user should understand what Next Wave does within seconds.
+Quando é realmente específico de uma única composição, um valor local pode ser aceitável.
 
 ---
 
-# 54. Solutions
+## 62. shadcn/ui
 
-Service cards should communicate outcomes before technologies.
+shadcn/ui pode ser utilizado como base quando fizer sentido.
 
-Examples:
+Não utilizar aparência default como identidade final.
 
-```text
-Sistemas Web
-Aplicativos
-Automações
-Integrações
-```
+Componentes devem ser adaptados para:
 
-Avoid turning the section into a list of frameworks.
-
----
-
-# 55. Process
-
-The Process section should use the Wave as the primary storytelling mechanism.
-
-Steps:
-
-```text
-01 Entendemos
-02 Planejamos
-03 Desenvolvemos
-04 Entregamos
-05 Evoluímos
-```
-
-Do not transform this section into a generic card grid.
-
-The Wave must visually connect the stages.
+- tokens;
+- typography;
+- radius;
+- interaction;
+- Light/Dark;
+- identidade Next Wave.
 
 ---
 
-# 56. Technology
+## 63. React Bits
 
-The Technology section should communicate:
+React Bits pode fornecer inspiração ou implementação para efeitos específicos.
 
-> We choose modern technology to create reliable solutions.
+Não é Design System.
 
-Not:
+Não transformar o site em uma coleção de componentes do React Bits.
 
-> Look how many frameworks we know.
-
-Technology should remain secondary to business outcomes.
+Todo elemento utilizado deve parecer pertencente à Next Wave.
 
 ---
 
-# 57. Projects
+## 64. Server / Client
 
-Projects should receive strong visual emphasis when real cases become available.
+A direção visual não justifica transformar toda a aplicação em Client Component.
 
-Do not invent:
+Preferir Server Components.
 
-- clients
-- results
-- percentages
-- revenue numbers
-- performance improvements
-- testimonials
+Utilizar Client Components apenas quando necessário para:
 
-Placeholders must be clearly identified during development.
+- interação;
+- estado;
+- animação;
+- APIs de browser.
 
----
-
-# 58. About
-
-The About section should communicate partnership and credibility.
-
-Avoid generic statements such as:
-
-```text
-We are passionate about technology.
-```
-
-Prefer concrete positioning.
-
-The visual tone may become slightly calmer than previous sections.
+Isolar comportamento interativo em componentes pequenos.
 
 ---
 
-# 59. Final CTA
+## 65. Conteúdo antes do efeito
 
-The Final CTA is the visual conclusion of the experience.
+Toda seção deve funcionar:
 
-Primary message:
+- sem animação;
+- sem hover;
+- sem JavaScript visual adicional.
 
-```text
-Ready for the next wave?
-```
+Motion deve melhorar uma experiência já funcional.
 
-The Wave should visually converge toward the CTA.
-
-Primary action:
-
-```text
-Falar com a Next Wave
-```
-
-The action should eventually lead to the approved WhatsApp contact.
-
-Do not invent a production WhatsApp number.
+Não depender de efeitos para transmitir informação essencial.
 
 ---
 
-# 60. Footer
+## 66. Easter Eggs
 
-Footer should be clean and functional.
+Referências geek podem existir.
 
-Possible groups:
+Devem ser sutis.
 
-```text
-Brand
-Navigation
-Solutions
-Contact
-Social
-Legal
-```
+Exemplos possíveis:
 
-Do not add links to pages that do not exist.
+- nomenclatura;
+- pequenos detalhes;
+- coordenadas;
+- estados especiais;
+- interações escondidas;
+- referências discretas.
 
-Do not invent:
+Não utilizar cultura geek como estética dominante.
 
-- email
-- phone
-- address
-- social profiles
-
-Use placeholders only during development and clearly mark them.
+O visitante não precisa entender a referência para aproveitar a experiência.
 
 ---
 
-# 61. Visual Hierarchy
+## 67. Personalização visual
 
-Every section should clearly communicate:
+O site deve demonstrar que a Next Wave valoriza soluções sob medida.
 
-```text
-Label
-↓
-Heading
-↓
-Supporting text
-↓
-Primary content
-↓
-Secondary interaction
-```
+Isso significa evitar uma aparência excessivamente modular e repetitiva.
 
-Do not give every element equal visual weight.
+Nem todas as seções precisam compartilhar:
 
----
+- o mesmo grid;
+- o mesmo card;
+- o mesmo alinhamento;
+- a mesma densidade;
+- o mesmo comportamento.
 
-# 62. Content Density
+Consistência deve existir nos fundamentos.
 
-Prefer fewer, stronger elements.
-
-Avoid:
-
-- excessive cards
-- excessive badges
-- long walls of text
-- repeated CTAs
-- unnecessary decorative components
-
-The website should feel rich because of quality, not because of quantity.
+Personalidade pode existir na composição.
 
 ---
 
-# 63. Accessibility
+## 68. O que evitar
 
-Minimum requirements:
+Não utilizar como linguagem dominante:
 
-- semantic HTML
-- keyboard navigation
-- visible focus
-- sufficient contrast
-- meaningful alt text
-- touch-friendly controls
-- reduced motion support
-
-Visual design must not compromise accessibility.
-
----
-
-# 64. Color Contrast
-
-Text must maintain appropriate contrast against dark backgrounds.
-
-Never place low-opacity gray text over complex gradients without checking readability.
-
-Gradient text should primarily be used for large decorative headings.
-
-Important body content should use solid foreground colors.
+- cyberpunk;
+- synthwave;
+- neon;
+- glow;
+- glassmorphism;
+- partículas;
+- grids futuristas;
+- oceano;
+- fotografia marítima;
+- terminais;
+- código como decoração;
+- dashboards;
+- gradientes excessivos;
+- cards excessivos;
+- template SaaS;
+- estética exclusiva de desenvolvedores.
 
 ---
 
-# 65. Performance
+## 69. Teste de neutralidade de segmento
 
-Visual sophistication must remain performant.
+Ao avaliar uma tela, fazer a seguinte pergunta:
 
-Be cautious with:
+> Uma profissional autônoma, uma clínica, um restaurante ou uma empresa tradicional conseguiria se imaginar contratando a Next Wave ao ver esta página?
 
-- multiple backdrop blurs
-- large shadows
-- giant gradients
-- SVG filters
-- particles
-- continuous animations
-- huge images
+Se a interface parecer destinada exclusivamente ao setor de tecnologia, reconsiderar a direção.
 
-Reuse effects whenever possible.
+Isso não significa tornar o site genérico.
+
+Significa evitar nichar visualmente a empresa sem intenção.
 
 ---
 
-# 66. Design Tokens
+## 70. Teste de identidade
 
-Brand values must be represented through reusable design tokens.
+Também perguntar:
 
-Do NOT repeatedly hardcode:
+> Se removermos a logo, ainda existe algo nesta experiência que poderia ser reconhecido como Next Wave?
 
-```css
-#8B5CF6
-#10B981
-#070B14
-```
+A resposta deve surgir através da combinação de:
 
-inside arbitrary components.
+- tipografia;
+- Wave;
+- composição;
+- movimento;
+- detalhes;
+- ritmo;
+- personalidade.
 
-Define them centrally.
-
-Components should consume semantic tokens.
-
----
-
-# 67. Suggested Token Structure
-
-Example conceptual structure:
-
-```css
-:root {
-  --background: #070B14;
-  --background-secondary: #0B1020;
-
-  --surface: #111827;
-  --surface-secondary: #151D2E;
-
-  --foreground: #F9FAFB;
-
-  --text-primary: #F3F4F6;
-  --text-secondary: #D1D5DB;
-  --text-muted: #9CA3AF;
-
-  --primary: #8B5CF6;
-  --primary-hover: #6D28D9;
-  --primary-strong: #4C1D95;
-
-  --accent: #10B981;
-  --accent-hover: #047857;
-  --accent-strong: #064E3B;
-
-  --info: #3B82F6;
-  --warning: #F59E0B;
-  --error: #EF4444;
-  --success: #10B981;
-
-  --border: rgba(255, 255, 255, 0.10);
-  --border-strong: rgba(255, 255, 255, 0.18);
-
-  --focus: #8B5CF6;
-
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-2xl: 32px;
-
-  --container-max: 1440px;
-}
-```
-
-The actual implementation may adapt this structure to the selected Tailwind version and architecture.
-
-Do not duplicate the same values across multiple systems unnecessarily.
+Não apenas através de Purple e Green.
 
 ---
 
-# 68. Tailwind
+## 71. Hierarquia de decisão
 
-Tailwind should consume the design system.
+Quando houver conflito entre referências:
 
-Do not use arbitrary values everywhere.
+1. requisito atual explicitamente aprovado;
+2. direção visual mais recente aprovada;
+3. wireframe aprovado mais recente;
+4. `DESIGN-SYSTEM.md`;
+5. `MOTION-GUIDELINES.md`;
+6. `PROJECT-BRIEF.md`;
+7. implementação existente;
+8. defaults de bibliotecas.
 
-Avoid:
-
-```text
-text-[#8B5CF6]
-bg-[#070B14]
-rounded-[19px]
-```
-
-when an equivalent project token exists.
-
-Arbitrary values are acceptable only for intentional one-off composition details.
+Wireframes antigos que representem a direção dark/neon anterior não devem prevalecer sobre a direção atual.
 
 ---
 
-# 69. Component Variants
+## 72. Princípios fundamentais
 
-Reusable components should expose meaningful variants.
+### Princípio 1
 
-Example:
+> Identidade está nos detalhes.
 
-```text
-Button
+### Princípio 2
 
-variant:
-- primary
-- secondary
-- ghost
-- destructive
+> A Next Wave não representa o mar. Ela se comporta como ele.
 
-size:
-- sm
-- md
-- lg
-```
+### Princípio 3
 
-Avoid creating:
+> A Next Wave não precisa parecer tecnologia para demonstrar excelência tecnológica.
 
-```text
-PurpleButton
-GreenButton
-BigPurpleButton
-HeroButton
-```
+### Princípio 4
 
-when variants solve the problem.
+> Gradiente é assinatura, não preenchimento.
+
+### Princípio 5
+
+> O ambiente muda. A personalidade não.
+
+### Princípio 6
+
+> Neutros primeiro. Cor depois.
 
 ---
 
-# 70. shadcn/ui
+## 73. Regra final
 
-shadcn/ui may be used as a structural foundation.
+O Design System não deve produzir uma interface genérica.
 
-However:
+Também não deve produzir uma interface que precise gritar para possuir personalidade.
 
-> Default shadcn styling is NOT the Next Wave Design System.
+O objetivo é que alguém utilize o site e perceba:
 
-Components must be customized to match:
+> "Isso foi cuidadosamente pensado."
 
-- colors
-- radius
-- typography
-- interaction
-- motion
-- dark theme
+A identidade da Next Wave deve surgir da soma de pequenas decisões coerentes.
 
-Do not let the site look like a default shadcn project.
-
----
-
-# 71. React Bits
-
-React Bits components must also be adapted to the Design System.
-
-Never assume their default appearance is approved.
-
-Customize:
-
-- colors
-- intensity
-- typography
-- radius
-- animation
-- spacing
-
-The final result must look native to Next Wave.
-
----
-
-# 72. Wireframes
-
-Approved wireframes in:
-
-```text
-/docs/wireframes/
-```
-
-are the visual reference for:
-
-- composition
-- hierarchy
-- relative scale
-- visual rhythm
-- section identity
-
-Wireframes are NOT a license to reproduce:
-
-- fake metrics
-- fake clients
-- fake emails
-- fake phone numbers
-- generated placeholder copy
-
-Visual structure should be preserved while content is validated separately.
-
----
-
-# 73. Source of Truth Priority
-
-When instructions conflict, use this order:
-
-```text
-1. Explicit current project requirement
-2. Approved wireframe for the specific section
-3. DESIGN-SYSTEM.md
-4. MOTION-GUIDELINES.md
-5. briefing.md
-6. Existing implementation
-7. Library defaults
-```
-
-Do not silently redesign an approved section because a library component has a different default structure.
-
----
-
-# 74. Consistency Rule
-
-Before introducing a new:
-
-```text
-color
-font
-radius
-shadow
-spacing pattern
-button style
-card style
-animation style
-```
-
-check whether the Design System already provides an appropriate solution.
-
-Prefer consistency over novelty.
-
----
-
-# 75. Final Principle
-
-The Next Wave Solutions website should communicate technical excellence before the visitor reads a single technology name.
-
-Every visual decision should support:
-
-> clarity  
-> quality  
-> movement  
-> innovation  
-> trust
-
-The final experience should feel unmistakably:
-
-> **Next Wave.**
+Não da quantidade de efeitos utilizados.

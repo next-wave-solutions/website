@@ -1,717 +1,988 @@
 # Next Wave Solutions — Implementation Plan
 
-> Development roadmap for the Next Wave Solutions website.
+## 1. Objetivo
 
-This document defines the recommended implementation order, development rules and completion criteria.
+Este documento define a ordem de implementação do site institucional da Next Wave Solutions.
 
-Before implementing anything, read:
+O projeto deve evoluir de forma incremental.
+
+Cada fase deve ser:
+
+1. implementada;
+2. validada;
+3. revisada;
+4. aprovada;
+
+antes de avançar quando houver impacto visual ou arquitetural significativo.
+
+O objetivo não é implementar o máximo possível de uma vez.
+
+O objetivo é construir uma experiência consistente, performática e alinhada à identidade da Next Wave.
+
+---
+
+## 2. Documentos obrigatórios
+
+Antes de implementar qualquer UI, ler:
 
 - `/AGENTS.md`
-- `/docs/briefing.md`
+- `/docs/PROJECT-BRIEF.md`
 - `/docs/DESIGN-SYSTEM.md`
 - `/docs/MOTION-GUIDELINES.md`
+- `/docs/IMPLEMENTATION-PLAN.md`
 
-For UI implementation, always consult the relevant approved wireframe in:
+Também consultar os wireframes e referências visuais relevantes.
 
-```text
-/docs/wireframes/
-```
+A direção visual mais recente aprovada prevalece sobre wireframes antigos conflitantes.
 
----
+Wireframes antigos podem continuar sendo utilizados como referência de:
 
-# 1. Core Development Rule
+- estrutura;
+- conteúdo;
+- hierarquia;
+- intenção;
 
-Do NOT implement the entire website at once.
-
-Development must happen incrementally.
-
-The preferred workflow is:
-
-```text
-Foundation
-↓
-Design System
-↓
-Shared Components
-↓
-Section Structure
-↓
-Section Styling
-↓
-Section Motion
-↓
-Integration
-↓
-Quality Assurance
-↓
-SEO
-↓
-Deployment
-```
-
-Each phase should be validated before moving to the next.
+mas não necessariamente como referência estética final.
 
 ---
 
-# 2. AI Agent Rule
+## 3. Direção visual atual
 
-When an AI coding agent receives a task:
+A direção aprovada é:
 
-1. Read `/AGENTS.md`.
-2. Read the relevant project documentation.
-3. Inspect the existing codebase before modifying files.
-4. Identify the current implementation phase.
-5. Implement only the requested scope.
-6. Do not redesign approved sections.
-7. Do not introduce unnecessary dependencies.
-8. Run available validation after implementation.
-9. Report what was changed.
-10. Report any unresolved issues or assumptions.
+- light-first;
+- Dark Mode opcional;
+- editorial;
+- clara;
+- acolhedora;
+- premium;
+- autoral;
+- tecnologicamente refinada;
+- acessível para públicos técnicos e não técnicos.
 
-Never silently expand the task scope.
+Purple e Green permanecem como cores de assinatura.
 
----
+A Wave permanece como principal elemento gráfico proprietário.
 
-# 3. Definition of Done
+A influência marítima deve ser comportamental, não literal.
 
-A task is NOT complete only because:
+Princípios:
 
-```text
-"the code compiles"
-```
+> Cada ideia tem seu próprio fluxo.
 
-A UI task is complete when applicable requirements have been checked:
+> A Next Wave não representa o mar. Ela se comporta como ele.
 
-- [ ] Matches the approved wireframe
-- [ ] Works on desktop
-- [ ] Works on tablet
-- [ ] Works on mobile
-- [ ] Uses Design System tokens
-- [ ] Uses semantic HTML
-- [ ] Keyboard navigation works
-- [ ] Focus states are visible
-- [ ] Reduced motion is supported
-- [ ] No horizontal overflow
-- [ ] No obvious layout shift
-- [ ] No unnecessary dependency was introduced
-- [ ] TypeScript passes
-- [ ] Lint passes
-- [ ] Production build passes
+> A Next Wave não precisa parecer tecnologia para demonstrar excelência tecnológica.
 
-For animated sections:
-
-- [ ] Animation supports the content instead of hiding it
-- [ ] Mobile motion has been considered separately
-- [ ] `prefers-reduced-motion` works
-- [ ] Performance remains acceptable
+> Identidade está nos detalhes.
 
 ---
 
-# 4. Phase 0 — Repository Preparation
+## 4. Direções que não devem ser retomadas
 
-Goal:
+A direção anterior excessivamente dark/neon não representa mais a direção principal aprovada.
 
-Prepare the repository and project documentation before application development.
+Evitar utilizar como linguagem dominante:
 
-Tasks:
+- cyberpunk;
+- synthwave;
+- neon;
+- glow;
+- partículas;
+- glassmorphism;
+- grids futuristas;
+- fotografia marítima recorrente;
+- oceanos como background;
+- estética gamer;
+- estética exclusiva de desenvolvedores;
+- templates SaaS genéricos;
+- gradientes excessivos.
 
-- [ ] Confirm `/AGENTS.md`
-- [ ] Confirm `/docs/briefing.md`
-- [ ] Confirm `/docs/DESIGN-SYSTEM.md`
-- [ ] Confirm `/docs/MOTION-GUIDELINES.md`
-- [ ] Confirm `/docs/IMPLEMENTATION-PLAN.md`
-- [ ] Create `/docs/wireframes`
-- [ ] Add approved wireframes
-- [ ] Ensure wireframes use clear filenames
-
-Recommended structure:
-
-```text
-docs/
-├── briefing.md
-├── DESIGN-SYSTEM.md
-├── MOTION-GUIDELINES.md
-├── IMPLEMENTATION-PLAN.md
-│
-└── wireframes/
-    ├── 00-master-concept.png
-    ├── 01-hero.png
-    ├── 02-solutions.png
-    ├── 03-process.png
-    ├── 04-technology.png
-    ├── 05-projects.png
-    ├── 06-about.png
-    └── 07-cta-footer.png
-```
-
-Do not begin visual implementation before the relevant reference is available.
+Dark Mode não deve reintroduzir essas características.
 
 ---
 
-# 5. Phase 1 — Project Foundation
+## 5. Regra de implementação
 
-Goal:
+Ao receber uma fase para implementação:
 
-Create a clean and stable Next.js foundation without implementing the Home sections yet.
+1. ler a documentação relevante;
+2. inspecionar a implementação existente;
+3. identificar impacto;
+4. implementar somente a fase solicitada;
+5. validar tecnicamente;
+6. validar visualmente quando aplicável;
+7. registrar evidências quando solicitado;
+8. reportar alterações;
+9. parar.
 
-Tasks:
+Não avançar automaticamente para a próxima fase.
 
-- [ ] Initialize Next.js
-- [ ] Enable TypeScript
-- [ ] Configure Tailwind CSS
-- [ ] Configure ESLint
-- [ ] Configure project scripts
-- [ ] Configure import aliases
-- [ ] Configure basic directory structure
-- [ ] Configure Manrope
-- [ ] Configure Inter
-- [ ] Create global styles
-- [ ] Configure design tokens
-- [ ] Create root layout
-- [ ] Create basic metadata
-- [ ] Confirm development build
-- [ ] Confirm production build
-
-Preferred architecture:
-
-```text
-src/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx
-│   └── globals.css
-│
-├── components/
-│   ├── ui/
-│   ├── layout/
-│   ├── sections/
-│   └── motion/
-│
-├── lib/
-│
-└── config/
-```
-
-The exact structure may evolve when technically justified.
-
-Avoid unnecessary abstraction during initial setup.
+Não utilizar uma tarefa como justificativa para refatorar áreas não relacionadas sem necessidade.
 
 ---
 
-# 6. Phase 2 — Design System Foundation
+## 6. Definition of Done
 
-Goal:
+Uma fase visual não está concluída somente porque compila.
 
-Translate `/docs/DESIGN-SYSTEM.md` into reusable code.
+Quando aplicável, validar:
 
-Implement:
-
-- [ ] Brand colors
-- [ ] Semantic colors
-- [ ] Background colors
-- [ ] Surface colors
-- [ ] Foreground colors
-- [ ] Border colors
-- [ ] Radius tokens
-- [ ] Container rules
-- [ ] Typography rules
-- [ ] Spacing conventions
-- [ ] Focus styles
-- [ ] Selection styles
-
-Do not implement sections during this phase.
-
-Validate the token system before proceeding.
-
----
-
-# 7. Phase 3 — Base UI Components
-
-Goal:
-
-Create only the reusable primitives that are already justified by the approved design.
-
-Possible components:
-
-```text
-Button
-Container
-Section
-SectionLabel
-GradientText
-Badge
-Card
-```
-
-Do not create abstractions speculatively.
-
-Rule:
-
-> Create reusable components because repetition exists or is clearly expected — not because a component might theoretically be useful later.
+- fidelidade à direção visual;
+- desktop;
+- tablet;
+- mobile;
+- keyboard navigation;
+- focus;
+- contraste;
+- reduced motion;
+- Light Mode;
+- Dark Mode;
+- overflow;
+- layout stability;
+- TypeScript;
+- lint;
+- build;
+- performance básica;
+- console errors.
 
 ---
 
-# 8. Phase 4 — Motion Foundation
+# Phase 0 — Documentation
 
-Goal:
+## Status
 
-Prepare reusable motion infrastructure before complex animations are introduced.
+Completed.
 
-Tasks:
+## Objetivo
 
-- [ ] Install/configure Motion if not already available
-- [ ] Create reduced-motion utilities
-- [ ] Create reusable reveal primitives only if justified
-- [ ] Establish viewport animation conventions
-- [ ] Establish scroll progress conventions
-- [ ] Establish motion timing conventions
-- [ ] Validate mobile behavior
+Criar a documentação inicial necessária para orientar desenvolvimento e decisões de produto.
 
-Possible structure:
+Inclui:
 
-```text
-components/
-└── motion/
-    ├── Reveal.tsx
-    ├── Stagger.tsx
-    └── Wave/
-```
-
-Do not create a large internal animation framework.
-
-Prefer Motion primitives whenever they already solve the problem.
+- Project Brief;
+- Design System;
+- Motion Guidelines;
+- Implementation Plan;
+- AGENTS;
+- referências visuais;
+- wireframes.
 
 ---
 
-# 9. Phase 5 — Header
+# Phase 1 — Foundation
 
-Reference:
+## Status
 
-```text
-/docs/wireframes/00-master-concept.png
-/docs/wireframes/01-hero.png
-```
+Completed.
 
-Goal:
+## Objetivo
 
-Implement the primary navigation.
+Criar a base técnica do projeto.
 
-Expected elements:
+Inclui:
 
-- [ ] Logo
-- [ ] Navigation
-- [ ] Primary CTA
-- [ ] Responsive mobile navigation
-- [ ] Scroll state
-- [ ] Keyboard accessibility
-- [ ] Focus states
+- Next.js;
+- App Router;
+- React;
+- TypeScript;
+- Tailwind CSS;
+- ESLint;
+- pnpm;
+- aliases;
+- estrutura inicial de diretórios;
+- `next/font`;
+- globals;
+- root layout;
+- metadata inicial;
+- scripts de validação.
 
-Navigation should link to actual sections.
+A base deve permanecer simples.
 
-Possible anchors:
-
-```text
-#solutions
-#process
-#technology
-#projects
-#about
-#contact
-```
-
-Do not add navigation links for nonexistent pages.
+Não adicionar dependências sem necessidade.
 
 ---
 
-# 10. Phase 6 — Hero
+# Temporary Coming Soon
 
-Primary reference:
+Existe uma experiência temporária publicada enquanto o site institucional definitivo é desenvolvido.
 
-```text
-/docs/wireframes/01-hero.png
-```
+Ela é isolada da arquitetura visual definitiva da Home.
 
-Goal:
-
-Reproduce the approved Hero composition with high visual fidelity.
-
-Implementation order:
+Arquivos relacionados podem incluir:
 
 ```text
-Structure
-↓
-Typography
-↓
-Responsive layout
-↓
-CTA
-↓
-Wave visual
-↓
-Motion
-↓
-Polish
+src/components/temporary/ComingSoon.tsx
+src/components/temporary/ComingSoonWave.tsx
+src/components/temporary/ComingSoonGlow.tsx
+src/components/temporary/coming-soon.module.css
 ```
 
-Checklist:
+Assets relacionados podem existir em:
 
-- [ ] Section structure
-- [ ] Heading
-- [ ] Supporting copy
-- [ ] Primary CTA
-- [ ] Secondary CTA if approved
-- [ ] Hero visual
-- [ ] Initial Wave
-- [ ] Desktop responsive behavior
-- [ ] Tablet behavior
-- [ ] Mobile behavior
-- [ ] Hero entrance motion
-- [ ] Reduced-motion version
+```text
+public/brand/
+```
 
-Do not implement the next section until the Hero is visually validated.
+A Coming Soon:
+
+- não representa o Design System definitivo;
+- não deve ser utilizada como referência obrigatória para a Home;
+- pode possuir direção visual diferente;
+- deve permanecer funcional enquanto o novo site é desenvolvido.
+
+Não remover, substituir ou alterar a Coming Soon sem solicitação explícita.
 
 ---
 
-# 11. Phase 7 — Solutions
+# Phase 1.5 — Brand Direction Update
 
-Primary reference:
+## Status
 
-```text
-/docs/wireframes/02-solutions.png
-```
+Completed após atualização e revisão da documentação.
 
-Expected services:
+## Objetivo
 
-```text
-Sistemas Web
-Aplicativos Mobile
-Automações
-Integrações
-```
+Registrar a direção visual definida após a exploração de Art Direction.
 
-Checklist:
+Principais decisões:
 
-- [ ] Section label
-- [ ] Heading
-- [ ] Supporting copy
-- [ ] Service cards
-- [ ] Icons
-- [ ] Hover states
-- [ ] Wave continuity
-- [ ] Responsive behavior
-- [ ] Reduced-motion behavior
+- Light Mode como expressão principal;
+- suporte a Dark Mode;
+- redução da estética cyberpunk/neon;
+- redução da representação literal do mar;
+- maior acolhimento;
+- maior neutralidade de segmento;
+- identidade concentrada nos detalhes;
+- Wave abstrata;
+- Purple + Green como cores de assinatura;
+- composição mais editorial;
+- tecnologia demonstrada pela qualidade da experiência;
+- posicionamento baseado em soluções sob medida.
 
-Focus on outcomes rather than framework names.
+Mensagem central atual:
 
----
+> Cada ideia tem seu próprio fluxo.
 
-# 12. Phase 8 — Process
-
-Primary reference:
-
-```text
-/docs/wireframes/03-process.png
-```
-
-This is one of the most important sections of the website.
-
-Expected process:
-
-```text
-01 — Entendemos
-02 — Planejamos
-03 — Desenvolvemos
-04 — Entregamos
-05 — Evoluímos
-```
-
-The Wave must be the protagonist.
-
-Implementation should be incremental.
-
-## Step 1
-
-Implement static structure.
-
-## Step 2
-
-Implement responsive SVG Wave.
-
-## Step 3
-
-Connect process nodes.
-
-## Step 4
-
-Implement scroll progression.
-
-## Step 5
-
-Implement active states.
-
-## Step 6
-
-Implement reduced-motion fallback.
-
-Checklist:
-
-- [ ] Matches approved composition
-- [ ] SVG is responsive
-- [ ] Path scales correctly
-- [ ] Scroll reveals Wave progressively
-- [ ] Process states remain readable
-- [ ] Mobile version is intentionally adapted
-- [ ] Reduced-motion version remains meaningful
-- [ ] No scroll hijacking
-
-Do NOT replace this section with a generic card timeline.
+Nenhuma alteração de implementação é necessária nesta fase.
 
 ---
 
-# 13. Phase 9 — Technology
+# Phase 2 — Design System Foundation
 
-Primary reference:
+## Status
+
+Pending.
+
+## Objetivo
+
+Traduzir o Design System atualizado para código.
+
+Esta fase deve criar somente a fundação visual.
+
+Não implementar ainda as seções definitivas da Home.
+
+---
+
+## 2.1 Theme Architecture
+
+Implementar suporte a:
+
+- Light Mode;
+- Dark Mode;
+- preferência do sistema;
+- escolha manual do usuário;
+- persistência da escolha.
+
+A escolha manual deve possuir precedência sobre a preferência do sistema.
+
+Evitar flash de tema incorreto durante carregamento.
+
+A implementação deve ser compatível com Server Components e evitar transformar o root inteiro em Client Component sem necessidade.
+
+---
+
+## 2.2 Color Tokens
+
+Implementar tokens semânticos para:
+
+- background;
+- secondary background;
+- surfaces;
+- foreground;
+- text;
+- muted text;
+- borders;
+- focus;
+- primary;
+- accent;
+- semantic states.
+
+Componentes devem consumir tokens semânticos.
+
+Evitar hardcode recorrente de cores.
+
+---
+
+## 2.3 Brand Colors
+
+Preservar:
+
+### Purple
 
 ```text
-/docs/wireframes/04-technology.png
+#8B5CF6
 ```
 
-Core message:
+### Green
+
+```text
+#10B981
+```
+
+Com seus estados e variações definidos no Design System.
+
+Essas cores são assinatura.
+
+Não precisam aparecer simultaneamente em todos os componentes.
+
+---
+
+## 2.4 Gradient
+
+Registrar o gradiente da marca como token/recurso reutilizável.
+
+Direção:
+
+```css
+linear-gradient(
+  90deg,
+  #8B5CF6 0%,
+  #6366F1 35%,
+  #06B6D4 65%,
+  #10B981 100%
+);
+```
+
+Não aplicar automaticamente.
+
+Disponibilizar para uso posterior.
+
+---
+
+## 2.5 Typography
+
+Preservar:
+
+### Headings
+
+Manrope.
+
+### Body / UI
+
+Inter.
+
+Utilizar `next/font`.
+
+Definir:
+
+- font families;
+- pesos necessários;
+- line-height;
+- tracking;
+- escala tipográfica;
+- display typography foundations.
+
+Evitar carregar pesos não utilizados.
+
+---
+
+## 2.6 Layout Tokens
+
+Criar fundações para:
+
+- container;
+- gutters;
+- section spacing;
+- content width;
+- responsive spacing.
+
+Direção inicial:
+
+```text
+container max: 1440px
+```
+
+Não transformar esse valor em largura obrigatória para todo conteúdo.
+
+---
+
+## 2.7 Radius
+
+Implementar tokens de radius conforme Design System.
+
+Direção:
+
+```text
+8px
+12px
+16px
+24px
+32px
+full
+```
+
+Não utilizar todos automaticamente.
+
+---
+
+## 2.8 Borders
+
+Implementar:
+
+- default border;
+- strong border;
+- Light/Dark equivalents.
+
+Borders devem permanecer sutis.
+
+---
+
+## 2.9 Shadows
+
+Criar fundações para:
+
+- small;
+- medium;
+- large.
+
+Sombras devem ser discretas.
+
+Dark Mode deve priorizar diferença de superfície e border.
+
+---
+
+## 2.10 Semantic Colors
+
+Implementar tokens para:
+
+- info;
+- success;
+- warning;
+- error.
+
+Não criar componentes de alert nesta fase.
+
+Somente fundação.
+
+---
+
+## 2.11 Focus
+
+Criar padrão global consistente de `focus-visible`.
+
+Deve:
+
+- possuir contraste;
+- funcionar em Light;
+- funcionar em Dark;
+- não depender apenas de cor quando contexto exigir mais informação.
+
+---
+
+## 2.12 Selection
+
+Implementar seleção de texto coerente com a marca.
+
+Validar contraste em ambos os temas.
+
+---
+
+## 2.13 Base Elements
+
+Revisar estilos básicos de:
+
+- `html`;
+- `body`;
+- headings;
+- paragraphs;
+- links;
+- buttons;
+- selection.
+
+Não criar estilização global agressiva que dificulte composição posterior.
+
+---
+
+## 2.14 Reduced Motion Foundation
+
+Adicionar fundação global para:
+
+```css
+@media (prefers-reduced-motion: reduce)
+```
+
+Não é necessário implementar motion complexo nesta fase.
+
+Apenas garantir que a base esteja preparada.
+
+---
+
+## 2.15 Theme Toggle
+
+A arquitetura de tema deve estar pronta nesta fase.
+
+O componente visual definitivo de Theme Toggle pode ser criado na Phase 3.
+
+Se um controle mínimo for necessário para testar Light/Dark durante desenvolvimento, ele deve ser claramente tratado como ferramenta temporária ou componente base.
+
+---
+
+## 2.16 Não implementar nesta fase
+
+Não implementar:
+
+- Header definitivo;
+- Hero;
+- Solutions;
+- Process;
+- Technology;
+- Projects;
+- About;
+- Final CTA;
+- Footer definitivo;
+- Wave final;
+- animações de scroll;
+- partículas;
+- React Bits;
+- cards específicos da Home;
+- conteúdo fictício.
+
+---
+
+## 2.17 Dependências
+
+Nenhuma nova dependência deve ser adicionada sem necessidade clara.
+
+Antes de instalar algo, verificar se:
+
+1. CSS resolve;
+2. browser APIs resolvem;
+3. código existente resolve;
+4. a dependência realmente reduz complexidade.
+
+---
+
+## 2.18 Validação
+
+Executar:
+
+```bash
+pnpm lint
+pnpm typecheck
+pnpm build
+```
+
+Também validar manualmente:
+
+- Light Mode;
+- Dark Mode;
+- preferência do sistema;
+- persistência;
+- flash de tema;
+- fontes;
+- focus;
+- selection;
+- console.
+
+---
+
+# Phase 3 — Base UI Components
+
+## Status
+
+Pending.
+
+## Objetivo
+
+Criar componentes realmente reutilizáveis.
+
+Possíveis componentes:
+
+- Button;
+- Container;
+- Section;
+- SectionLabel;
+- GradientText;
+- Badge;
+- ThemeToggle.
+
+`Card` só deve ser criado caso exista padrão reutilizável real.
+
+Não criar abstrações prematuras.
+
+---
+
+# Phase 4 — Motion Foundation
+
+## Status
+
+Pending.
+
+## Objetivo
+
+Criar primitivas necessárias para motion.
+
+Avaliar nesta ordem:
+
+1. CSS;
+2. SVG;
+3. Motion;
+4. bibliotecas adicionais.
+
+Possíveis fundações:
+
+- reveal;
+- stagger;
+- reduced motion helpers;
+- viewport detection;
+- utilities para Wave;
+- motion tokens.
+
+Não criar framework interno de animação.
+
+---
+
+# Phase 5 — Header
+
+## Status
+
+Pending.
+
+## Objetivo
+
+Implementar navegação principal.
+
+Inclui:
+
+- logo;
+- navegação;
+- CTA;
+- Theme Toggle;
+- mobile navigation;
+- keyboard navigation;
+- focus;
+- Light Mode;
+- Dark Mode.
+
+Pode existir mudança sutil de surface conforme scroll.
+
+Não transformar Header em elemento excessivamente animado.
+
+---
+
+# Phase 6 — Hero
+
+## Status
+
+Pending.
+
+## Objetivo
+
+Construir a primeira experiência definitiva da nova identidade.
+
+Mensagem principal atual:
+
+> Cada ideia tem seu próprio fluxo.
+
+Direção:
+
+- Light-first;
+- espaço negativo;
+- headline forte;
+- composição editorial;
+- Wave abstrata;
+- Purple + Green controlados;
+- visual autoral;
+- linguagem acessível;
+- sem fotografia marítima obrigatória;
+- sem cyberpunk;
+- sem excesso de partículas.
+
+O Hero pode possuir intensidade visual maior que outras seções.
+
+---
+
+## 6.1 Ordem de implementação
+
+Implementar primeiro:
+
+1. conteúdo;
+2. layout;
+3. tipografia;
+4. responsividade;
+5. Light/Dark;
+6. Wave estática;
+7. motion;
+8. pointer interaction, caso realmente agregue.
+
+Não começar pelo efeito.
+
+---
+
+# Phase 7 — Solutions
+
+## Status
+
+Pending.
+
+## Serviços
+
+- Sistemas Web;
+- Aplicativos Mobile;
+- Automações;
+- Integrações.
+
+## Objetivo
+
+Comunicar soluções de forma compreensível para pessoas não técnicas.
+
+A seção deve responder rapidamente:
+
+> O que a Next Wave consegue construir para o meu negócio?
+
+Evitar:
+
+- jargão;
+- grid SaaS genérico;
+- excesso de cards;
+- foco excessivo na stack.
+
+---
+
+# Phase 8 — Process
+
+## Status
+
+Pending.
+
+## Etapas
+
+1. Entendemos
+2. Planejamos
+3. Desenvolvemos
+4. Entregamos
+5. Evoluímos
+
+## Objetivo
+
+Demonstrar que existe método sem transmitir rigidez.
+
+Essa é uma das principais oportunidades de utilizar a Wave como narrativa.
+
+Ordem:
+
+1. conteúdo;
+2. layout;
+3. responsividade;
+4. Wave;
+5. scroll behavior;
+6. reduced motion.
+
+---
+
+# Phase 9 — Technology
+
+## Status
+
+Pending.
+
+Mensagem:
 
 > Construímos hoje pensando no amanhã.
 
-Supporting principle:
+## Objetivo
 
-> Tecnologia é uma ferramenta. O resultado é o que importa.
+Demonstrar capacidade técnica sem transformar tecnologia no produto principal.
 
-Checklist:
+Evitar mural de logos como protagonista.
 
-- [ ] Section structure
-- [ ] Technology presentation
-- [ ] Consistent technology badges/logos
-- [ ] Atmospheric Wave
-- [ ] Responsive behavior
-- [ ] Appropriate interactions
-- [ ] Mobile simplification
+Tecnologias podem aparecer como segunda camada de leitura.
 
-Avoid turning this section into a technology logo wall.
+O visitante não técnico deve entender a seção sem conhecer nenhuma tecnologia utilizada.
 
 ---
 
-# 14. Phase 10 — Projects
+# Phase 10 — Projects
 
-Primary reference:
+## Status
 
-```text
-/docs/wireframes/05-projects.png
-```
+Pending.
 
-Core message:
+Mensagem conceitual:
 
 > Ideias que viraram resultados.
 
-Important:
+## Objetivo
 
-Do NOT invent real business information.
+Mostrar trabalho real.
 
-Forbidden unless explicitly provided and approved:
+Preferir apresentação editorial.
 
-- client names
-- testimonials
-- revenue
-- conversion metrics
-- growth percentages
-- performance claims
-- business results
+Os projetos devem ser protagonistas.
 
-During development, use clearly marked placeholders or approved demo projects.
+Nunca inventar:
 
-Checklist:
+- clientes;
+- métricas;
+- projetos;
+- resultados;
+- depoimentos;
+- logos de empresas.
 
-- [ ] Featured project structure
-- [ ] Secondary projects
-- [ ] Project media
-- [ ] Interaction states
-- [ ] Responsive behavior
-- [ ] Accessible controls
-- [ ] Wave continuity
-
-If no real projects are approved for production, the section must not falsely imply that placeholder projects are real clients.
+Utilizar placeholders explicitamente identificados até existir conteúdo autorizado.
 
 ---
 
-# 15. Phase 11 — About
+# Phase 11 — About
 
-Primary reference:
+## Status
 
-```text
-/docs/wireframes/06-about.png
-```
+Pending.
 
-Core message:
+Mensagem conceitual:
 
 > Mais que código, parceria de verdade.
 
-Current concepts:
+Pilares:
 
-```text
-Proximidade
-Soluções reais
-Evolução contínua
-Confiança
-```
+- proximidade;
+- soluções reais;
+- evolução contínua;
+- confiança.
 
-Checklist:
+## Objetivo
 
-- [ ] Section composition
-- [ ] Brand positioning
-- [ ] Pillars
-- [ ] Visual depth
-- [ ] Responsive behavior
-- [ ] Calm motion
-- [ ] Wave continuity
+Humanizar a Next Wave.
 
-Motion should become slightly calmer here.
+A seção pode possuir ritmo visual mais tranquilo.
+
+Evitar discurso corporativo genérico.
 
 ---
 
-# 16. Phase 12 — Final CTA
+# Phase 12 — Final CTA
 
-Primary reference:
+## Status
 
-```text
-/docs/wireframes/07-cta-footer.png
-```
+Pending.
 
-Primary message:
+## Objetivo
 
-> Ready for the next wave?
+Encerrar a narrativa e conduzir para contato.
 
-Supporting copy:
+CTA principal:
 
-> Conte sua ideia para nós. Vamos transformar seu projeto em realidade.
+> Falar com a Next Wave
 
-Primary action:
+A Wave pode reaparecer com maior presença.
 
-```text
-Falar com a Next Wave
-```
+A seção pode possuir intensidade visual ligeiramente maior.
 
-Secondary action:
-
-```text
-Ver nossos serviços
-```
-
-Checklist:
-
-- [ ] Strong visual conclusion
-- [ ] Wave convergence
-- [ ] Primary CTA
-- [ ] Secondary CTA
-- [ ] Responsive behavior
-- [ ] Reduced-motion behavior
-- [ ] Accessible interaction
-
-The production WhatsApp number must come from approved configuration.
-
-Do not invent it.
+Não comprometer clareza da ação.
 
 ---
 
-# 17. Phase 13 — Footer
+# Phase 13 — Footer
 
-Primary reference:
+## Status
 
-```text
-/docs/wireframes/07-cta-footer.png
-```
+Pending.
 
-Possible structure:
+Implementar:
 
-```text
-Brand
-Navigation
-Solutions
-Contact
-Social
-Legal
-```
+- marca;
+- navegação;
+- informações reais disponíveis;
+- links necessários;
+- copyright.
 
-Only include real information.
+Não inventar:
 
-Do NOT invent:
-
-- phone
-- email
-- physical address
-- social accounts
-- legal pages
-
-If information is unavailable, omit it or use clearly marked development placeholders.
+- telefone;
+- e-mail;
+- endereço;
+- redes sociais;
+- dados comerciais.
 
 ---
 
-# 18. Phase 14 — Global Wave Integration
+# Phase 14 — Global Wave Integration
 
-Goal:
+## Status
 
-Turn individually implemented Wave pieces into a coherent page experience.
+Pending.
 
-Important:
+## Objetivo
 
-The Wave does NOT necessarily need to be one enormous SVG covering the entire document.
+Depois das seções existirem individualmente, avaliar a continuidade visual da Wave.
 
-Prefer the simplest robust architecture that visually creates continuity.
+Importante:
 
-Possible strategy:
+> Não implementar um único SVG gigante apenas porque o conceito fala em continuidade.
 
-```text
-Hero Wave
-     ↓
-transition
+A Wave pode assumir diferentes representações ao longo da página.
 
-Solutions Wave
-     ↓
-transition
+Exemplos:
 
-Process Wave
-     ↓
-transition
+- linha;
+- underline;
+- path;
+- superfície;
+- separador;
+- interação;
+- movimento.
 
-Technology Wave
-     ↓
+A continuidade deve ser percebida conceitualmente.
 
-Projects
-     ↓
-
-About
-     ↓
-
-Final CTA convergence
-```
-
-Validate:
-
-- [ ] Visual continuity
-- [ ] Gradient continuity
-- [ ] Section transitions
-- [ ] Scroll behavior
-- [ ] Responsive behavior
-- [ ] Reduced motion
-- [ ] Performance
-
-Avoid architectural complexity purely to achieve literal SVG continuity.
-
-Visual continuity matters more than implementation cleverness.
+Não necessariamente através de um único elemento DOM.
 
 ---
 
-# 19. Phase 15 — Responsive QA
+# Phase 15 — Motion Polish
 
-Test at multiple widths.
+## Status
 
-Minimum recommended checks:
+Pending.
+
+## Objetivo
+
+Revisar motion global depois que a página estiver estruturalmente pronta.
+
+Avaliar:
+
+- excesso;
+- repetição;
+- timing;
+- easing;
+- intensidade;
+- reduced motion;
+- mobile;
+- performance.
+
+Remover efeitos que não agregam.
+
+Adicionar motion somente onde houver ganho claro.
+
+---
+
+# Phase 16 — Responsive QA
+
+## Status
+
+Pending.
+
+Validar aproximadamente:
 
 ```text
 320px
@@ -725,163 +996,166 @@ Minimum recommended checks:
 1920px
 ```
 
-Do not design exclusively for these exact widths.
+Verificar:
 
-They are checkpoints.
+- overflow;
+- tipografia;
+- spacing;
+- touch;
+- menu;
+- Wave;
+- imagens;
+- CTAs;
+- projetos;
+- Light/Dark.
 
-Validate:
+Mobile deve ser tratado como composição própria.
 
-- [ ] Typography
-- [ ] Navigation
-- [ ] Cards
-- [ ] Wave
-- [ ] Images
-- [ ] CTA
-- [ ] Footer
-- [ ] Touch targets
-- [ ] Horizontal overflow
-- [ ] Content order
-
----
-
-# 20. Phase 16 — Accessibility
-
-Validate:
-
-- [ ] Semantic landmarks
-- [ ] Heading hierarchy
-- [ ] Keyboard navigation
-- [ ] Focus indicators
-- [ ] Accessible buttons
-- [ ] Accessible links
-- [ ] Alt text
-- [ ] Color contrast
-- [ ] Reduced motion
-- [ ] Mobile touch targets
-
-Animations must not prevent access to content.
+Não apenas desktop reduzido.
 
 ---
 
-# 21. Phase 17 — Performance
+# Phase 17 — Accessibility QA
 
-Review:
+## Status
 
-- [ ] Client Component boundaries
-- [ ] JavaScript bundle size
-- [ ] Images
-- [ ] Fonts
-- [ ] SVG complexity
-- [ ] Particle count
-- [ ] Backdrop filters
-- [ ] Blur
-- [ ] Scroll listeners
-- [ ] React re-renders
-- [ ] Dynamic imports
+Pending.
 
-Prefer:
+Validar:
 
-```text
-Server Components
-+
-small interactive Client Components
-```
-
-Do not convert the entire Home into a Client Component for convenience.
+- semântica;
+- headings;
+- landmarks;
+- keyboard;
+- focus;
+- contraste;
+- aria;
+- reduced motion;
+- Theme Toggle;
+- touch targets;
+- zoom;
+- leitura sem motion.
 
 ---
 
-# 22. Phase 18 — SEO
+# Phase 18 — Performance
 
-Implement:
+## Status
 
-- [ ] Page title
-- [ ] Meta description
-- [ ] Canonical URL
-- [ ] OpenGraph
-- [ ] Twitter/X metadata if appropriate
-- [ ] robots
-- [ ] sitemap
-- [ ] favicon
-- [ ] manifest if justified
-- [ ] structured data where appropriate
+Pending.
 
-Potential structured data:
+Revisar:
 
-```text
-Organization
-WebSite
-```
+- bundle;
+- imagens;
+- fonts;
+- Client Components;
+- animações;
+- SVGs;
+- blur;
+- filters;
+- listeners;
+- third-party libraries;
+- hydration;
+- layout shift.
 
-Only use real company information.
+Priorizar Core Web Vitals.
 
-Do not fabricate organization details to complete structured data.
-
----
-
-# 23. Phase 19 — Content Review
-
-Before production, review all content.
-
-Search specifically for:
-
-```text
-TODO
-PLACEHOLDER
-Lorem ipsum
-example.com
-fake phone numbers
-fake emails
-fake clients
-fake metrics
-temporary images
-development URLs
-```
-
-No placeholder business information may reach production accidentally.
+Efeitos visuais não justificam degradação significativa.
 
 ---
 
-# 24. Phase 20 — Final Visual QA
+# Phase 19 — SEO
 
-Compare every section against its approved wireframe.
+## Status
 
-Review:
+Pending.
 
-```text
-Hero
-Solutions
-Process
-Technology
-Projects
-About
-Final CTA
-Footer
-```
+Implementar ou revisar:
 
-For each section verify:
+- metadata;
+- title;
+- description;
+- Open Graph;
+- canonical;
+- robots;
+- sitemap;
+- semantic HTML;
+- structured data quando aplicável.
 
-- [ ] Composition
-- [ ] Typography
-- [ ] Spacing
-- [ ] Colors
-- [ ] Wave
-- [ ] Motion
-- [ ] Responsive behavior
-- [ ] Interaction
-- [ ] Content accuracy
+Não inventar dados empresariais.
 
-Do not use pixel-perfect reproduction as an excuse for poor responsiveness.
-
-Preserve visual intent.
+Conteúdo importante deve existir semanticamente no HTML.
 
 ---
 
-# 25. Phase 21 — Technical QA
+# Phase 20 — Content Review
 
-Run all project validation commands.
+## Status
 
-Expected checks may include:
+Pending.
+
+Pesquisar por:
+
+- TODO;
+- lorem ipsum;
+- placeholders;
+- fake data;
+- claims não verificadas;
+- contatos falsos;
+- métricas fictícias;
+- clientes fictícios;
+- depoimentos fictícios;
+- logos não autorizados.
+
+Nada disso deve chegar à produção sem decisão explícita.
+
+---
+
+# Phase 21 — Visual QA
+
+## Status
+
+Pending.
+
+Comparar implementação com:
+
+- direção visual atual;
+- wireframes ainda relevantes;
+- Project Brief;
+- Design System;
+- Motion Guidelines.
+
+Avaliar:
+
+- Light Mode;
+- Dark Mode;
+- desktop;
+- mobile.
+
+Perguntas importantes:
+
+> O site está acolhedor para pessoas não técnicas?
+
+> Ainda parece uma empresa altamente competente?
+
+> Existe identidade própria sem excesso de efeitos?
+
+> O mar está presente como comportamento ou virou tema?
+
+> Purple e Green estão funcionando como assinatura ou dominando a interface?
+
+> A experiência parece Next Wave ou poderia pertencer a qualquer SaaS?
+
+---
+
+# Phase 22 — Technical QA
+
+## Status
+
+Pending.
+
+Executar:
 
 ```bash
 pnpm lint
@@ -889,519 +1163,408 @@ pnpm typecheck
 pnpm build
 ```
 
-Use the scripts actually defined by the project.
+Corrigir erros antes de deploy.
 
-Do not assume a script exists before checking `package.json`.
+Também verificar:
 
-Resolve:
-
-- TypeScript errors
-- lint errors
-- build errors
-- hydration errors
-- console errors
-- broken links
-- missing assets
+- console;
+- hydration;
+- warnings;
+- dead code;
+- imports;
+- assets.
 
 ---
 
-# 26. Phase 22 — Browser QA
+# Phase 23 — Browser QA
 
-Test at minimum on current versions of major browser engines where practical.
+## Status
 
-Priority:
+Pending.
 
-```text
-Chromium
-Safari/WebKit
-Firefox
+Testar navegadores modernos relevantes.
+
+Prioridade:
+
+- Chromium;
+- Safari / WebKit;
+- Firefox.
+
+Verificar especialmente:
+
+- fonts;
+- gradients;
+- SVG;
+- theme;
+- sticky/fixed;
+- animations;
+- masks;
+- filters.
+
+---
+
+# Phase 24 — Lighthouse
+
+## Status
+
+Pending.
+
+Avaliar:
+
+- Performance;
+- Accessibility;
+- Best Practices;
+- SEO.
+
+Não perseguir score sacrificando experiência ou arquitetura sem analisar o motivo.
+
+Investigar os problemas reais.
+
+---
+
+# Phase 25 — Vercel Preview
+
+## Status
+
+Pending.
+
+Criar/validar Preview antes da substituição definitiva da página temporária.
+
+Verificar:
+
+- deploy;
+- assets;
+- Light Mode;
+- Dark Mode;
+- mobile;
+- links;
+- WhatsApp;
+- metadata;
+- Open Graph;
+- performance;
+- console.
+
+A Coming Soon deve continuar como produção enquanto a nova experiência não estiver aprovada.
+
+---
+
+# Phase 26 — Production
+
+## Status
+
+Pending.
+
+Somente após aprovação explícita.
+
+Etapas:
+
+1. substituir a Coming Soon;
+2. realizar deploy;
+3. validar domínio;
+4. validar `www`;
+5. validar redirects;
+6. validar SSL;
+7. executar smoke test;
+8. testar mobile;
+9. testar CTA;
+10. revisar analytics caso existam.
+
+---
+
+# Phase 27 — Post-launch Review
+
+## Status
+
+Pending.
+
+Após publicação, revisar comportamento real.
+
+Avaliar:
+
+- erros;
+- performance;
+- conversão;
+- navegação;
+- comportamento mobile;
+- páginas mais acessadas;
+- pontos de abandono, caso analytics existam.
+
+Melhorias futuras devem ser orientadas por necessidade real.
+
+---
+
+# Dependências
+
+Antes de instalar qualquer dependência:
+
+1. verificar se CSS resolve;
+2. verificar se SVG resolve;
+3. verificar se browser APIs resolvem;
+4. verificar se já existe solução no projeto;
+5. avaliar bundle;
+6. avaliar manutenção;
+7. justificar necessidade.
+
+Não adicionar biblioteca apenas por conveniência.
+
+---
+
+# Motion
+
+Quando uma animação for necessária, seguir:
+
+1. CSS;
+2. SVG;
+3. Motion;
+4. bibliotecas adicionais.
+
+Motion não deve ser utilizado automaticamente para toda transição.
+
+---
+
+# React Bits
+
+React Bits é uma possível fonte de:
+
+- inspiração;
+- efeitos;
+- implementações específicas.
+
+Não é Design System.
+
+Qualquer elemento utilizado deve ser adaptado à identidade da Next Wave.
+
+Evitar aparência de galeria de efeitos.
+
+---
+
+# shadcn/ui
+
+shadcn/ui pode ser utilizado quando fizer sentido.
+
+Não utilizar componentes default sem adaptação.
+
+A implementação deve respeitar:
+
+- tokens;
+- tipografia;
+- Light/Dark;
+- radius;
+- interactions;
+- identidade.
+
+---
+
+# Code Quality
+
+Preferir:
+
+- componentes pequenos;
+- responsabilidades claras;
+- TypeScript estrito;
+- props tipadas;
+- Server Components;
+- dados estáticos tipados;
+- nomes claros;
+- progressive enhancement.
+
+Evitar:
+
+- `any`;
+- estado global sem necessidade;
+- abstrações prematuras;
+- componentes gigantes;
+- página inteira client-side;
+- dependências desnecessárias.
+
+---
+
+# Server Components
+
+Server Components são padrão.
+
+Adicionar `"use client"` somente quando necessário para:
+
+- interação;
+- estado;
+- browser APIs;
+- motion;
+- Theme Provider quando tecnicamente necessário.
+
+Isolar Client Components.
+
+---
+
+# Environment Variables
+
+Possíveis variáveis:
+
+```env
+NEXT_PUBLIC_SITE_URL=
+NEXT_PUBLIC_WHATSAPP_NUMBER=
 ```
 
-Pay special attention to:
+Não hardcodar dados de produção que devam ser configuráveis.
 
-- SVG animation
-- backdrop-filter
-- sticky elements
-- viewport units
-- mobile Safari
-- font rendering
+Não inventar valores durante desenvolvimento.
 
 ---
 
-# 27. Phase 23 — Lighthouse / Core Web Vitals
+# Evidências
 
-Evaluate:
+Quando solicitado, salvar evidências de implementação.
+
+Possíveis evidências:
+
+- desktop Light;
+- desktop Dark;
+- mobile Light;
+- mobile Dark;
+- estados interativos;
+- reduced motion;
+- comportamento específico.
+
+Não alterar a UI apenas para produzir uma screenshot mais bonita.
+
+Evidência deve representar a implementação real.
+
+---
+
+# Commits
+
+Preferir Conventional Commits.
+
+Exemplos:
 
 ```text
-Performance
-Accessibility
-Best Practices
-SEO
-```
+docs: update Next Wave brand direction
 
-Do not chase a perfect score by removing the identity of the website.
+feat: add theme foundation
 
-Instead, identify actual bottlenecks.
+feat: implement base design tokens
 
-Pay particular attention to:
-
-```text
-LCP
-CLS
-INP
-```
-
-Optimize expensive effects where necessary.
-
----
-
-# 28. Phase 24 — Vercel Preview
-
-Before production:
-
-- [ ] Deploy preview
-- [ ] Test production build
-- [ ] Test mobile on real device when possible
-- [ ] Test navigation
-- [ ] Test WhatsApp CTA
-- [ ] Test metadata
-- [ ] Test social preview
-- [ ] Test performance
-- [ ] Verify environment variables
-
-Preview must be validated before connecting production traffic.
-
----
-
-# 29. Phase 25 — Production
-
-Production checklist:
-
-- [ ] Approved production domain
-- [ ] Vercel project configured
-- [ ] Environment variables configured
-- [ ] Domain configured
-- [ ] HTTPS active
-- [ ] WhatsApp number confirmed
-- [ ] Production metadata confirmed
-- [ ] Sitemap accessible
-- [ ] robots configuration correct
-- [ ] Analytics decision confirmed
-- [ ] No placeholders
-- [ ] No development logs
-- [ ] No broken links
-
----
-
-# 30. Dependency Policy
-
-Before installing a dependency, answer:
-
-```text
-What problem does it solve?
-Can the current stack already solve it?
-What is the bundle impact?
-Is it actively maintained?
-Is the license appropriate?
-Does it require a Client Component?
-```
-
-Preferred existing stack:
-
-```text
-Next.js
-React
-TypeScript
-Tailwind CSS
-Motion
-React Bits where appropriate
-```
-
-Do not install libraries simply to save a few lines of code.
-
----
-
-# 31. React Bits Policy
-
-React Bits is an effect/component source, not the visual identity.
-
-When considering a component:
-
-```text
-Does it reinforce the approved wireframe?
-        ↓
-YES → evaluate performance
-        ↓
-Does it work responsively?
-        ↓
-YES → adapt to Next Wave Design System
-```
-
-Never build a section around a React Bits effect simply because the effect looks impressive.
-
----
-
-# 32. Code Quality
-
-Prefer:
-
-```text
-simple
-typed
-readable
-composable
-testable
-```
-
-Avoid premature architecture.
-
-Do not introduce:
-
-- unnecessary repositories
-- unnecessary service layers
-- unnecessary state management
-- unnecessary global state
-- unnecessary context providers
-- unnecessary abstraction
-
-This is primarily a marketing website.
-
-Architecture should reflect that.
-
----
-
-# 33. TypeScript
-
-Avoid:
-
-```ts
-any
-```
-
-unless technically unavoidable and documented.
-
-Prefer explicit types at component boundaries.
-
-Do not over-type trivial implementation details.
-
----
-
-# 34. State Management
-
-Do not install global state management by default.
-
-Prefer:
-
-```text
-Server state
-URL
-component state
-derived state
-```
-
-before introducing another state-management dependency.
-
-A marketing website should require very little global client state.
-
----
-
-# 35. Data
-
-Static content may initially live in typed configuration objects when appropriate.
-
-Example:
-
-```text
-services
-technologies
-process steps
-navigation
-```
-
-Do not create a CMS or database without a real requirement.
-
----
-
-# 36. Environment Variables
-
-External configuration should use environment variables where appropriate.
-
-Example:
-
-```text
-NEXT_PUBLIC_WHATSAPP_NUMBER
-NEXT_PUBLIC_SITE_URL
-```
-
-Never commit:
-
-- secrets
-- tokens
-- private credentials
-
-Public configuration must still be intentionally managed.
-
----
-
-# 37. Git
-
-Keep commits focused.
-
-Prefer Conventional Commits.
-
-Examples:
-
-```text
-chore: initialize nextjs project
-
-feat: add design system tokens
+feat: add theme toggle
 
 feat: implement hero section
 
-feat: add scroll-driven process wave
+fix: prevent theme flash
 
-fix: improve hero layout on mobile
-
-perf: reduce particle rendering cost
-
-a11y: support reduced motion for wave animations
+refactor: simplify wave animation
 ```
 
-Avoid commits such as:
-
-```text
-updates
-changes
-fix stuff
-site done
-```
+Commits devem representar mudanças coerentes.
 
 ---
 
-# 38. AI Commit Rule
+# Branches
 
-An AI agent should not bundle unrelated changes into the same implementation task.
+Seguir convenção definida pelo projeto/repositório.
 
-If asked to implement:
-
-```text
-Hero
-```
-
-do not also redesign:
-
-```text
-Footer
-Technology
-Projects
-```
-
-unless required by a shared dependency and clearly reported.
+Não criar branch adicional sem necessidade ou solicitação.
 
 ---
 
-# 39. Visual Validation
+# Regra sobre conteúdo real
 
-After implementing a visual section, compare it against the corresponding wireframe.
+Nunca inventar:
 
-The comparison should evaluate:
+- clientes;
+- cases;
+- métricas;
+- depoimentos;
+- resultados;
+- parceiros;
+- logos;
+- contatos;
+- informações comerciais.
 
-```text
-overall composition
-visual hierarchy
-spacing
-typography
-proportions
-Wave placement
-lighting
-responsive behavior
-```
+Quando informação real não estiver disponível:
 
-Do not consider a section complete simply because all textual elements exist.
-
----
-
-# 40. Evidence
-
-When the development environment allows browser testing, important visual tasks should preferably include evidence.
-
-Examples:
-
-```text
-desktop screenshot
-mobile screenshot
-```
-
-Evidence is particularly useful for:
-
-- Hero
-- Process
-- responsive fixes
-- animation states
-- final QA
-
-Do not generate fake evidence.
-
-Evidence must come from the actual running application.
+1. utilizar placeholder explicitamente identificado;
+2. utilizar conteúdo Demo/Labs quando apropriado;
+3. ou omitir temporariamente.
 
 ---
 
-# 41. Error Handling
+# Regra sobre referências visuais
 
-If implementation differs from the wireframe because of a technical constraint:
+Referências e wireframes são ferramentas.
 
-Do NOT silently change the design.
+Não são especificações imutáveis.
 
-Instead:
+Uma referência pode fornecer:
 
-1. Identify the constraint.
-2. Explain the impact.
-3. Propose the closest alternative.
-4. Wait for approval when the visual change is significant.
+- composição;
+- ideia;
+- ritmo;
+- hierarquia;
+- comportamento.
 
----
-
-# 42. Scope Control
-
-If a task requests:
-
-```text
-Implement the Hero
-```
-
-the agent should not interpret it as:
-
-```text
-Implement the entire landing page.
-```
-
-If a task requests:
-
-```text
-Configure the Design System
-```
-
-the agent should not begin creating service cards.
-
-Respect task boundaries.
+Não copiar cegamente elementos que conflitem com a direção atual.
 
 ---
 
-# 43. Recommended Development Sequence
+# Regra sobre perfeccionismo
 
-Final sequence:
+Não interromper o desenvolvimento buscando uma direção visual teoricamente perfeita antes de existir implementação real.
 
-```text
-00 Documentation
-        ↓
-01 Foundation
-        ↓
-02 Design System
-        ↓
-03 Base Components
-        ↓
-04 Motion Foundation
-        ↓
-05 Header
-        ↓
-06 Hero
-        ↓
-07 Solutions
-        ↓
-08 Process
-        ↓
-09 Technology
-        ↓
-10 Projects
-        ↓
-11 About
-        ↓
-12 Final CTA
-        ↓
-13 Footer
-        ↓
-14 Wave Integration
-        ↓
-15 Responsive QA
-        ↓
-16 Accessibility
-        ↓
-17 Performance
-        ↓
-18 SEO
-        ↓
-19 Content Review
-        ↓
-20 Visual QA
-        ↓
-21 Technical QA
-        ↓
-22 Browser QA
-        ↓
-23 Lighthouse
-        ↓
-24 Vercel Preview
-        ↓
-25 Production
-```
+A direção atual é considerada suficientemente sólida para desenvolvimento.
+
+Refinamentos devem acontecer através de:
+
+- implementação;
+- observação;
+- QA;
+- feedback;
+- iteração.
+
+O objetivo é evoluir uma identidade consistente.
+
+Não buscar infinitamente uma imagem conceitual perfeita antes de construir.
 
 ---
 
-# 44. Current Progress
+# Hierarquia de decisão
 
-Use this section to track high-level implementation progress.
+Quando houver conflito:
 
-```text
-Documentation        [ ]
-Foundation           [ ]
-Design System        [ ]
-Base Components      [ ]
-Motion Foundation    [ ]
-Header               [ ]
-Hero                 [ ]
-Solutions            [ ]
-Process              [ ]
-Technology           [ ]
-Projects             [ ]
-About                [ ]
-Final CTA             [ ]
-Footer               [ ]
-Wave Integration     [ ]
-Responsive QA        [ ]
-Accessibility        [ ]
-Performance          [ ]
-SEO                  [ ]
-Content Review       [ ]
-Visual QA            [ ]
-Technical QA         [ ]
-Browser QA           [ ]
-Lighthouse           [ ]
-Vercel Preview       [ ]
-Production           [ ]
-```
+1. solicitação atual explicitamente aprovada;
+2. direção visual mais recente aprovada;
+3. `DESIGN-SYSTEM.md`;
+4. `MOTION-GUIDELINES.md`;
+5. `PROJECT-BRIEF.md`;
+6. wireframes ainda relevantes;
+7. implementação existente;
+8. defaults de bibliotecas.
 
-Update this list only when a phase has actually been validated.
+A implementação antiga não deve bloquear uma decisão mais recente documentada.
 
 ---
 
-# 45. Final Rule
+# Princípios finais
 
-When choosing between:
+> Implementar bem a fase atual é mais importante do que implementar mais fases.
 
-```text
-implementing more
-```
+> Conteúdo antes do efeito.
 
-and:
+> Tecnologia é o meio. O resultado é o que importa.
 
-```text
-implementing the current scope properly
-```
+> Identidade está nos detalhes.
 
-always choose:
+> A Next Wave não representa o mar. Ela se comporta como ele.
 
-> **Implement the current scope properly.**
+> Cada ideia tem seu próprio fluxo.
 
-The objective is not to generate the website as quickly as possible.
+---
 
-The objective is to build a polished Next Wave Solutions experience incrementally, with visual fidelity, maintainable code and production quality.
+# Regra final
+
+Não avançar escopo sem autorização.
+
+Ao concluir uma fase:
+
+1. validar;
+2. reportar;
+3. parar.
+
+A próxima fase começa somente quando houver decisão explícita para continuar.

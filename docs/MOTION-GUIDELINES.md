@@ -1,1368 +1,1410 @@
 # Next Wave Solutions — Motion Guidelines
 
-> Motion and interaction guidelines for the Next Wave Solutions website.
+## 1. Objetivo
+
+Motion é parte importante da identidade da Next Wave Solutions.
+
+Entretanto:
+
+> Movimento não significa quantidade de animação.
+
+Motion deve contribuir para:
+
+- narrativa;
+- continuidade;
+- feedback;
+- hierarquia;
+- personalidade;
+- percepção de qualidade;
+- sensação de fluidez;
+- conexão entre elementos.
+
+Nunca deve competir com o conteúdo.
+
+A experiência precisa continuar bonita, compreensível e funcional mesmo sem animações.
 
 ---
 
-## 1. Purpose
+## 2. Conceito de movimento
 
-Motion is a core part of the Next Wave Solutions digital identity.
+O comportamento do movimento é inspirado no mar.
 
-The website should feel:
+Não através da representação literal de água.
 
-- premium
-- technological
-- fluid
-- responsive
-- modern
-- interactive
-- memorable
+Mas através de:
 
-Animations must reinforce the brand and help tell the story of the page.
+- fluxo;
+- inércia;
+- aceleração;
+- desaceleração;
+- continuidade;
+- calmaria;
+- intensidade;
+- transformação;
+- adaptação;
+- retorno ao equilíbrio.
 
-They must never exist only because an animation looks interesting.
+Princípio fundamental:
 
-The experience should communicate:
+> A Next Wave não representa o mar. Ela se comporta como ele.
 
-> Technology in motion. Ideas evolving into solutions.
-
-The website itself should demonstrate the level of design and engineering
-that Next Wave Solutions can deliver to its clients.
-
----
-
-# 2. Core Motion Principle
-
-Every animation must have at least one purpose:
-
-1. Guide attention
-2. Communicate hierarchy
-3. Provide interaction feedback
-4. Reinforce the Next Wave brand
-5. Connect sections
-6. Explain progression
-7. Improve perceived quality
-
-If an animation accomplishes none of these goals, it should probably not exist.
-
-Avoid animation overload.
-
-The desired feeling is:
-
-> Sophisticated motion, not visual chaos.
+A inspiração marítima deve ser percebida mais pelo comportamento da interface do que pela presença de elementos marítimos.
 
 ---
 
-# 3. The Wave
+## 3. Filosofia
 
-The Wave is the primary motion element of the website.
+A experiência deve possuir momentos de:
 
-It is not a decorative background.
+- silêncio;
+- movimento;
+- intensidade;
+- repouso.
 
-It represents the transformation journey:
+Não animar tudo simultaneamente.
 
-Idea  
-↓  
-Discovery  
-↓  
-Planning  
-↓  
-Design  
-↓  
-Code  
-↓  
-Product  
-↓  
-Evolution
+O contraste entre elementos estáticos e elementos em movimento aumenta o impacto das animações importantes.
 
-The Wave should visually connect the entire experience.
+Uma página onde tudo se move o tempo inteiro perde hierarquia.
+
+Princípio:
+
+> Se tudo se move, nada parece importante.
 
 ---
 
-# 4. Wave Behavior
+## 4. Motion como identidade
 
-The Wave should feel alive.
+A personalidade da Next Wave deve aparecer principalmente em pequenas decisões de movimento.
 
-It may:
+Isso inclui:
 
-- flow through sections
-- react subtly to scroll
-- change shape
-- move vertically and horizontally
-- glow
-- reveal content
-- connect process steps
-- transition between purple and green
-- react subtly to pointer movement
-- carry particles or light points
+- como elementos entram;
+- como botões respondem;
+- como linhas se transformam;
+- como a Wave se comporta;
+- como seções se conectam;
+- como Light e Dark se alternam;
+- como estados mudam.
 
-However, movement must remain smooth and controlled.
+O objetivo não é criar efeitos espetaculares em todos os momentos.
 
-Avoid:
-
-- aggressive movement
-- fast oscillations
-- excessive distortion
-- distracting looping
-- random movement without purpose
+O objetivo é fazer interações simples parecerem cuidadosamente construídas.
 
 ---
 
-# 5. Wave Color Progression
+## 5. Wave
 
-The Wave follows the official brand gradient.
+A Wave é o principal elemento proprietário de motion da Next Wave.
 
-Start:
+Ela representa:
 
-```text
-Purple
-#8B5CF6
-```
+- movimento;
+- transformação;
+- continuidade;
+- adaptação;
+- evolução;
+- fluxo.
 
-Transition:
+Ela pode:
 
-```text
-Purple
-↓
-Blue / Cyan transition
-↓
-Green
-```
+- atravessar partes da página;
+- conectar elementos;
+- reagir ao scroll;
+- transformar sua forma;
+- dividir-se;
+- convergir;
+- desaparecer;
+- reaparecer;
+- responder discretamente ao ponteiro;
+- funcionar como underline;
+- funcionar como trajetória;
+- funcionar como transição;
+- revelar conteúdo.
 
-End:
+Ela não precisa existir visualmente em todas as seções.
 
-```text
-Green
-#10B981
-```
-
-Conceptually:
-
-```text
-IDEA                                      EVOLUTION
-
-🟣 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 🟢
-```
-
-The color progression reinforces the transformation from an initial idea
-into an evolved digital product.
+Às vezes sua presença pode ser apenas sugerida pelo comportamento de outros elementos.
 
 ---
 
-# 6. Global Wave Journey
+## 6. Wave não significa oceano
 
-The Wave should evolve throughout the website.
+A animação da Wave não deve tentar simular água realista.
 
-## Hero
+Evitar:
 
-Role:
+- ondas oceânicas realistas em todas as seções;
+- física exagerada de água;
+- splash;
+- bolhas;
+- espuma;
+- efeitos aquáticos literais.
 
-**Birth of the Wave**
+A Wave deve permanecer abstrata.
 
-Behavior:
-
-- subtle ambient movement
-- slow flowing motion
-- subtle glow
-- possible pointer reaction
-- particles may appear around it
-- must not compete with the H1
-
-The Wave should immediately establish the visual identity of the website.
+Sua inspiração vem do comportamento natural do movimento.
 
 ---
 
-## Solutions
+## 7. Intensidade narrativa
 
-Role:
+A página deve possuir ritmo.
 
-**The Wave enters the solution ecosystem**
+A intensidade de motion pode variar conforme a seção.
 
-Behavior:
+### Hero
 
-- travels through the background
-- may interact visually with service cards
-- glow may increase near interactive elements
-- remains secondary to content
+Intensidade:
 
-The Wave should visually connect the Hero with the Solutions section.
+> média.
 
----
+O visitante deve perceber imediatamente que existe algo especial.
 
-## Process — "Como Trabalhamos"
+Entretanto, não deve ser bombardeado por efeitos.
 
-Role:
+Possibilidades:
 
-**The Wave becomes the protagonist**
-
-This is the most important Wave interaction on the website.
-
-The Wave connects:
-
-```text
-01
-Entendemos
-
-      02
-      Planejamos
-
-             03
-             Desenvolvemos
-
-                      04
-                      Entregamos
-
-                               05
-                               Evoluímos
-```
-
-The SVG path should progressively reveal as the user scrolls.
-
-Preferred implementation:
-
-```text
-SVG Path
-+
-Motion
-+
-scrollYProgress
-+
-pathLength
-```
-
-Conceptually:
-
-```text
-scroll = 0%
-
-●
-
-
-scroll = 25%
-
-● ~~~~~~~~~
-
-
-scroll = 50%
-
-● ~~~~~~~~~~~~~~~~~~~~
-
-
-scroll = 75%
-
-● ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-scroll = 100%
-
-● ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ●
-```
-
-Each process step may become active when the Wave reaches it.
-
-Possible state progression:
-
-```text
-INACTIVE
-↓
-APPROACHING
-↓
-ACTIVE
-↓
-COMPLETED
-```
-
-Active states may receive:
-
-- glow
-- stronger color
-- subtle scale
-- icon illumination
-
-Completed states should remain visible but less visually dominant than
-the current step.
+- Wave em movimento suave;
+- pequena transformação tipográfica;
+- reveal;
+- interação sutil com pointer;
+- mudança delicada de profundidade.
 
 ---
 
-# 7. Technology Section
+### Solutions
 
-Role:
+Intensidade:
 
-**The Wave becomes environmental again**
+> baixa.
 
-The technology content is the protagonist.
+Conteúdo e compreensão são protagonistas.
 
-The Wave should:
+Motion deve ajudar principalmente em:
 
-- remain visible
-- move slowly
-- reinforce depth
-- provide visual continuity
-
-Avoid making technology logos move excessively.
-
-Technology cards may react individually to pointer interaction.
+- hover;
+- reveal;
+- transição;
+- feedback.
 
 ---
 
-# 8. Projects Section
+### Process
 
-Role:
+Intensidade:
 
-**The Wave guides exploration**
+> média / alta.
 
-The Wave may help visually connect project cards.
+Essa é uma das principais oportunidades para a Wave assumir papel narrativo.
 
-Possible interactions:
+O movimento pode representar progressão:
 
-- horizontal movement
-- carousel transitions
-- subtle parallax
-- image reveal
-- card depth
-- directional movement
+```text
+IDEIA
+  ↓
+ENTENDEMOS
+  ↓
+PLANEJAMOS
+  ↓
+DESENVOLVEMOS
+  ↓
+ENTREGAMOS
+  ↓
+EVOLUÍMOS
+```
 
-The Wave should reinforce the direction in which projects are explored.
-
-Do not create fake case studies or metrics for visual purposes.
+A intensidade pode aumentar e depois retornar ao equilíbrio.
 
 ---
 
-# 9. About Section
+### Technology
 
-Role:
+Intensidade:
 
-**The Wave represents partnership and continuity**
+> baixa / média.
 
-Motion should become slightly calmer here.
+O movimento deve demonstrar refinamento.
 
-The section should feel:
+Não complexidade.
 
-- confident
-- human
-- stable
-- trustworthy
-
-Use slower motion and subtle depth.
-
-Avoid excessive interaction.
+Evitar transformar a seção em demonstração de efeitos tecnológicos.
 
 ---
 
-# 10. Final CTA
+### Projects
 
-Role:
+Intensidade:
 
-**The Wave completes its journey**
+> média.
 
-This section should visually close the experience.
+Motion deve ajudar a explorar o trabalho.
 
-The purple and green Wave elements may converge around the CTA.
+Possibilidades:
 
-Main message:
+- imagem reagindo ao hover;
+- transições editoriais;
+- pequenas mudanças de escala;
+- reveal;
+- movimento de metadata;
+- mudanças sutis de enquadramento.
 
-```text
-Ready for the next wave?
-```
-
-The Wave should visually guide attention toward:
-
-```text
-Falar com a Next Wave
-```
-
-This should feel like the natural conclusion of the entire page.
-
-The Wave started as an idea and finishes as an invitation.
+O projeto continua sendo protagonista.
 
 ---
 
-# 11. Motion Technology
+### About
 
-Preferred animation stack:
+Intensidade:
 
-```text
-Motion
-React Bits
-CSS
-SVG
-```
+> baixa.
 
-Use Motion as the primary animation engine.
+A seção deve respirar.
 
-React Bits may be used for specific visual effects when appropriate.
-
-Examples:
-
-- particles
-- spotlight
-- magnetic interaction
-- gradient effects
-- text effects
-- hover effects
-
-Do not install another animation library unless there is a clear technical
-reason that cannot reasonably be solved with the existing stack.
+Motion pode ser mais humano, lento e discreto.
 
 ---
 
-# 12. Server vs Client Components
+### Final CTA
 
-Animations must not cause the entire page to become a Client Component.
+Intensidade:
 
-Prefer:
+> média.
 
-```text
-Server Component
-    ↓
-Static semantic content
-    ↓
-Small Client Component
-    ↓
-Animation / interaction
-```
+A Wave pode ganhar novamente maior presença para fechar a narrativa.
 
-Example:
+O efeito deve conduzir para a ação.
 
-```text
-HeroSection (Server)
-│
-├── HeroContent
-│
-├── CTA
-│
-└── HeroWave (Client)
-```
-
-Avoid:
-
-```text
-"use client"
-
-Entire Home Page
-```
-
-unless there is an exceptional technical reason.
+Não competir com ela.
 
 ---
 
-# 13. Scroll Animations
+## 8. Entrada inicial
 
-Scroll-driven animations are encouraged.
+Não utilizar intro obrigatória.
 
-Use them for:
+Não bloquear acesso ao site para mostrar:
 
-- Wave progression
-- section reveals
-- parallax
-- process progression
-- subtle transforms
-- visual storytelling
+- logo;
+- loader;
+- vídeo;
+- animação institucional.
 
-Avoid tying every element directly to scroll position.
+O conteúdo deve estar disponível imediatamente.
 
-The user should never feel that scrolling is fighting the interface.
+Uma entrada inicial pode utilizar:
 
----
+- opacity;
+- pequeno translate;
+- stagger curto;
+- Wave entrando discretamente.
 
-# 14. Scroll Hijacking
-
-Do NOT implement aggressive scroll hijacking.
-
-Normal browser scrolling must remain functional.
-
-Avoid:
-
-- forced scroll positions
-- blocking scroll
-- excessive snap behavior
-- artificial scroll speed
-- long pinned sections without strong justification
-
-Sticky or pinned experiences may be used sparingly when they clearly improve
-the storytelling.
+Nunca atrasar artificialmente o visitante.
 
 ---
 
-# 15. Section Reveal
+## 9. Reveal
 
-Sections may reveal progressively when entering the viewport.
+Reveals devem ser sutis.
 
-Preferred pattern:
+Preferir:
+
+- opacity;
+- translateY pequeno;
+- translateX pequeno quando conceitualmente apropriado;
+- clip;
+- mask;
+- pequenas mudanças de blur apenas quando performáticas.
+
+Evitar:
+
+- grandes deslocamentos;
+- bounce;
+- elementos voando;
+- rotações exageradas;
+- delays longos.
+
+Faixa recomendada:
 
 ```text
-opacity
-+
-small translateY
-+
-stagger
+400–800ms
 ```
-
-Example:
-
-```text
-opacity: 0 → 1
-
-translateY: 20px → 0
-```
-
-Avoid large movements such as:
-
-```text
-translateY: 200px
-```
-
-Content should feel like it naturally enters the experience.
 
 ---
 
-# 16. Text Reveal
+## 10. Distância de reveal
 
-Large headings may use:
+Quando utilizar translate, manter distância pequena.
 
-- mask reveal
-- line reveal
-- word stagger
-- gradient reveal
-- subtle blur-to-sharp transition
+Direção conceitual:
 
-Do not animate every paragraph.
+```text
+8–32px
+```
 
-Body text should prioritize readability.
+Não transformar cada reveal em uma entrada dramática.
 
-Hero and major section headings may receive stronger motion treatments.
+Quanto mais frequente o comportamento, mais discreto ele deve ser.
 
 ---
 
-# 17. Stagger
+## 11. Stagger
 
-Stagger is encouraged for grouped content.
+Stagger pode ajudar a revelar grupos.
 
-Examples:
-
-```text
-Service cards
-
-01 → 02 → 03 → 04
-```
-
-or:
+Faixa recomendada:
 
 ```text
-Technology badges
-
-React
-   ↓
-Next.js
-   ↓
-TypeScript
+40–120ms
 ```
 
-Recommended stagger range:
+Pode ser utilizado em:
 
-```text
-40ms – 120ms
-```
+- listas;
+- pequenos grupos;
+- etapas;
+- labels;
+- itens de navegação.
 
-Avoid extremely long stagger sequences.
-
-The user should not have to wait for content to become available.
+Evitar sequências longas que atrasem acesso ao conteúdo.
 
 ---
 
-# 18. Cards
+## 12. Easing
 
-Interactive cards may use:
+Movimentos devem parecer naturais.
 
-- subtle scale
-- border glow
-- spotlight
-- slight elevation
-- gradient border
-- small tilt
-- icon movement
+Preferir curvas suaves.
 
-Recommended scale:
-
-```text
-1 → 1.01 / 1.02
-```
-
-Avoid aggressive scale effects.
-
-Do not use:
-
-```text
-1 → 1.1
-```
-
-for standard cards.
-
----
-
-# 19. Spotlight
-
-Spotlight effects may follow pointer position inside cards.
-
-Preferred behavior:
-
-- subtle
-- localized
-- gradient based
-- disappears smoothly when pointer leaves
-
-The effect should reinforce interactivity without reducing text contrast.
-
----
-
-# 20. Card Tilt
-
-Tilt may be used on selected high-value components.
-
-Maximum recommended tilt:
-
-```text
-2deg – 4deg
-```
-
-Avoid dramatic 3D rotations.
-
-Cards should remain easy to read.
-
-Mobile devices should not depend on tilt interactions.
-
----
-
-# 21. Magnetic Buttons
-
-Primary CTAs may use a subtle magnetic interaction.
-
-Examples:
-
-```text
-Falar com a Next Wave
-Conheça nossas soluções
-```
-
-Movement should remain small.
-
-Recommended displacement:
-
-```text
-4px – 8px
-```
-
-The button should never feel difficult to click.
-
-Disable magnetic behavior on touch devices.
-
----
-
-# 22. Buttons
-
-Button states must include:
-
-```text
-default
-hover
-focus
-active
-disabled
-```
-
-Hover may use:
-
-- subtle glow
-- gradient movement
-- slight elevation
-- arrow movement
-
-Example:
-
-```text
-Falar com a Next Wave    →
-                           ↗
-```
-
-Keep interactions fast and responsive.
-
----
-
-# 23. Cursor Interaction
-
-Pointer-based effects may be used sparingly.
-
-Possible examples:
-
-- spotlight
-- particle attraction
-- subtle Wave displacement
-- magnetic CTA
-- card tilt
-
-Do not replace the native cursor globally unless there is a strong UX reason.
-
-Never make important functionality depend on pointer position.
-
----
-
-# 24. Particles
-
-Particles should create atmosphere.
-
-They must remain secondary.
-
-Preferred characteristics:
-
-```text
-small
-slow
-low opacity
-low density
-brand colors
-```
-
-Particles may react subtly to pointer movement.
-
-Avoid:
-
-- particle explosions
-- high density
-- fast movement
-- particles over important text
-- large CPU/GPU usage
-
----
-
-# 25. Parallax
-
-Parallax may be used to create depth.
-
-Possible layers:
-
-```text
-background
-Wave
-particles
-content
-foreground details
-```
-
-Movement differences should be subtle.
-
-Avoid creating motion sickness or making text difficult to track.
-
----
-
-# 26. Animation Timing
-
-Microinteractions:
-
-```text
-120ms – 250ms
-```
-
-UI transitions:
-
-```text
-200ms – 400ms
-```
-
-Section reveals:
-
-```text
-400ms – 800ms
-```
-
-Large atmospheric animations:
-
-```text
-1s – 3s+
-```
-
-Ambient Wave movement may run continuously at a very slow speed.
-
----
-
-# 27. Easing
-
-Preferred easing should feel smooth and premium.
-
-Good general choices:
-
-```text
-ease-out
-ease-in-out
-```
-
-For Motion, spring animations may be used for interactive elements.
-
-Springs should be controlled.
-
-Avoid overly elastic or cartoon-like springs.
-
-The Next Wave brand should feel technological, not playful.
-
----
-
-# 28. Hover States
-
-Hover interactions should provide immediate feedback.
-
-Possible effects:
-
-```text
-glow
-border highlight
-icon movement
-small translation
-small scale
-gradient shift
-```
-
-Avoid combining all effects at once.
-
-One or two effects are usually enough.
-
----
-
-# 29. Mobile Motion
-
-Mobile must receive its own motion strategy.
-
-Do not simply reproduce desktop interactions.
-
-Remove interactions that depend on:
-
-```text
-hover
-pointer tracking
-cursor position
-large parallax
-complex tilt
-```
-
-Prefer:
-
-```text
-scroll reveal
-Wave progression
-tap feedback
-subtle transitions
-small parallax
-```
-
-Performance is more important on mobile.
-
----
-
-# 30. Reduced Motion
-
-The website MUST respect:
+Direção conceitual:
 
 ```css
-@media (prefers-reduced-motion: reduce)
+cubic-bezier(0.22, 1, 0.36, 1)
 ```
 
-When reduced motion is enabled:
+ou equivalentes adequados ao contexto.
 
-Disable or simplify:
+Não transformar uma única curva em regra absoluta.
 
-- parallax
-- magnetic interactions
-- pointer-following effects
-- large Wave movement
-- animated particles
-- complex transitions
-- unnecessary transforms
+Diferentes interações podem exigir diferentes respostas.
 
-The Wave may remain visually present as a static brand element.
-
-Content must remain completely accessible.
+Evitar easing excessivamente elástico como padrão.
 
 ---
 
-# 31. Accessibility
+## 13. Timing
 
-Animation must never:
+Direção geral:
 
-- hide essential information permanently
-- prevent keyboard navigation
-- interfere with focus
-- create flashing effects
-- make text unreadable
-- block interaction
-- require precise pointer movement
+### Microinterações
 
-Focus indicators must remain clearly visible.
+```text
+120–250ms
+```
+
+### UI transitions
+
+```text
+200–400ms
+```
+
+### Reveals
+
+```text
+400–800ms
+```
+
+### Storytelling / Wave
+
+```text
+800ms–3000ms+
+```
+
+Movimentos atmosféricos podem ser mais lentos quando não bloqueiam interação.
 
 ---
 
-# 32. Performance
+## 14. Microinterações
 
-Motion must not significantly degrade performance.
+Microinterações são um dos principais locais onde a personalidade da Next Wave deve aparecer.
 
-Prioritize:
+Exemplos:
+
+- seta que responde ao hover;
+- underline com comportamento de Wave;
+- pequena deformação de linha;
+- mudança sutil de trajetória;
+- botão com movimento interno;
+- Theme Toggle com transição proprietária;
+- ícone com pequena resposta física;
+- label reagindo ao estado;
+- pequenas mudanças de spacing;
+- linha que se reorganiza.
+
+Esses detalhes devem ser descobertos naturalmente.
+
+---
+
+## 15. Hover
+
+Hover deve oferecer feedback.
+
+Permitido:
+
+- pequena alteração de escala;
+- translate;
+- border;
+- surface;
+- underline;
+- mudança controlada de cor;
+- movimento interno;
+- mudança de enquadramento de imagem.
+
+Escala recomendada quando utilizada:
+
+```text
+1.01–1.02
+```
+
+Evitar elementos "pulando".
+
+---
+
+## 16. Hover não é requisito
+
+Toda interação deve continuar compreensível sem hover.
+
+Isso é especialmente importante para:
+
+- touch;
+- mobile;
+- teclado;
+- acessibilidade.
+
+Hover é uma camada adicional.
+
+Nunca a única forma de revelar informação essencial.
+
+---
+
+## 17. Magnetic interactions
+
+Podem existir em CTAs importantes.
+
+Movimento máximo recomendado:
+
+```text
+4–8px
+```
+
+A interação deve permanecer previsível.
+
+Nunca dificultar o clique.
+
+Desabilitar ou simplificar em:
+
+- touch devices;
+- reduced motion;
+- dispositivos onde pointer tracking não faça sentido.
+
+Não utilizar magnetic behavior em todos os botões.
+
+---
+
+## 18. Tilt
+
+Tilt não é comportamento padrão.
+
+Quando utilizado:
+
+```text
+2–4deg
+```
+
+Reservar para elementos específicos.
+
+Possíveis contextos:
+
+- projeto;
+- mockup;
+- elemento gráfico.
+
+Evitar em:
+
+- texto;
+- navegação;
+- todos os cards.
+
+---
+
+## 19. Parallax
+
+Parallax deve ser discreto.
+
+Seu objetivo é criar profundidade.
+
+Não criar sensação de scroll artificial.
+
+Evitar diferenças exageradas de velocidade.
+
+Nunca utilizar scroll hijacking.
+
+O usuário controla o scroll.
+
+---
+
+## 20. Scroll-driven motion
+
+Motion pode responder ao progresso do scroll.
+
+Exemplos:
+
+- Wave;
+- progressão do Process;
+- pequenas transformações;
+- mudanças de posição;
+- máscaras;
+- progress indicators.
+
+Quando utilizar algo equivalente a:
+
+```text
+scrollYProgress
+```
+
+evitar atualizar React state continuamente.
+
+Preferir APIs e abstrações adequadas para animação.
+
+---
+
+## 21. Scroll hijacking
+
+É proibido como padrão.
+
+Não:
+
+- substituir scroll natural;
+- prender o usuário em seções sem necessidade;
+- exigir múltiplos scrolls para avançar uma animação;
+- alterar artificialmente velocidade do scroll.
+
+Experiências especiais precisam de justificativa clara antes de introduzir qualquer comportamento semelhante.
+
+---
+
+## 22. Partículas
+
+Partículas podem existir.
+
+Não são elemento permanente da identidade.
+
+Se utilizadas:
+
+- quantidade baixa;
+- contraste baixo;
+- função visual clara;
+- custo de performance controlado;
+- comportamento sutil.
+
+Evitar partículas como sinônimo automático de tecnologia.
+
+Partículas não devem fazer o site parecer:
+
+- cyberpunk;
+- sci-fi;
+- gamer;
+- demo de WebGL.
+
+---
+
+## 23. Gradientes animados
+
+Permitidos somente quando agregarem valor.
+
+Possíveis usos:
+
+- Wave;
+- pequeno detalhe;
+- estado especial;
+- CTA;
+- transição.
+
+Evitar grandes superfícies com gradiente constantemente animado.
+
+A animação não deve chamar mais atenção que o conteúdo.
+
+---
+
+## 24. Glow animado
+
+Glow deve ser raro.
+
+Quando existir:
+
+- amplitude pequena;
+- blur controlado;
+- baixo contraste;
+- área limitada.
+
+Evitar:
+
+- pulsação constante em muitos elementos;
+- cards iluminados;
+- textos brilhantes;
+- backgrounds neon.
+
+---
+
+## 25. Cursor
+
+O cursor padrão deve continuar funcional.
+
+Interações podem reagir ao ponteiro.
+
+Exemplos:
+
+- pequena deformação;
+- movimento de uma linha;
+- deslocamento de um detalhe;
+- mudança de profundidade.
+
+Não exigir cursor customizado.
+
+Nunca esconder o cursor nativo apenas por estética.
+
+---
+
+## 26. Pointer interaction
+
+Pointer-following deve ser utilizado com extremo cuidado.
+
+Se utilizado:
+
+- amplitude pequena;
+- baixo custo;
+- apenas desktop com pointer adequado;
+- sem React state por frame;
+- desabilitado em reduced motion.
+
+A interação deve ser percebida como detalhe.
+
+Não como efeito principal da página.
+
+---
+
+## 27. Typography Motion
+
+Texto pode participar do motion.
+
+Possibilidades:
+
+- reveal por linha;
+- reveal por palavra;
+- mask;
+- tracking;
+- pequenas mudanças de posição;
+- interferência sutil da Wave.
+
+Evitar:
+
+- animação individual de todas as letras;
+- texto constantemente se movendo;
+- efeitos que dificultem leitura.
+
+Conteúdo primeiro.
+
+---
+
+## 28. Images Motion
+
+Imagens podem possuir:
+
+- reveal;
+- clip;
+- pequenas mudanças de escala;
+- mudança de enquadramento;
+- parallax discreto;
+- hover editorial.
+
+Evitar efeitos que façam projetos parecerem instáveis.
+
+O conteúdo visual deve permanecer legível.
+
+---
+
+## 29. Cards Motion
+
+Quando cards existirem, o hover pode utilizar:
+
+- pequena mudança de superfície;
+- border;
+- translate;
+- escala mínima;
+- movimento de ícone;
+- reveal de detalhe.
+
+Não utilizar simultaneamente:
+
+- scale;
+- tilt;
+- glow;
+- blur;
+- parallax;
+- partículas;
+
+em um único card sem motivo excepcional.
+
+---
+
+## 30. Buttons Motion
+
+Botões devem responder rapidamente.
+
+Possibilidades:
+
+- deslocamento de seta;
+- alteração de background;
+- pequena mudança de scale;
+- underline;
+- Wave discreta;
+- movimento interno.
+
+Feedback deve ser imediato.
+
+Nunca adicionar delays que façam a interface parecer lenta.
+
+---
+
+## 31. Links Motion
+
+Links podem utilizar uma assinatura própria.
+
+Exemplo:
+
+uma linha inicialmente reta pode adquirir uma pequena curva semelhante à Wave durante hover/focus.
+
+Isso pode se tornar uma microinteração característica da marca.
+
+A implementação deve continuar simples e acessível.
+
+---
+
+## 32. Theme Transition
+
+A troca Light/Dark pode possuir uma transição própria.
+
+Objetivos:
+
+- continuidade;
+- personalidade;
+- sensação de cuidado.
+
+A Wave pode participar da transição se isso puder ser implementado sem complexidade excessiva.
+
+Possibilidades:
+
+- pequeno sweep;
+- mudança localizada;
+- transformação de linha;
+- transição de surface.
+
+Evitar:
+
+- animações longas;
+- flash;
+- bloquear interação;
+- transição cinematográfica a cada troca.
+
+---
+
+## 33. Theme Transition e reduced motion
+
+Quando `prefers-reduced-motion: reduce` estiver ativo, a troca de tema deve acontecer praticamente de forma imediata.
+
+Não executar sweep ou transformações significativas.
+
+---
+
+## 34. Loading
+
+Não criar loading visual onde não existe necessidade técnica.
+
+Não utilizar loaders apenas para mostrar animação.
+
+Quando loading real existir, preferir:
+
+- skeleton;
+- progress;
+- feedback contextual.
+
+A interface deve comunicar claramente o estado.
+
+---
+
+## 35. Navigation Motion
+
+O Header pode possuir pequenas mudanças conforme scroll.
+
+Exemplos:
+
+- ganhar surface;
+- ganhar border;
+- reduzir levemente;
+- mudar contraste.
+
+Essas mudanças devem ser suaves.
+
+Evitar Header constantemente se movendo.
+
+---
+
+## 36. Mobile Navigation
+
+A navegação mobile pode possuir uma entrada própria.
+
+Priorizar:
+
+- velocidade;
+- clareza;
+- acessibilidade.
+
+Evitar menus excessivamente cinematográficos.
+
+O usuário abriu o menu para navegar.
+
+Não para assistir uma animação.
+
+---
+
+## 37. Section transitions
+
+Seções podem possuir pequenas relações visuais entre si.
+
+Isso pode acontecer através de:
+
+- Wave;
+- linha;
+- cor;
+- movimento;
+- continuidade de um elemento;
+- mudança de densidade.
+
+Não é necessário criar uma transição explícita entre todas as seções.
+
+---
+
+## 38. Light Mode Motion
+
+No tema claro, motion deve permanecer delicado.
+
+Evitar compensar o fundo claro adicionando mais efeitos.
+
+A identidade pode aparecer através de:
+
+- pequenas transformações;
+- linhas;
+- Wave;
+- tipografia;
+- microinterações.
+
+---
+
+## 39. Dark Mode Motion
+
+Dark Mode deve utilizar os mesmos princípios.
+
+Não aumentar automaticamente:
+
+- glow;
+- partículas;
+- neon;
+- gradientes.
+
+Dark não significa mais efeitos.
+
+---
+
+## 40. Motion Stack
+
+Prioridade de implementação:
+
+1. CSS;
+2. SVG;
+3. Motion;
+4. bibliotecas adicionais somente quando justificadas.
+
+Utilizar a solução mais simples capaz de entregar a experiência desejada.
+
+---
+
+## 41. CSS
+
+CSS deve ser preferido para:
+
+- hover;
+- focus;
+- transições simples;
+- pequenas animações;
+- transforms;
+- opacity;
+- Theme transitions simples.
+
+Não utilizar JavaScript para algo que CSS resolve adequadamente.
+
+---
+
+## 42. SVG
+
+SVG é recomendado para:
+
+- Wave;
+- paths;
+- máscaras;
+- linhas;
+- progressões;
+- elementos gráficos vetoriais.
+
+SVG provavelmente será uma das principais ferramentas visuais da Next Wave.
+
+---
+
+## 43. Motion
+
+Motion pode ser utilizado quando houver necessidade de:
+
+- scroll progress;
+- spring;
+- orchestration;
+- shared state de animação;
+- gestures;
+- animações mais complexas.
+
+Não instalar ou utilizar apenas para fazer `opacity: 0 → 1`.
+
+---
+
+## 44. React Bits
+
+React Bits pode ser utilizado como:
+
+- referência;
+- ponto de partida;
+- implementação específica.
+
+Não utilizar componentes sem adaptação.
+
+Todo efeito precisa parecer pertencente à Next Wave.
+
+O site nunca deve parecer uma galeria do React Bits.
+
+---
+
+## 45. Canvas
+
+Canvas não é solução padrão.
+
+Utilizar somente quando SVG/CSS não forem adequados.
+
+Antes de escolher Canvas, avaliar:
+
+- performance;
+- acessibilidade;
+- manutenção;
+- mobile;
+- reduced motion.
+
+---
+
+## 46. WebGL
+
+WebGL não é solução padrão.
+
+Somente utilizar se existir ganho visual significativo e justificável.
+
+A experiência não precisa de 3D ou shaders para possuir personalidade.
+
+---
+
+## 47. Server / Client
+
+Server Components continuam padrão.
+
+Adicionar `"use client"` somente quando interação realmente exigir.
+
+Componentes de motion devem possuir escopo pequeno.
+
+Não transformar a página inteira em Client Component por conveniência.
+
+---
+
+## 48. React State
+
+Não atualizar React state continuamente para:
+
+- scroll;
+- mouse position;
+- animation frame;
+
+quando isso puder ser resolvido por:
+
+- CSS;
+- Motion Values;
+- refs;
+- browser APIs;
+- outras abordagens fora do ciclo de render.
+
+---
+
+## 49. Performance
+
+Priorizar animação de:
 
 ```text
 transform
 opacity
 ```
 
-Avoid frequently animating:
+Usar com cuidado:
+
+- filter;
+- blur;
+- backdrop-filter;
+- box-shadow;
+- clip-path complexo.
+
+Evitar propriedades que causem layout contínuo.
+
+---
+
+## 50. will-change
+
+Não aplicar `will-change` indiscriminadamente.
+
+Utilizar somente quando houver benefício real.
+
+Uso excessivo pode aumentar consumo de memória.
+
+---
+
+## 51. Mobile
+
+Mobile deve possuir estratégia própria.
+
+Pode:
+
+- reduzir quantidade de elementos;
+- remover parallax;
+- remover pointer interactions;
+- simplificar Wave;
+- reduzir partículas;
+- reduzir blur;
+- diminuir amplitude de movimento;
+- reduzir quantidade de reveals.
+
+Não tentar reproduzir obrigatoriamente desktop.
+
+---
+
+## 52. Touch
+
+Interações não devem depender de hover.
+
+Em touch:
+
+- remover magnetic behavior;
+- remover pointer-following;
+- simplificar tilt;
+- preservar feedback de toque;
+- manter CTAs previsíveis.
+
+---
+
+## 53. Reduced Motion
+
+`prefers-reduced-motion` é obrigatório.
+
+Quando ativo:
+
+- remover movimentos contínuos;
+- remover parallax;
+- remover pointer-following;
+- reduzir transforms;
+- remover animações decorativas;
+- tornar Wave estática quando necessário;
+- reduzir duração de transições;
+- preservar todo conteúdo.
+
+A experiência deve continuar bonita sem animação.
+
+---
+
+## 54. Reduced Motion não significa quebrar a identidade
+
+A Wave pode continuar existindo visualmente.
+
+A composição continua sendo Next Wave.
+
+O que muda é o comportamento.
+
+Não esconder elementos importantes apenas porque estavam associados a uma animação.
+
+---
+
+## 55. Accessibility
+
+Motion nunca deve:
+
+- impedir leitura;
+- provocar flashes;
+- dificultar foco;
+- deslocar elementos inesperadamente durante interação;
+- esconder conteúdo essencial;
+- tornar navegação imprevisível.
+
+Animações devem respeitar acessibilidade desde a implementação inicial.
+
+---
+
+## 56. Layout Stability
+
+Motion não deve causar layout shift desnecessário.
+
+Reservar espaço para:
+
+- imagens;
+- elementos carregados;
+- componentes dinâmicos.
+
+Preferir transforms em vez de alterar dimensões durante animações.
+
+---
+
+## 57. SEO
+
+Conteúdo importante deve existir semanticamente no HTML.
+
+Não depender de animação ou Canvas para conteúdo indexável.
+
+Motion deve funcionar como progressive enhancement.
+
+---
+
+## 58. Motion Levels
+
+Podemos pensar em três níveis.
+
+### Level 1 — Ambient
+
+Movimentos quase imperceptíveis.
+
+Exemplos:
+
+- Wave lenta;
+- mudança de surface;
+- pequeno deslocamento.
+
+### Level 2 — Interaction
+
+Resposta direta ao usuário.
+
+Exemplos:
+
+- hover;
+- focus;
+- button;
+- card;
+- Theme Toggle.
+
+### Level 3 — Storytelling
+
+Movimentos ligados à narrativa.
+
+Exemplos:
+
+- Process;
+- transformação da Wave;
+- progressão de uma ideia;
+- transição importante.
+
+Level 3 deve ser raro.
+
+---
+
+## 59. Calmaria e intensidade
+
+A identidade deve utilizar contraste.
+
+Uma seção visualmente calma aumenta o impacto da próxima seção mais expressiva.
+
+Evitar manter Level 3 durante toda a página.
+
+O conceito de equilíbrio depende dessa variação.
+
+---
+
+## 60. Tecnologia invisível
+
+Um dos objetivos do motion é fazer o visitante perceber qualidade sem precisar entender a implementação.
+
+O usuário pode pensar:
+
+> "Isso é muito bem feito."
+
+Sem necessariamente pensar:
+
+> "Olha o efeito de SVG pathLength usando scroll progress."
+
+A implementação técnica fica invisível.
+
+O resultado fica evidente.
+
+---
+
+## 61. Teste de necessidade
+
+Antes de adicionar uma animação, perguntar:
+
+1. melhora compreensão?
+2. melhora feedback?
+3. reforça identidade?
+4. melhora narrativa?
+5. aumenta percepção de qualidade?
+
+Se nenhuma resposta for "sim":
+
+> provavelmente não precisamos da animação.
+
+---
+
+## 62. Teste de intensidade
+
+Depois de implementar, perguntar:
+
+> Eu percebi primeiro o conteúdo ou o efeito?
+
+Se o efeito dominar sem motivo narrativo:
+
+> reduzir intensidade.
+
+---
+
+## 63. Teste de repetição
+
+Perguntar:
+
+> Já utilizamos esse comportamento muitas vezes nesta página?
+
+Se sim:
+
+- variar;
+- simplificar;
+- remover.
+
+Uma assinatura perde força quando utilizada em todos os lugares.
+
+---
+
+## 64. Teste de segmento
+
+Perguntar:
+
+> Essa animação faz a Next Wave parecer uma empresa exclusivamente voltada para tecnologia?
+
+Se sim, avaliar se o efeito realmente contribui.
+
+Motion deve demonstrar qualidade técnica.
+
+Não nichar visualmente a empresa.
+
+---
+
+## 65. Teste mobile
+
+Toda animação relevante deve ser avaliada em:
 
 ```text
-width
-height
-top
-left
-large blur values
-complex filters
+320px
+375px
+390px
+430px
+768px
 ```
 
-when a transform-based solution is available.
-
-Be careful with:
-
-- backdrop-filter
-- large blur
-- multiple shadows
-- huge SVG filters
-- large particle counts
-- canvas effects
-- continuous pointer listeners
+Não assumir que comportamento desktop funcionará adequadamente em telas menores.
 
 ---
 
-# 33. GPU Usage
+## 66. QA
 
-Do not promote every element to its own compositor layer.
+Ao finalizar uma experiência com motion, verificar:
 
-Use GPU acceleration intentionally.
-
-Avoid unnecessary:
-
-```css
-will-change: transform;
-```
-
-across large numbers of elements.
-
-Apply it only where it provides measurable benefit.
-
----
-
-# 34. Lazy Loading
-
-Expensive visual effects should load only when needed.
-
-Examples:
-
-```text
-project carousel
-particles
-complex interactive backgrounds
-large visual assets
-```
-
-Consider dynamic imports for expensive Client Components.
+- desktop;
+- mobile;
+- touch;
+- keyboard;
+- reduced motion;
+- Light Mode;
+- Dark Mode;
+- performance;
+- console;
+- overflow;
+- layout shift.
 
 ---
 
-# 35. React Performance
+## 67. Evidências
 
-Avoid triggering React state updates on every scroll or pointer event.
+Quando uma implementação de motion for relevante, screenshots podem não ser suficientes.
 
-Prefer:
+Quando possível, validar diretamente no browser.
 
-- Motion values
-- transforms
-- requestAnimationFrame when necessary
-- CSS variables
-- browser-native APIs
+Evidências estáticas continuam úteis para:
 
-Avoid unnecessary React re-renders.
+- composição;
+- estados;
+- responsividade.
 
----
-
-# 36. Layout Stability
-
-Animations must not cause layout shifts.
-
-Elements should reserve their final layout space before animation.
-
-Avoid content appearing and pushing the rest of the page unexpectedly.
-
-CLS must remain low.
+Não criar evidências falsas.
 
 ---
 
-# 37. Interaction Priority
+## 68. Princípios fundamentais
 
-Not every element should react.
+### Princípio 1
 
-Priority:
+> A Next Wave não representa o mar. Ela se comporta como ele.
 
-```text
-1. Primary CTA
-2. Wave
-3. Main visual elements
-4. Service cards
-5. Project cards
-6. Technology cards
-7. Secondary decoration
-```
+### Princípio 2
 
-This hierarchy prevents the interface from becoming noisy.
+> Movimento não significa quantidade de animação.
 
----
+### Princípio 3
 
-# 38. Animation Intensity
+> Se tudo se move, nada parece importante.
 
-Use three motion levels.
+### Princípio 4
 
-## Level 1 — Ambient
+> Motion melhora uma experiência que já funciona.
 
-Examples:
+### Princípio 5
 
-- particles
-- background gradient
-- slow Wave movement
+> Tecnologia deve ser percebida pela qualidade, não exibida como espetáculo.
 
-Very subtle.
+### Princípio 6
+
+> Calmaria também faz parte da experiência.
 
 ---
 
-## Level 2 — Interaction
+## 69. Regra final
 
-Examples:
+> Melhor animação é mais importante que mais animação.
 
-- button hover
-- card hover
-- spotlight
-- icon response
+E:
 
-Clearly visible but restrained.
+> Se o usuário perceber o efeito antes de perceber o conteúdo, verificar se passamos do ponto.
 
----
+Motion deve fazer a Next Wave parecer viva.
 
-## Level 3 — Storytelling
-
-Examples:
-
-- Hero entrance
-- Process Wave
-- major section transitions
-- Final CTA
-
-Used sparingly for high-impact moments.
-
----
-
-# 39. Visual Continuity
-
-Sections must not feel like independent templates.
-
-The Wave should help maintain continuity.
-
-Transitions between sections may use:
-
-- Wave positioning
-- gradient changes
-- background lighting
-- particles
-- shared visual elements
-
-Avoid abrupt visual resets between sections.
-
----
-
-# 40. Animation Choreography
-
-Animations should follow a hierarchy.
-
-Example section entrance:
-
-```text
-1. Wave/background becomes visible
-        ↓
-2. Section label
-        ↓
-3. Heading
-        ↓
-4. Supporting copy
-        ↓
-5. Main content
-        ↓
-6. Interactive details
-```
-
-Do not animate everything simultaneously.
-
----
-
-# 41. Initial Page Load
-
-The first experience should feel intentional.
-
-Suggested Hero choreography:
-
-```text
-Logo / Header
-        ↓
-Section label
-        ↓
-Hero heading
-        ↓
-Supporting copy
-        ↓
-CTA
-        ↓
-Main visual / Wave
-```
-
-The entire sequence should remain quick.
-
-Do not force users to watch an intro animation before accessing the website.
-
----
-
-# 42. Navigation
-
-Header motion should remain subtle.
-
-Possible behavior:
-
-```text
-top of page
-↓
-transparent / integrated
-
-scroll
-↓
-slightly blurred dark background
-```
-
-Navigation may shrink slightly after scrolling.
-
-Avoid dramatic header animations.
-
----
-
-# 43. Page Transitions
-
-If additional pages are introduced later, transitions may use:
-
-- opacity
-- small translate
-- Wave continuity
-- gradient transition
-
-Avoid long cinematic transitions that slow navigation.
-
----
-
-# 44. Loading States
-
-If loading states become necessary:
-
-Prefer branded minimal indicators.
-
-The Wave may inspire loaders.
-
-Example:
-
-```text
-──────●~~~~~~
-```
-
-Avoid full-screen loaders unless technically necessary.
-
----
-
-# 45. React Bits Usage
-
-React Bits components should be treated as building blocks.
-
-Do not copy an effect simply because it exists.
-
-Before using a React Bits component, verify:
-
-1. Does it support the design?
-2. Does it reinforce the brand?
-3. Is performance acceptable?
-4. Does it work on mobile?
-5. Does it respect reduced motion?
-
-Customize components to match the Next Wave Design System.
-
-The website must not look like a React Bits demo gallery.
-
----
-
-# 46. Motion Usage
-
-Motion is the preferred animation engine.
-
-Use it for:
-
-- gestures
-- viewport animations
-- scroll-linked animations
-- layout transitions
-- SVG animation
-- springs
-- sequencing
-
-Prefer Motion primitives instead of manually creating complex animation
-systems when Motion already solves the problem.
-
----
-
-# 47. CSS Animation Usage
-
-Use CSS for simple states such as:
-
-- hover
-- focus
-- small transitions
-- simple looping ambient effects
-
-Do not use JavaScript when CSS is sufficient.
-
----
-
-# 48. SVG Usage
-
-SVG is preferred for the primary Wave.
-
-Benefits:
-
-- scalable
-- lightweight
-- animatable
-- responsive
-- accessible
-- precise
-
-The Wave should ideally be implemented using reusable SVG paths.
-
-Do not use a large raster image for the main animated Wave.
-
----
-
-# 49. Canvas / WebGL
-
-Canvas or WebGL should NOT be the default solution.
-
-They may only be introduced if the desired visual effect cannot reasonably
-be achieved using:
-
-```text
-CSS
-SVG
-Motion
-React Bits
-```
-
-Introducing WebGL must have a clear visual and technical justification.
-
-SEO content must never depend on Canvas or WebGL.
-
----
-
-# 50. SEO and Motion
-
-Motion must be progressive enhancement.
-
-The semantic content must exist independently of animation.
-
-Correct:
-
-```text
-HTML content
-↓
-CSS layout
-↓
-Motion enhancement
-```
-
-Incorrect:
-
-```text
-JavaScript
-↓
-Animation
-↓
-Content becomes available
-```
-
-Search engines and users must be able to understand the page without
-executing complex animations.
-
----
-
-# 51. Quality Checklist
-
-Before considering an animated section complete, verify:
-
-### Visual
-
-- [ ] Matches the approved wireframe
-- [ ] Maintains the Next Wave visual identity
-- [ ] Wave continuity is preserved
-- [ ] Animation hierarchy is clear
-- [ ] Effects do not overwhelm content
-
-### Desktop
-
-- [ ] Pointer interactions work
-- [ ] Hover states work
-- [ ] Scroll animation works
-- [ ] No unexpected layout shifts
-
-### Mobile
-
-- [ ] No hover dependency
-- [ ] Touch interactions work
-- [ ] Motion is simplified where appropriate
-- [ ] Performance remains smooth
-
-### Accessibility
-
-- [ ] Keyboard navigation works
-- [ ] Focus states remain visible
-- [ ] `prefers-reduced-motion` is respected
-- [ ] Content remains accessible without animation
-
-### Performance
-
-- [ ] No unnecessary re-renders
-- [ ] No excessive particle count
-- [ ] Expensive effects are lazy loaded
-- [ ] No unnecessary animation libraries
-- [ ] Core Web Vitals remain acceptable
-
----
-
-# 52. Final Rule
-
-When deciding between:
-
-```text
-more animation
-```
-
-and:
-
-```text
-better animation
-```
-
-always choose:
-
-> **Better animation.**
-
-The goal is not to make everything move.
-
-The goal is to make the Next Wave experience feel alive.
+Não barulhenta.
