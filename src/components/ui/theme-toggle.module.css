@@ -23,6 +23,8 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .toggle {
-    transition: background-color 160ms ease, border-color 160ms ease;
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
   }
 }

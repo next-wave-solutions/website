@@ -53,6 +53,14 @@
   --section-space: clamp(4.5rem, 10vw, 8rem);
   --content-measure: 65ch;
 
+  --duration-fast: 160ms;
+  --duration-normal: 280ms;
+  --duration-slow: 640ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --stagger: 80ms;
+  --reveal-distance: 12px;
+
   color-scheme: light;
 }
 
@@ -188,6 +196,24 @@ button {
 ::selection {
   background: var(--primary);
   color: #ffffff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-reveal {
+    animation: motion-reveal var(--duration-slow) var(--ease-enter) both;
+  }
+}
+
+@keyframes motion-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

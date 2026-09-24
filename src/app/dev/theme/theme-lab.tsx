@@ -41,6 +41,12 @@ export function ThemeLab() {
             </Button>
           </div>
         </Section>
+        <Section spacing="none" style={{ paddingBottom: "var(--section-space)" }}>
+          <SectionLabel>02 / Motion</SectionLabel>
+          <p className="motion-reveal" style={{ maxWidth: "var(--content-measure)", marginTop: "1.25rem", color: "var(--text-secondary)" }}>
+            Entrada discreta, com o conteúdo disponível mesmo sem animação.
+          </p>
+        </Section>
       </Container>
     </main>
   );
