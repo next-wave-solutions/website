@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
+import { ThemeSync } from "@/components/theme/ThemeSync";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600"],
   variable: "--font-inter",
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
+  weight: ["600", "700", "800"],
   variable: "--font-manrope",
 });
 
@@ -25,8 +29,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${manrope.variable}`}>
-      <body>{children}</body>
+    <html lang="pt-BR" className={`${inter.variable} ${manrope.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body>
+        <ThemeSync />
+        {children}
+      </body>
     </html>
   );
 }

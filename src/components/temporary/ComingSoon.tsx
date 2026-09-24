@@ -4,7 +4,7 @@ import styles from "./coming-soon.module.css";
 
 export function ComingSoon() {
   return (
-    <main className={styles.page}>
+    <main className={styles.page} data-coming-soon>
       <div className={styles.backdrop} aria-hidden="true">
         <span className={styles.orbPurple} />
         <span className={styles.orbCyan} />

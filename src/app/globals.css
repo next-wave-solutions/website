@@ -1,18 +1,68 @@
 @import "tailwindcss";
 
-/*
-  Semantic tokens from docs/DESIGN-SYSTEM.md.
-  Hex values live here once. Tailwind color utilities reference them.
-  --container-max stays outside @theme: Tailwind maps --container-* to max-w-*.
-*/
 :root {
-  --background: #070b14;
-  --background-secondary: #0b1020;
-  --background-tertiary: #111827;
+  --background: #faf9f7;
+  --background-secondary: #f5f3ef;
+  --background-tertiary: #efeee9;
 
-  --surface: #111827;
-  --surface-secondary: #151d2e;
-  --surface-hover: #1b2436;
+  --surface: #ffffff;
+  --surface-secondary: #f7f6f3;
+  --surface-hover: #f1efea;
+
+  --foreground: #111827;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-subtle: #9ca3af;
+
+  --border: rgba(17, 24, 39, 0.1);
+  --border-strong: rgba(17, 24, 39, 0.18);
+  --border-primary: rgba(139, 92, 246, 0.28);
+  --border-accent: rgba(16, 185, 129, 0.28);
+
+  --focus: #8b5cf6;
+
+  --primary: #8b5cf6;
+  --primary-hover: #6d28d9;
+  --primary-strong: #4c1d95;
+  --primary-soft: #f5f3ff;
+  --primary-soft-strong: #ede9fe;
+  --primary-muted: #c4b5fd;
+
+  --accent: #10b981;
+  --accent-hover: #047857;
+  --accent-strong: #064e3b;
+  --accent-soft: #ecfdf5;
+  --accent-soft-strong: #d1fae5;
+  --accent-muted: #6ee7b7;
+
+  --info: #3b82f6;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  --gradient-brand: linear-gradient(90deg, #8b5cf6 0%, #6366f1 35%, #06b6d4 65%, #10b981 100%);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  --container-max: 1440px;
+  --gutter: clamp(1.25rem, 4vw, 5rem);
+  --section-space: clamp(4.5rem, 10vw, 8rem);
+  --content-measure: 65ch;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --background: #0d1017;
+  --background-secondary: #121720;
+  --background-tertiary: #171d27;
+
+  --surface: #151b24;
+  --surface-secondary: #1a222d;
+  --surface-hover: #202a37;
 
   --foreground: #f9fafb;
   --text-primary: #f3f4f6;
@@ -20,67 +70,53 @@
   --text-muted: #9ca3af;
   --text-subtle: #6b7280;
 
-  --primary: #8b5cf6;
-  --primary-hover: #6d28d9;
-  --primary-strong: #4c1d95;
-
-  --accent: #10b981;
-  --accent-hover: #047857;
-  --accent-strong: #064e3b;
-
-  --info: #3b82f6;
-  --warning: #f59e0b;
-  --error: #ef4444;
-  --success: #10b981;
-
   --border: rgba(255, 255, 255, 0.1);
   --border-strong: rgba(255, 255, 255, 0.18);
-  --border-primary: rgba(139, 92, 246, 0.5);
-  --border-accent: rgba(16, 185, 129, 0.5);
 
-  --focus: #8b5cf6;
+  --focus: #a78bfa;
 
-  --radius-full: 9999px;
-  --container-max: 1440px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.36);
+
+  color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
   --color-background-tertiary: var(--background-tertiary);
-
   --color-surface: var(--surface);
   --color-surface-secondary: var(--surface-secondary);
   --color-surface-hover: var(--surface-hover);
-
   --color-foreground: var(--foreground);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-text-subtle: var(--text-subtle);
-
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-strong: var(--primary-strong);
-
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-strong: var(--accent-strong);
-
-  --color-info: var(--info);
-  --color-warning: var(--warning);
-  --color-error: var(--error);
-  --color-success: var(--success);
-
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-border-primary: var(--border-primary);
   --color-border-accent: var(--border-accent);
-
   --color-focus: var(--focus);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-strong: var(--primary-soft-strong);
+  --color-primary-muted: var(--primary-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-strong: var(--accent-soft-strong);
+  --color-accent-muted: var(--accent-muted);
+  --color-info: var(--info);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme {
@@ -92,18 +128,68 @@
 }
 
 html {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+html:has([data-coming-soon]) {
   color-scheme: dark;
-  background-color: var(--background);
+  background: #070b14;
 }
 
 body {
-  background-color: var(--background);
+  min-height: 100dvh;
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
