@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import { Hero } from "@/components/home/Hero";
+import { Process } from "@/components/home/Process";
+import { Solutions } from "@/components/home/Solutions";
+import { Technology } from "@/components/home/Technology";
+import { Header } from "@/components/layout/Header";
+import styles from "./technology-lab.module.css";
+
+export const metadata: Metadata = {
+  title: "Technology lab",
+  robots: { index: false, follow: false },
+};
+
+export default function TechnologyLabPage() {
+  return (
+    <div className={styles.stage}>
+      <Header tone="hero" />
+      <main className={styles.main}>
+        <Hero />
+        <Solutions />
+        <Process />
+        <Technology />
+      </main>
+    </div>
+  );
+}
