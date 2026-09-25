@@ -1,0 +1,270 @@
+.process {
+  position: relative;
+  background: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.process::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--border) 70%, transparent) 18%,
+    color-mix(in srgb, var(--primary) 24%, var(--border)) 48%,
+    color-mix(in srgb, var(--accent) 20%, var(--border)) 72%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.75rem, 5vw, 4.25rem);
+}
+
+.intro {
+  max-width: 38rem;
+}
+
+.label {
+  margin-bottom: 1.25rem;
+}
+
+.headline {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2.15rem, 3.5vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--text-primary);
+}
+
+.lead {
+  max-width: 36rem;
+  margin: 1.35rem 0 0;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.65;
+}
+
+.flow {
+  position: relative;
+}
+
+.path {
+  display: none;
+  position: absolute;
+  inset: 0.35rem 0 auto;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.pathStroke {
+  stroke: color-mix(in srgb, var(--primary) 48%, var(--border-strong));
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.steps {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  padding: 1.35rem 0 1.35rem 1.15rem;
+  border-left: 1px solid var(--border);
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  left: -0.28rem;
+  top: 1.55rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--background-secondary);
+  border: 1px solid color-mix(in srgb, var(--primary) 45%, var(--border-strong));
+}
+
+.index {
+  display: inline-block;
+  margin: 0 0 0.55rem;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  background-image: var(--gradient-brand);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 1.15rem 1px;
+  padding-bottom: 0.2rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.description {
+  margin: 0.55rem 0 0;
+  color: var(--text-secondary);
+  font-size: clamp(0.9375rem, 1.05vw, 1.03rem);
+  line-height: 1.6;
+}
+
+.offset0,
+.offset1,
+.offset2,
+.offset3,
+.offset4 {
+  /* offsets apply on desktop */
+}
+
+.delay1 {
+  animation-delay: var(--stagger);
+}
+
+.delay2 {
+  animation-delay: calc(var(--stagger) * 2);
+}
+
+.delay3 {
+  animation-delay: calc(var(--stagger) * 3);
+}
+
+.delay4 {
+  animation-delay: calc(var(--stagger) * 4);
+}
+
+.delay5 {
+  animation-delay: calc(var(--stagger) * 5);
+}
+
+.delay6 {
+  animation-delay: calc(var(--stagger) * 6);
+}
+
+.delay7 {
+  animation-delay: calc(var(--stagger) * 7);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pathStroke {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: process-path 1.35s var(--ease-enter) 0.2s both;
+  }
+
+  .step {
+    transition: border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .index,
+  .title {
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .step:hover .index {
+    color: var(--text-primary);
+  }
+}
+
+@keyframes process-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (min-width: 64rem) {
+  .intro {
+    max-width: 42rem;
+  }
+
+  .path {
+    display: block;
+  }
+
+  .steps {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+    padding-top: 3.75rem;
+  }
+
+  .step {
+    padding: 0;
+    border-left: 0;
+  }
+
+  .step::before {
+    left: 0;
+    top: -2.35rem;
+    width: 0.65rem;
+    height: 0.65rem;
+    background: var(--background-secondary);
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--primary) 35%);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--background-secondary) 88%, transparent);
+  }
+
+  .offset0 {
+    margin-top: 0.35rem;
+  }
+
+  .offset1 {
+    margin-top: -0.85rem;
+  }
+
+  .offset2 {
+    margin-top: 0.95rem;
+  }
+
+  .offset3 {
+    margin-top: -0.55rem;
+  }
+
+  .offset4 {
+    margin-top: 0.65rem;
+  }
+
+  .description {
+    max-width: 14.5rem;
+  }
+}
+
+@media (max-width: 63.99rem) {
+  .headline {
+    font-size: clamp(1.85rem, 7vw, 2.5rem);
+  }
+
+  .steps {
+    margin-left: 0.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pathStroke {
+    animation: none;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+}
