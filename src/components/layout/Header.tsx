@@ -7,9 +7,13 @@ import { MobileMenu } from "./MobileMenu";
 import { headerCta, headerLinks } from "./nav";
 import styles from "./header.module.css";
 
-export function Header() {
+type HeaderProps = {
+  tone?: "default" | "hero";
+};
+
+export function Header({ tone = "default" }: HeaderProps) {
   return (
-    <header className={styles.header}>
+    <header className={[styles.header, tone === "hero" ? styles.onHero : ""].filter(Boolean).join(" ")}>
       <Container className={styles.inner}>
         <Link className={styles.brand} href="/">
           <Image
