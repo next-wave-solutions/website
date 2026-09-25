@@ -6,6 +6,11 @@ export const headerLinks = [
   { href: "#sobre", label: "Sobre" },
 ] as const;
 
+export const footerLinks = [
+  ...headerLinks,
+  { href: "#contato", label: "Contato" },
+] as const;
+
 export const headerCta = {
   href: "#contato",
   label: "Falar com a Next Wave",
