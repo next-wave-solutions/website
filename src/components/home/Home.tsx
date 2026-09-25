@@ -18,7 +18,7 @@ export function Home() {
     <>
       <MotionRevealRoot />
       <Header tone="hero" />
-      <main>
+      <main id="conteudo">
         <Hero />
         <Solutions />
         <Process />
@@ -31,3 +31,4 @@ export function Home() {
     </>
   );
 }
+

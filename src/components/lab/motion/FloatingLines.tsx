@@ -338,6 +338,11 @@ export default function FloatingLines({
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     container.appendChild(renderer.domElement);
+    renderer.domElement.setAttribute("aria-hidden", "true");
+    renderer.domElement.tabIndex = -1;
+    if (!interactive) {
+      renderer.domElement.style.pointerEvents = "none";
+    }
 
     const uniforms = {
       iTime: { value: 0 },

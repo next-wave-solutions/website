@@ -1,27 +1,49 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { headerCta, headerLinks } from "./nav";
 import styles from "./header.module.css";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const wasOpen = useRef(false);
 
   useEffect(() => {
-    if (!open) return;
-
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
+    if (!open) {
+      if (wasOpen.current) {
+        buttonRef.current?.focus();
+      }
+      wasOpen.current = false;
+      return;
     }
 
+    wasOpen.current = true;
+    firstLinkRef.current?.focus();
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(false);
+      }
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [open]);
 
   return (
     <>
       <button
+        ref={buttonRef}
         type="button"
         className={styles.menuButton}
         aria-expanded={open}
@@ -32,9 +54,15 @@ export function MobileMenu() {
         <MenuIcon open={open} />
       </button>
       <div id={panelId} className={styles.panel} hidden={!open}>
-        <nav aria-label="Principal">
-          {headerLinks.map((link) => (
-            <a key={link.href} className={styles.link} href={link.href} onClick={() => setOpen(false)}>
+        <nav aria-label="Menu">
+          {headerLinks.map((link, index) => (
+            <a
+              key={link.href}
+              ref={index === 0 ? firstLinkRef : undefined}
+              className={styles.link}
+              href={link.href}
+              onClick={() => setOpen(false)}
+            >
               {link.label}
             </a>
           ))}

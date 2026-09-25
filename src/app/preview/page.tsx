@@ -4,7 +4,17 @@ import styles from "./preview.module.css";
 
 export const metadata: Metadata = {
   title: "Preview",
-  robots: { index: false, follow: false },
+  description: "Pré-visualização interna da experiência Next Wave Solutions. Não indexar.",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
 };
 
 export default function PreviewPage() {

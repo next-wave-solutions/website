@@ -18,13 +18,38 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
+const siteDescription =
+  "Estamos preparando a próxima onda. Em breve, uma nova experiência da Next Wave Solutions.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nextwavesolutions.com.br"),
   title: {
     default: "Next Wave Solutions",
     template: "%s | Next Wave Solutions",
   },
-  description:
-    "Estamos preparando a próxima onda. Em breve, uma nova experiência da Next Wave Solutions.",
+  description: siteDescription,
+  applicationName: "Next Wave Solutions",
+  icons: {
+    icon: [{ url: "/brand/nextwave-mark.png", type: "image/png" }],
+    apple: [{ url: "/brand/nextwave-mark.png", type: "image/png" }],
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Next Wave Solutions",
+    title: "Next Wave Solutions",
+    description: siteDescription,
+    url: "https://nextwavesolutions.com.br",
+  },
+  twitter: {
+    card: "summary",
+    title: "Next Wave Solutions",
+    description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -213,6 +213,9 @@ export default function Threads({
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     container.appendChild(gl.canvas);
+    gl.canvas.setAttribute("aria-hidden", "true");
+    gl.canvas.tabIndex = -1;
+    gl.canvas.style.pointerEvents = "none";
 
     const geometry = new Triangle(gl);
     const program = new Program(gl, {
