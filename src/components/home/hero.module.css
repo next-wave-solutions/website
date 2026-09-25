@@ -5,6 +5,18 @@
   align-items: center;
   min-height: calc(100svh - 4.5rem);
   color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* Soft land into Solutions — continuity without a second Wave */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: clamp(3.5rem, 8vw, 6rem);
+  background: linear-gradient(to bottom, transparent 0%, var(--background) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .plate {
@@ -15,6 +27,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   pointer-events: none;
+  transform-origin: 70% center;
 }
 
 @media (max-width: 48rem) {
@@ -229,8 +242,24 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  :global(html[data-motion="ready"]) .plate {
+    animation: hero-plate-settle 1.05s var(--ease-enter) both;
+  }
+
   .primary,
   .secondary {
     transition: color var(--duration-fast) var(--ease-standard);
+  }
+}
+
+@keyframes hero-plate-settle {
+  from {
+    opacity: 0.72;
+    transform: scale(1.018);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

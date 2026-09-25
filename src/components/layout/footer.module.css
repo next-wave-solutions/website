@@ -128,9 +128,12 @@
     transition: color var(--duration-fast) var(--ease-standard);
   }
 
-  .waveStroke {
+  :global(html[data-motion="ready"]) .waveStroke {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
+  }
+
+  :global(html[data-motion="ready"]) .wave:global(.is-revealed) .waveStroke {
     animation: footer-wave-draw var(--duration-slow) var(--ease-enter) forwards;
   }
 }

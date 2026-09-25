@@ -67,9 +67,9 @@
 }
 
 .pathStroke {
-  stroke: color-mix(in srgb, var(--primary) 48%, var(--border-strong));
   stroke-width: 1.5;
   stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .steps {
@@ -170,10 +170,13 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .pathStroke {
+  :global(html[data-motion="ready"]) .pathStroke {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
-    animation: process-path 1.35s var(--ease-enter) 0.2s both;
+  }
+
+  :global(html[data-motion="ready"]) .path:global(.is-revealed) .pathStroke {
+    animation: process-path 1.35s var(--ease-enter) both;
   }
 
   .step {

@@ -1,0 +1,6 @@
+# QA screenshots — not needed at runtime
+evidence/
+
+# Local / secrets
+.env*
+.vercel

@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SolutionsThreadsField } from "@/components/home/SolutionsThreadsField";
 import styles from "./solutions.module.css";
 
 const services = [
@@ -34,6 +35,8 @@ export function Solutions() {
   return (
     <Section id="solucoes" className={styles.solutions} aria-labelledby="solutions-heading">
       <Container className={styles.layout}>
+        <SolutionsThreadsField />
+
         <header className={styles.intro}>
           <SectionLabel className={`motion-reveal ${styles.label}`}>Soluções</SectionLabel>
           <h2 id="solutions-heading" className={`${styles.headline} motion-reveal ${styles.delay1}`}>

@@ -60,6 +60,7 @@
   --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
   --stagger: 80ms;
   --reveal-distance: 12px;
+  --reveal-distance-mobile: 8px;
 
   color-scheme: light;
 }
@@ -142,6 +143,12 @@ html {
   color: var(--foreground);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 html:has([data-coming-soon]) {
   color-scheme: dark;
   background: #070b14;
@@ -198,8 +205,18 @@ button {
   color: #ffffff;
 }
 
+/*
+  Progressive enhancement for `.motion-reveal`:
+  - Without JS / with reduced motion → content stays visible.
+  - With JS (`html[data-motion="ready"]`) → hide until `.is-revealed`.
+*/
 @media (prefers-reduced-motion: no-preference) {
-  .motion-reveal {
+  html[data-motion="ready"] .motion-reveal:not(.is-revealed) {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  html[data-motion="ready"] .motion-reveal.is-revealed {
     animation: motion-reveal var(--duration-slow) var(--ease-enter) both;
   }
 }
@@ -216,8 +233,20 @@ button {
   }
 }
 
+@media (max-width: 47.99rem) {
+  :root {
+    --reveal-distance: var(--reveal-distance-mobile);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .motion-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }

@@ -56,18 +56,34 @@ export function Process() {
 
         <div className={styles.flow}>
           <svg
-            className={styles.path}
+            className={`${styles.path} motion-draw`}
             viewBox="0 0 1000 120"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
             focusable="false"
           >
+            <defs>
+              <linearGradient
+                id="process-flow-gradient"
+                x1="20"
+                y1="60"
+                x2="980"
+                y2="60"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.22" />
+                <stop offset="40%" stopColor="var(--primary)" stopOpacity="0.55" />
+                <stop offset="70%" stopColor="#06b6d4" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.4" />
+              </linearGradient>
+            </defs>
             <path
               className={styles.pathStroke}
               d="M20 70 C 120 20, 180 20, 260 55 S 400 110, 500 60 S 680 10, 780 55 S 900 100, 980 45"
               pathLength="1"
               vectorEffect="non-scaling-stroke"
+              stroke="url(#process-flow-gradient)"
             />
           </svg>
 

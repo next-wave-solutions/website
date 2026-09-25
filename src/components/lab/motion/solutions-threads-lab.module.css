@@ -125,51 +125,6 @@
   line-height: 1.6;
 }
 
-.delay1 {
-  animation-delay: var(--stagger);
-}
-
-.delay2 {
-  animation-delay: calc(var(--stagger) * 2);
-}
-
-.delay3 {
-  animation-delay: calc(var(--stagger) * 3);
-}
-
-.delay4 {
-  animation-delay: calc(var(--stagger) * 4);
-}
-
-.delay5 {
-  animation-delay: calc(var(--stagger) * 5);
-}
-
-.delay6 {
-  animation-delay: calc(var(--stagger) * 6);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .item {
-    transition:
-      border-color var(--duration-fast) var(--ease-standard),
-      background-color var(--duration-fast) var(--ease-standard);
-  }
-
-  .index,
-  .title {
-    transition: color var(--duration-fast) var(--ease-standard);
-  }
-
-  .item:hover {
-    background: color-mix(in srgb, var(--surface-secondary) 55%, transparent);
-  }
-
-  .item:hover .index {
-    color: var(--text-primary);
-  }
-}
-
 @media (min-width: 64rem) {
   .layout {
     grid-template-columns: minmax(16rem, 0.92fr) minmax(0, 1.18fr);
@@ -178,8 +133,9 @@
   }
 
   /*
-   * Approved v3 territory: under left editorial lead + gutter toward list.
-   * WebGL mounts only on desktop via SolutionsThreadsField.
+   * Territory: negative space under the left lead + column gap,
+   * approaching the list without crossing titles.
+   * Logic: necessidade → caminhos → soluções.
    */
   .threadsField {
     display: block;
@@ -187,10 +143,11 @@
     width: min(56%, 38rem);
     top: 40%;
     bottom: 6%;
-    opacity: 0.9;
+    opacity: 0.92;
     transform: rotate(-3deg);
     transform-origin: 12% 40%;
     mask-image:
+      /* Fade hard over left copy column top; open in under-lead + gap */
       linear-gradient(
         98deg,
         transparent 0%,
@@ -199,7 +156,13 @@
         black 68%,
         transparent 94%
       ),
-      linear-gradient(180deg, transparent 0%, black 8%, black 84%, transparent 100%),
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        black 8%,
+        black 84%,
+        transparent 100%
+      ),
       radial-gradient(ellipse 72% 88% at 45% 48%, black 18%, transparent 78%);
     mask-composite: intersect;
     -webkit-mask-composite: source-in;
@@ -207,11 +170,6 @@
 
   :global([data-theme="dark"]) .threadsField {
     opacity: 0.94;
-  }
-
-  :global([data-theme="light"]) .threadsField {
-    /* Slightly quieter field so brand chroma (not gray) leads */
-    opacity: 0.86;
   }
 
   .staticField {
@@ -235,6 +193,7 @@
     position: sticky;
     top: 6.5rem;
     padding-top: 0.35rem;
+    /* Local scrub only on the intro box — does not paint the gap */
     background: color-mix(in srgb, var(--background) 92%, transparent);
   }
 
@@ -255,11 +214,8 @@
   }
 }
 
-@media (max-width: 47.99rem) {
-  .intro {
-    max-width: none;
-  }
-
+@media (max-width: 63.99rem) {
+  /* Progressive enhancement: no WebGL territory on compact layouts */
   .headline {
     font-size: clamp(1.85rem, 7vw, 2.45rem);
   }

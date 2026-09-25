@@ -69,7 +69,7 @@
   overflow: hidden;
 }
 
-/* Localized Floating Lines — principles panel only */
+/* Localized organism — only inside the principles panel, not section wallpaper */
 .linesSlot {
   position: absolute;
   inset: 0;
@@ -232,32 +232,6 @@
   color: color-mix(in srgb, var(--primary) 45%, var(--text-subtle));
 }
 
-.delay1 {
-  animation-delay: var(--stagger);
-}
-
-.delay2 {
-  animation-delay: calc(var(--stagger) * 2);
-}
-
-.delay3 {
-  animation-delay: calc(var(--stagger) * 3);
-}
-
-.delay4 {
-  animation-delay: calc(var(--stagger) * 4);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .principleTitle {
-    transition: color var(--duration-fast) var(--ease-standard);
-  }
-
-  .principle:hover .principleTitle {
-    color: color-mix(in srgb, var(--text-primary) 88%, var(--primary));
-  }
-}
-
 @media (min-width: 64rem) {
   .layout {
     grid-template-columns: minmax(18rem, 0.95fr) minmax(0, 1.25fr);
@@ -288,6 +262,7 @@
   .principles {
     grid-template-columns: 1fr 1fr;
     border: 0;
+    /* Slightly more opaque so Floating Lines stay behind copy */
     background: color-mix(in srgb, var(--background) 58%, transparent);
   }
 
@@ -329,6 +304,7 @@
   }
 
   :global([data-theme="dark"]) .linesSlot {
+    /* Keep presence without pushing glow */
     opacity: 0.52;
   }
 }
@@ -347,6 +323,7 @@
     background: var(--background);
   }
 
+  /* No WebGL slot on compact — clean grid only */
   .linesSlot,
   .staticOrganism {
     display: none;

@@ -1,9 +1,22 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import { Container } from "@/components/ui/Container";
 import { GradientText } from "@/components/ui/GradientText";
 import { Section } from "@/components/ui/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { TechnologyFloatingLinesField } from "@/components/home/TechnologyFloatingLinesField";
-import styles from "./technology.module.css";
+import {
+  useIsCompactViewport,
+  usePrefersReducedMotion,
+  useResolvedTheme,
+} from "@/components/lab/motion/use-motion-lab";
+import styles from "./technology-floating-lines-lab.module.css";
+
+const FloatingLines = dynamic(() => import("@/components/lab/motion/FloatingLines"), {
+  ssr: false,
+});
+
+const BRAND_GRADIENT = ["#8b5cf6", "#6366f1", "#06b6d4", "#10b981"];
 
 const principles = [
   {
@@ -24,24 +37,37 @@ const principles = [
   },
 ] as const;
 
-export function Technology() {
+/**
+ * Lab-only Technology with localized Floating Lines inside the principles panel.
+ * Does not replace the approved Technology section or the Hero.
+ */
+export function TechnologyFloatingLinesLab() {
+  const theme = useResolvedTheme();
+  const reduced = usePrefersReducedMotion();
+  const compact = useIsCompactViewport(1024);
+  const light = theme === "light";
+
   return (
-    <Section id="tecnologia" className={styles.technology} aria-labelledby="technology-heading">
+    <Section
+      id="tecnologia"
+      className={styles.technology}
+      aria-labelledby="technology-fl-heading"
+    >
       <Container className={styles.layout}>
         <header className={styles.intro}>
-          <SectionLabel className={`motion-reveal ${styles.label}`}>Tecnologia</SectionLabel>
-          <h2 id="technology-heading" className={`${styles.headline} motion-reveal ${styles.delay1}`}>
+          <SectionLabel className={styles.label}>Tecnologia · Lab Floating Lines</SectionLabel>
+          <h2 id="technology-fl-heading" className={styles.headline}>
             Construímos hoje
             <br />
             pensando no <GradientText>amanhã.</GradientText>
           </h2>
-          <p className={`${styles.lead} motion-reveal ${styles.delay2}`}>
+          <p className={styles.lead}>
             <span className={styles.leadLine}>Tecnologia é uma ferramenta.</span>
             <span className={styles.leadEmphasis}>O resultado é o que importa.</span>
           </p>
         </header>
 
-        <p className={`${styles.capabilities} motion-reveal ${styles.delay3}`} aria-label="Áreas de atuação">
+        <p className={styles.capabilities} aria-label="Áreas de atuação">
           <span>Web</span>
           <span aria-hidden="true" className={styles.dot}>
             ·
@@ -61,8 +87,28 @@ export function Technology() {
           <span>Integrações</span>
         </p>
 
-        <div className={`${styles.structure} motion-reveal ${styles.delay4}`}>
-          <TechnologyFloatingLinesField />
+        <div className={styles.structure}>
+          {/* Desktop-only WebGL — mobile keeps the clean principles grid */}
+          {!reduced && !compact ? (
+            <div className={styles.linesSlot} aria-hidden="true">
+              <FloatingLines
+                className={styles.lines}
+                linesGradient={BRAND_GRADIENT}
+                enabledWaves={["middle", "bottom"]}
+                lineCount={[3, 3]}
+                lineDistance={[7, 6]}
+                animationSpeed={0.28}
+                interactive={false}
+                parallax={false}
+                mixBlendMode={light ? "multiply" : "screen"}
+                lightMode={light}
+                backgroundColor={light ? "#faf9f7" : "#0d1017"}
+                maxPixelRatio={1.75}
+              />
+            </div>
+          ) : reduced && !compact ? (
+            <div className={styles.staticOrganism} aria-hidden="true" />
+          ) : null}
 
           <div className={styles.frame} aria-hidden="true">
             <span className={styles.corner} data-corner="tl" />

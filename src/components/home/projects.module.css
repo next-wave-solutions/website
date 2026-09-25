@@ -295,21 +295,23 @@
     transition: border-color var(--duration-fast) var(--ease-standard);
   }
 
-  .feature:hover .visual,
-  .study:hover .visual {
-    border-color: color-mix(in srgb, var(--primary) 28%, var(--border));
-  }
+  @media (hover: hover) {
+    .feature:hover .visual,
+    .study:hover .visual {
+      border-color: color-mix(in srgb, var(--primary) 28%, var(--border));
+    }
 
-  .browser,
-  .device,
-  .systemGrid {
-    transition: transform var(--duration-normal) var(--ease-standard);
-  }
+    .browser,
+    .device,
+    .systemGrid {
+      transition: transform var(--duration-normal) var(--ease-standard);
+    }
 
-  .feature:hover .browser,
-  .study:hover .device,
-  .study:hover .systemGrid {
-    transform: translateY(-0.2rem);
+    .feature:hover .browser,
+    .study:hover .device,
+    .study:hover .systemGrid {
+      transform: translateY(-0.2rem);
+    }
   }
 }
 

@@ -50,7 +50,7 @@ export function About() {
 
         <div className={`${styles.principlesWrap} motion-reveal ${styles.delay4}`}>
           <svg
-            className={styles.flow}
+            className={`${styles.flow} motion-draw`}
             viewBox="0 0 40 420"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

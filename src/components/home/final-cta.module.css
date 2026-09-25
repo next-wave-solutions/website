@@ -145,19 +145,24 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .wavePrimary,
-  .waveSecondary,
-  .waveTertiary {
+  :global(html[data-motion="ready"]) .wavePrimary,
+  :global(html[data-motion="ready"]) .waveSecondary,
+  :global(html[data-motion="ready"]) .waveTertiary {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
+  }
+
+  :global(html[data-motion="ready"]) .waveStage:global(.is-revealed) .wavePrimary,
+  :global(html[data-motion="ready"]) .waveStage:global(.is-revealed) .waveSecondary,
+  :global(html[data-motion="ready"]) .waveStage:global(.is-revealed) .waveTertiary {
     animation: cta-wave-draw var(--duration-slow) var(--ease-enter) forwards;
   }
 
-  .waveSecondary {
+  :global(html[data-motion="ready"]) .waveStage:global(.is-revealed) .waveSecondary {
     animation-delay: calc(var(--stagger) * 2);
   }
 
-  .waveTertiary {
+  :global(html[data-motion="ready"]) .waveStage:global(.is-revealed) .waveTertiary {
     animation-delay: calc(var(--stagger) * 3);
   }
 
