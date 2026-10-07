@@ -1,19 +1,17 @@
+import { Home } from "@/components/home/Home";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { ComingSoon } from "@/components/temporary/ComingSoon";
-import { organizationJsonLd, publicRootMetadata, SITE_NAME } from "@/lib/seo";
+import { homeMetadata, organizationJsonLd } from "@/lib/seo";
+import styles from "./page.module.css";
 
-/** Temporary Coming Soon SEO. At launch, switch to `homeMetadata` from `@/lib/seo`. */
-export const metadata = publicRootMetadata({
-  title: SITE_NAME,
-  description:
-    "Estamos preparando a próxima onda. Em breve, uma nova experiência da Next Wave Solutions.",
-});
+export const metadata = homeMetadata;
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <JsonLd data={organizationJsonLd} />
-      <ComingSoon />
+      <div className={styles.stage}>
+        <Home />
+      </div>
     </>
   );
 }

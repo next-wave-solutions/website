@@ -7,7 +7,7 @@ export const HOME_TITLE = "Next Wave Solutions | Soluções digitais sob medida"
 export const HOME_DESCRIPTION =
   "Criamos sistemas web, aplicativos mobile, automações e integrações sob medida para as necessidades reais do seu negócio, prontos para evoluir com ele.";
 
-/** Never applied to `/preview` or `/dev/*`; only the public root may claim the canonical URL. */
+/** Never applied to `/dev/*`; only the public root may claim the canonical URL. */
 export function publicRootMetadata({
   title,
   description,
@@ -35,10 +35,7 @@ export function publicRootMetadata({
   };
 }
 
-/**
- * Approved Home SEO. At launch, `/` renders `<Home />` and exports this as its metadata.
- * Social image intentionally absent until a final brand asset is approved.
- */
+/** Social image intentionally absent until a final brand asset is approved. */
 export const homeMetadata = publicRootMetadata({
   title: HOME_TITLE,
   description: HOME_DESCRIPTION,

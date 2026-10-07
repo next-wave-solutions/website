@@ -9,10 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MotionRevealRoot } from "@/components/motion/MotionRevealRoot";
 
-/**
- * Full Home composition for review labs.
- * Public `/` remains Coming Soon until explicitly switched.
- */
+/** Full Home composition, rendered at `/` and in the `/dev/home` lab. */
 export function Home() {
   return (
     <>

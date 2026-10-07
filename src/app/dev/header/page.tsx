@@ -11,7 +11,7 @@ export default function HeaderLabPage() {
       <Header />
       <main style={{ padding: "3rem var(--gutter) 6rem" }}>
         <p style={{ maxWidth: "var(--content-measure)", color: "var(--text-secondary)" }}>
-          Ambiente de desenvolvimento do Header. A página pública continua sendo a Coming Soon.
+          Ambiente de desenvolvimento do Header.
         </p>
       </main>
     </div>

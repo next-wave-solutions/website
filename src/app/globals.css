@@ -158,11 +158,6 @@ html {
   }
 }
 
-html:has([data-coming-soon]) {
-  color-scheme: dark;
-  background: #070b14;
-}
-
 body {
   min-height: 100dvh;
   background: var(--background);
