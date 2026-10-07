@@ -1,6 +1,5 @@
 import { useEffect, useRef, type CSSProperties } from "react";
 import {
-  Clock,
   Mesh,
   OrthographicCamera,
   PlaneGeometry,
@@ -334,7 +333,12 @@ export default function FloatingLines({
     camera.position.z = 1;
 
     // Single full-screen quad with shader-drawn lines: MSAA only costs GPU memory/bandwidth here
-    const renderer = new WebGLRenderer({ antialias: false, alpha: false, powerPreference: "low-power" });
+    let renderer: WebGLRenderer;
+    try {
+      renderer = new WebGLRenderer({ antialias: false, alpha: false, powerPreference: "low-power" });
+    } catch {
+      return;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxPixelRatio));
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
@@ -418,12 +422,11 @@ export default function FloatingLines({
     const mesh = new Mesh(geometry, material);
     scene.add(mesh);
 
-    const clock = new Clock();
+    const startTime = performance.now();
 
     const setSize = () => {
-      const el = containerRef.current!;
-      const width = el.clientWidth || 1;
-      const height = el.clientHeight || 1;
+      const width = container.clientWidth || 1;
+      const height = container.clientHeight || 1;
 
       renderer.setSize(width, height, false);
 
@@ -487,7 +490,7 @@ export default function FloatingLines({
       raf = requestAnimationFrame(renderLoop);
       if (!isVisible || document.hidden) return;
 
-      uniforms.iTime.value = clock.getElapsedTime();
+      uniforms.iTime.value = (performance.now() - startTime) / 1000;
 
       if (interactive) {
         currentMouseRef.current.lerp(targetMouseRef.current, mouseDamping);

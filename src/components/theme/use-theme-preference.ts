@@ -1,13 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { THEME_STORAGE_KEY, type ThemePreference } from "@/lib/theme";
-
-function readPreference(): ThemePreference {
-  const stored = localStorage.getItem(THEME_STORAGE_KEY);
-  if (stored === "light" || stored === "dark" || stored === "system") return stored;
-  return "system";
-}
+import { readThemePreference } from "@/lib/theme";
 
 function subscribe(onStoreChange: () => void) {
   window.addEventListener("storage", onStoreChange);
@@ -19,5 +13,5 @@ function subscribe(onStoreChange: () => void) {
 }
 
 export function useThemePreference() {
-  return useSyncExternalStore(subscribe, readPreference, () => "system" as const);
+  return useSyncExternalStore(subscribe, readThemePreference, () => "system" as const);
 }

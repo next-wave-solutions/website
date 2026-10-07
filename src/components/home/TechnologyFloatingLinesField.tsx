@@ -15,6 +15,9 @@ const FloatingLines = dynamic(() => import("@/components/lab/motion/FloatingLine
 });
 
 const BRAND_GRADIENT = ["#8b5cf6", "#6366f1", "#06b6d4", "#10b981"];
+const ENABLED_WAVES: Array<"top" | "middle" | "bottom"> = ["middle", "bottom"];
+const LINE_COUNT = [3, 3];
+const LINE_DISTANCE = [7, 6];
 
 /**
  * Localized Floating Lines inside the Technology principles panel.
@@ -40,9 +43,9 @@ export function TechnologyFloatingLinesField() {
         <FloatingLines
           className={styles.lines}
           linesGradient={BRAND_GRADIENT}
-          enabledWaves={["middle", "bottom"]}
-          lineCount={[3, 3]}
-          lineDistance={[7, 6]}
+          enabledWaves={ENABLED_WAVES}
+          lineCount={LINE_COUNT}
+          lineDistance={LINE_DISTANCE}
           animationSpeed={0.28}
           interactive={false}
           parallax={false}
