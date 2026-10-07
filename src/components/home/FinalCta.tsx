@@ -73,8 +73,8 @@ export function FinalCta() {
 
         <div className={styles.closing}>
           <p className={`${styles.lead} motion-reveal ${styles.delay3}`}>
-            Conte o que você tem em mente. A gente ajuda a transformar a ideia em um caminho claro
-            para tirar do papel.
+            Conte o que você tem em mente. Ajudamos a transformar a ideia em um plano claro para
+            tirar do papel.
           </p>
 
           <div className={`${styles.actions} motion-reveal ${styles.delay4}`}>

@@ -8,7 +8,7 @@ const principles = [
   {
     index: "01",
     title: "Proximidade",
-    description: "Conversamos de perto para entender o que realmente importa.",
+    description: "Conversamos com você para entender o que importa no seu negócio.",
   },
   {
     index: "02",
@@ -43,7 +43,7 @@ export function About() {
             problema que realmente precisa ser resolvido.
           </p>
           <p className={`${styles.follow} motion-reveal ${styles.delay3}`}>
-            Por isso, cada projeto é construído de perto — com conversa, clareza e espaço para
+            Por isso, cada projeto é construído de perto, com conversa, clareza e espaço para
             evoluir.
           </p>
         </header>

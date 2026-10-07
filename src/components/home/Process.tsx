@@ -21,19 +21,19 @@ const steps = [
     index: "03",
     title: "Desenvolvemos",
     description:
-      "Transformamos o plano em um produto cuidadoso, utilizável e alinhado ao que foi definido.",
+      "Construímos a solução com cuidado, fiel ao que foi planejado e fácil de usar.",
   },
   {
     index: "04",
     title: "Entregamos",
     description:
-      "Colocamos a solução em uso com atenção à qualidade, à adoção e ao dia a dia de quem vai usar.",
+      "Colocamos a solução em funcionamento, com atenção à qualidade e ao dia a dia de quem vai usar.",
   },
   {
     index: "05",
     title: "Evoluímos",
     description:
-      "Continuamos próximos para ajustar, melhorar e acompanhar o crescimento do produto.",
+      "Seguimos por perto para ajustar e melhorar a solução conforme o seu negócio muda.",
   },
 ] as const;
 
@@ -49,8 +49,7 @@ export function Process() {
             o seu <GradientText>fluxo.</GradientText>
           </h2>
           <p className={`${styles.lead} motion-reveal ${styles.delay2}`}>
-            Seguimos etapas claras — entender, planejar, construir, entregar e evoluir — sem
-            engessar o que torna o seu projeto único.
+            Seguimos etapas claras, sem engessar o que torna o seu projeto único.
           </p>
         </header>
 

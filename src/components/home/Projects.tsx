@@ -12,7 +12,7 @@ const studies = [
     category: "Web",
     title: "Experiência digital",
     description:
-      "Exploração de uma presença digital clara, rápida e preparada para evoluir com o negócio.",
+      "Exploração de uma presença digital clara, rápida e fácil de atualizar.",
     visual: "web",
   },
   {
@@ -32,7 +32,7 @@ const studies = [
     category: "Mobile",
     title: "Rotina em movimento",
     description:
-      "Estudo de experiência mobile pensada para o dia a dia de quem realmente usa o produto.",
+      "Estudo de aplicativo para o dia a dia de quem trabalha longe do computador.",
     visual: "mobile",
   },
 ] as const;

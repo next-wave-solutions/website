@@ -9,13 +9,13 @@ const services = [
     index: "01",
     title: "Sistemas Web",
     description:
-      "Aplicações e plataformas pensadas para organizar processos, conectar pessoas e acompanhar o crescimento do seu negócio.",
+      "Plataformas que organizam processos, centralizam informações e facilitam a gestão do seu negócio.",
   },
   {
     index: "02",
     title: "Aplicativos Mobile",
     description:
-      "Experiências mobile construídas para fazer sentido na rotina de quem realmente vai usar.",
+      "Aplicativos construídos em torno da rotina de quem vai usar.",
   },
   {
     index: "03",
@@ -47,8 +47,8 @@ export function Solutions() {
             o seu negócio.
           </h2>
           <p className={`${styles.lead} motion-reveal ${styles.delay2}`}>
-            Criamos soluções digitais sob medida para transformar necessidades reais em produtos
-            simples, eficientes e preparados para evoluir.
+            Criamos soluções digitais sob medida, simples de usar e construídas a partir das
+            necessidades reais de cada negócio.
           </p>
         </header>
 
