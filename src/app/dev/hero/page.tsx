@@ -5,7 +5,6 @@ import styles from "./hero-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Hero lab",
-  robots: { index: false, follow: false },
 };
 
 export default function HeroLabPage() {

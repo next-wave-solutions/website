@@ -10,7 +10,6 @@ import styles from "./about-lab.module.css";
 
 export const metadata: Metadata = {
   title: "About lab",
-  robots: { index: false, follow: false },
 };
 
 export default function AboutLabPage() {

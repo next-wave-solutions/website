@@ -3,7 +3,6 @@ import { Header } from "@/components/layout/Header";
 
 export const metadata: Metadata = {
   title: "Header lab",
-  robots: { index: false, follow: false },
 };
 
 export default function HeaderLabPage() {

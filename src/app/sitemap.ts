@@ -1,13 +1,7 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo";
 
-/** Public sitemap — Coming Soon only until Home launches at `/`. */
+/** Only genuinely indexable production URLs. `/preview` and `/dev/*` never belong here. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://nextwavesolutions.com.br",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
+  return [{ url: `${SITE_URL}/` }];
 }

@@ -6,7 +6,6 @@ import styles from "./solutions-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Solutions lab",
-  robots: { index: false, follow: false },
 };
 
 export default function SolutionsLabPage() {

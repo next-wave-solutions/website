@@ -9,7 +9,6 @@ import styles from "./projects-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Projects lab",
-  robots: { index: false, follow: false },
 };
 
 export default function ProjectsLabPage() {

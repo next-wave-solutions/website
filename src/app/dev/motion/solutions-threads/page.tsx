@@ -5,7 +5,6 @@ import styles from "../motion-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Motion lab · Solutions + Threads",
-  robots: { index: false, follow: false },
 };
 
 export default function SolutionsThreadsLabPage() {

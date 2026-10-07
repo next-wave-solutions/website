@@ -7,7 +7,6 @@ import styles from "./process-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Process lab",
-  robots: { index: false, follow: false },
 };
 
 export default function ProcessLabPage() {

@@ -11,7 +11,6 @@ import styles from "./cta-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Final CTA lab",
-  robots: { index: false, follow: false },
 };
 
 export default function CtaLabPage() {

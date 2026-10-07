@@ -4,7 +4,6 @@ import styles from "./home-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Home lab",
-  robots: { index: false, follow: false },
 };
 
 export default function HomeLabPage() {

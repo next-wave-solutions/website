@@ -8,7 +8,6 @@ import styles from "./technology-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Technology lab",
-  robots: { index: false, follow: false },
 };
 
 export default function TechnologyLabPage() {

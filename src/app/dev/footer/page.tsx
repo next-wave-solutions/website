@@ -12,7 +12,6 @@ import styles from "./footer-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Footer lab",
-  robots: { index: false, follow: false },
 };
 
 export default function FooterLabPage() {

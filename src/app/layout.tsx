@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { ThemeSync } from "@/components/theme/ThemeSync";
+import { HOME_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -18,34 +19,22 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-const siteDescription =
-  "Estamos preparando a próxima onda. Em breve, uma nova experiência da Next Wave Solutions.";
-
+/*
+ * Inherited by every route. Canonical, Open Graph and Twitter live on the public root page only,
+ * so `/preview` and `/dev/*` never inherit an official URL.
+ */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nextwavesolutions.com.br"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Next Wave Solutions",
-    template: "%s | Next Wave Solutions",
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
-  description: siteDescription,
-  applicationName: "Next Wave Solutions",
+  description: HOME_DESCRIPTION,
+  applicationName: SITE_NAME,
   // Icon-sized variants via the image optimizer; the source mark is a ~500 KB 1774px PNG
   icons: {
     icon: [{ url: "/_next/image?url=%2Fbrand%2Fnextwave-mark.png&w=64&q=75" }],
     apple: [{ url: "/_next/image?url=%2Fbrand%2Fnextwave-mark.png&w=256&q=75" }],
-  },
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    siteName: "Next Wave Solutions",
-    title: "Next Wave Solutions",
-    description: siteDescription,
-    url: "https://nextwavesolutions.com.br",
-  },
-  twitter: {
-    card: "summary",
-    title: "Next Wave Solutions",
-    description: siteDescription,
   },
   robots: {
     index: true,

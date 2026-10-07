@@ -5,7 +5,6 @@ import styles from "../motion-lab.module.css";
 
 export const metadata: Metadata = {
   title: "Motion lab · Floating Lines",
-  robots: { index: false, follow: false },
 };
 
 export default function FloatingLinesLabPage() {
