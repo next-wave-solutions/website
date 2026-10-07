@@ -12,7 +12,7 @@ export function Footer() {
       <Container className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.brandBlock}>
-            <Link className={styles.brand} href="/" id="footer-brand">
+            <Link className={styles.brand} href="/" id="footer-brand" prefetch={false}>
               <Image
                 className={styles.mark}
                 src="/brand/nextwave-mark.png"

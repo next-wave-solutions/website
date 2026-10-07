@@ -18,7 +18,7 @@ export function Header({ tone = "default" }: HeaderProps) {
         Ir para o conteúdo
       </a>
       <Container className={styles.inner}>
-        <Link className={styles.brand} href="/">
+        <Link className={styles.brand} href="/" prefetch={false}>
           <Image
             className={styles.mark}
             src="/brand/nextwave-mark.png"

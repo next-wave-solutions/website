@@ -209,9 +209,16 @@ button {
   outline-offset: 3px;
 }
 
-/* Keeps anchor targets and keyboard-focused elements clear of the sticky header */
-html {
-  scroll-padding-top: 5.5rem;
+/*
+ * Keeps anchor targets and keyboard-focused elements clear of the sticky header.
+ * Scoped to content instead of `html { scroll-padding-top }`: with scroll-padding, Chromium and
+ * WebKit scroll the page whenever a control inside the sticky header itself receives focus.
+ */
+main,
+main [id],
+main :focus,
+footer :focus {
+  scroll-margin-top: 5.5rem;
 }
 
 .skipLink {
