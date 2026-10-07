@@ -30,6 +30,7 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .brand:hover {
@@ -115,6 +116,10 @@
     display: flex;
   }
 
+  .brand {
+    flex-shrink: 0;
+  }
+
   .actions {
     margin-left: auto;
   }
@@ -152,6 +157,12 @@
   .panelCta:hover {
     color: var(--primary-solid);
     text-decoration: none;
+  }
+}
+
+@media (max-width: 22.5rem) {
+  .brand {
+    gap: 0.5rem;
   }
 }
 

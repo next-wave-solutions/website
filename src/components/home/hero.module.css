@@ -48,6 +48,25 @@
   }
 }
 
+/*
+ * Portrait/square tablets: `cover` zooms the landscape plate until the wave crest sits behind
+ * the copy, so they use the portrait composition instead. Keep in sync with PLATE_PRELOADS.
+ */
+@media (min-width: 48.0625rem) and (max-width: 75rem) and (max-aspect-ratio: 1/1) {
+  .hero {
+    align-items: flex-start;
+  }
+
+  .plate {
+    background-image: url("/_next/image?url=%2Fhero%2Fhero-plate-light-mobile.png&w=1200&q=75");
+    background-position: 68% 25%;
+  }
+
+  :global([data-theme="dark"]) .plate {
+    background-image: url("/_next/image?url=%2Fhero%2Fhero-plate-dark-mobile.png&w=1200&q=75");
+  }
+}
+
 .scrim {
   position: absolute;
   inset: -4.5rem 0 0;
@@ -242,7 +261,7 @@
 
 /*
  * Soft local veils keep copy ≥4.5:1 where it overlaps the busy part of the wave:
- * the subcopy on desktop/tablet, and the CTAs once they stack below ~388px.
+ * the subcopy everywhere, and the CTAs on mobile, where they sit lower on the plate.
  */
 .subcopy::before,
 .actions::before {
@@ -261,26 +280,31 @@
   pointer-events: none;
 }
 
-@media (min-width: 48.0625rem) {
-  .subcopy {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .subcopy::before {
-    display: block;
-    inset: -1.5rem -4rem -1.5rem -2rem;
-  }
+.subcopy {
+  position: relative;
+  isolation: isolate;
 }
 
-@media (max-width: 24.25rem) {
+.subcopy::before {
+  display: block;
+  inset: -1.5rem -4rem -1.5rem -2rem;
+}
+
+@media (max-width: 48rem) {
+  .subcopy::before {
+    --veil-mask: linear-gradient(to right, #000 80%, transparent),
+      linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
+
+    inset: -1.25rem -1.5rem -1.25rem calc(-1 * var(--gutter));
+  }
+
   .actions {
     position: relative;
     isolation: isolate;
   }
 
   .actions::before {
-    --veil-mask: linear-gradient(to right, #000 65%, transparent),
+    --veil-mask: linear-gradient(to right, #000 90%, transparent),
       linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
 
     display: block;

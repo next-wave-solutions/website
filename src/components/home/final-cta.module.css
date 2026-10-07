@@ -33,7 +33,7 @@
       transparent 68%
     ),
     radial-gradient(
-      45% 55% at 12% 72%,
+      45% 50% at 12% 60%,
       color-mix(in srgb, var(--accent) 10%, transparent) 0%,
       transparent 70%
     );
@@ -232,7 +232,9 @@
   .wave {
     min-height: 4.25rem;
   }
+}
 
+@media (max-width: 29.99rem) {
   .actions {
     flex-direction: column;
     align-items: stretch;

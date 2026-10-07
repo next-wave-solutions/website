@@ -7,22 +7,34 @@ import styles from "./hero.module.css";
  * These URLs must stay identical to the ones in hero.module.css.
  * Theme is approximated by the system scheme; a manual override costs one unused preload.
  */
+const PORTRAIT_PLATE = [
+  "(max-width: 48rem)",
+  "(min-width: 48.0625rem) and (max-width: 75rem) and (max-aspect-ratio: 1/1)",
+];
+const LANDSCAPE_PLATE = [
+  "(min-width: 48.0625rem) and (min-aspect-ratio: 1001/1000)",
+  "(min-width: 75.0625rem)",
+];
+
+const withScheme = (queries: string[], scheme: "light" | "dark") =>
+  queries.map((query) => `${query} and (prefers-color-scheme: ${scheme})`).join(", ");
+
 const PLATE_PRELOADS = [
   {
     href: "/_next/image?url=%2Fhero%2Fhero-plate-light-mobile.png&w=1200&q=75",
-    media: "(max-width: 48rem) and (prefers-color-scheme: light)",
+    media: withScheme(PORTRAIT_PLATE, "light"),
   },
   {
     href: "/_next/image?url=%2Fhero%2Fhero-plate-dark-mobile.png&w=1200&q=75",
-    media: "(max-width: 48rem) and (prefers-color-scheme: dark)",
+    media: withScheme(PORTRAIT_PLATE, "dark"),
   },
   {
     href: "/_next/image?url=%2Fhero%2Fhero-plate-light-desktop.png&w=1920&q=75",
-    media: "(min-width: 48.0625rem) and (prefers-color-scheme: light)",
+    media: withScheme(LANDSCAPE_PLATE, "light"),
   },
   {
     href: "/_next/image?url=%2Fhero%2Fhero-plate-dark-desktop.png&w=1920&q=75",
-    media: "(min-width: 48.0625rem) and (prefers-color-scheme: dark)",
+    media: withScheme(LANDSCAPE_PLATE, "dark"),
   },
 ];
 
@@ -50,7 +62,7 @@ export function Hero() {
         </p>
         <div className={`${styles.actions} motion-reveal ${styles.delay4}`}>
           <a className={styles.primary} href="#contato">
-            Falar com o time
+            Falar com a Next Wave
             <span aria-hidden="true">↗</span>
           </a>
           <a className={styles.secondary} href="#projetos">
