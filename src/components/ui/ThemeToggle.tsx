@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { applyThemePreference, type ThemePreference } from "@/lib/theme";
 import { useThemePreference } from "@/components/theme/use-theme-preference";
 import styles from "./theme-toggle.module.css";
@@ -16,18 +17,31 @@ const label: Record<ThemePreference, string> = {
   system: "Tema do sistema. Alternar para claro.",
 };
 
+const announcement: Record<ThemePreference, string> = {
+  light: "Tema claro ativado.",
+  dark: "Tema escuro ativado.",
+  system: "Tema do sistema ativado.",
+};
+
 export function ThemeToggle() {
   const preference = useThemePreference();
+  const [status, setStatus] = useState("");
+
+  function cycle() {
+    const next = nextPreference[preference];
+    applyThemePreference(next);
+    setStatus(announcement[next]);
+  }
 
   return (
-    <button
-      type="button"
-      className={styles.toggle}
-      aria-label={label[preference]}
-      onClick={() => applyThemePreference(nextPreference[preference])}
-    >
-      {preference === "dark" ? <MoonIcon /> : preference === "light" ? <SunIcon /> : <SystemIcon />}
-    </button>
+    <>
+      <button type="button" className={styles.toggle} aria-label={label[preference]} onClick={cycle}>
+        {preference === "dark" ? <MoonIcon /> : preference === "light" ? <SunIcon /> : <SystemIcon />}
+      </button>
+      <span className="sr-only" role="status">
+        {status}
+      </span>
+    </>
   );
 }
 

@@ -150,7 +150,7 @@
   }
 
   .panelCta:hover {
-    color: var(--primary);
+    color: var(--primary-solid);
     text-decoration: none;
   }
 }

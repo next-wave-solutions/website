@@ -41,7 +41,8 @@ export function Technology() {
           </p>
         </header>
 
-        <p className={`${styles.capabilities} motion-reveal ${styles.delay3}`} aria-label="Áreas de atuação">
+        <p className={`${styles.capabilities} motion-reveal ${styles.delay3}`}>
+          <span className="sr-only">Áreas de atuação: </span>
           <span>Web</span>
           <span aria-hidden="true" className={styles.dot}>
             ·

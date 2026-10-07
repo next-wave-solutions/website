@@ -4,41 +4,70 @@ import { useEffect, useId, useRef, useState } from "react";
 import { headerCta, headerLinks } from "./nav";
 import styles from "./header.module.css";
 
+/** Mirrors the `max-width: 62rem` breakpoint in header.module.css. */
+const DESKTOP_QUERY = "(min-width: 62.0625rem)";
+
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
-  const wasOpen = useRef(false);
+  const restoreFocus = useRef(false);
 
   useEffect(() => {
     if (!open) {
-      if (wasOpen.current) {
-        buttonRef.current?.focus();
-      }
-      wasOpen.current = false;
+      if (restoreFocus.current) buttonRef.current?.focus();
+      restoreFocus.current = false;
       return;
     }
 
-    wasOpen.current = true;
     firstLinkRef.current?.focus();
 
+    const isInside = (node: EventTarget | null) =>
+      node instanceof Node &&
+      (buttonRef.current?.contains(node) || panelRef.current?.contains(node));
+
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        setOpen(false);
-      }
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      restoreFocus.current = true;
+      setOpen(false);
+    }
+
+    function onFocusIn(event: FocusEvent) {
+      if (!isInside(event.target)) setOpen(false);
+    }
+
+    function onPointerDown(event: PointerEvent) {
+      if (!isInside(event.target)) setOpen(false);
+    }
+
+    const desktop = window.matchMedia(DESKTOP_QUERY);
+    function onViewportChange() {
+      if (desktop.matches) setOpen(false);
     }
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
+    document.addEventListener("focusin", onFocusIn);
+    document.addEventListener("pointerdown", onPointerDown);
+    desktop.addEventListener("change", onViewportChange);
 
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("focusin", onFocusIn);
+      document.removeEventListener("pointerdown", onPointerDown);
+      desktop.removeEventListener("change", onViewportChange);
     };
   }, [open]);
+
+  function toggle() {
+    if (open) restoreFocus.current = true;
+    setOpen((current) => !current);
+  }
 
   return (
     <>
@@ -49,11 +78,11 @@ export function MobileMenu() {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? "Fechar menu" : "Abrir menu"}
-        onClick={() => setOpen((current) => !current)}
+        onClick={toggle}
       >
         <MenuIcon open={open} />
       </button>
-      <div id={panelId} className={styles.panel} hidden={!open}>
+      <div ref={panelRef} id={panelId} className={styles.panel} hidden={!open}>
         <nav aria-label="Menu">
           {headerLinks.map((link, index) => (
             <a

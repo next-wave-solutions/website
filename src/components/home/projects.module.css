@@ -85,7 +85,7 @@
 }
 
 .status {
-  color: var(--primary);
+  color: var(--primary-solid);
 }
 
 .separator {

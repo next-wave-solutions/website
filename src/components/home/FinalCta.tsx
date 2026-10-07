@@ -89,14 +89,20 @@ export function FinalCta() {
                 Falar com a Next Wave
               </Button>
             ) : (
-              <Button
-                type="button"
-                variant="primary"
-                className={styles.primary}
-                aria-label="Falar com a Next Wave. Contato por WhatsApp será configurado em breve."
-              >
-                Falar com a Next Wave
-              </Button>
+              <>
+                <Button
+                  type="button"
+                  variant="primary"
+                  className={styles.primary}
+                  aria-disabled="true"
+                  aria-describedby="cta-contact-pending"
+                >
+                  Falar com a Next Wave
+                </Button>
+                <span id="cta-contact-pending" className="sr-only">
+                  Contato por WhatsApp será configurado em breve.
+                </span>
+              </>
             )}
 
             <Button href="#solucoes" variant="secondary" className={styles.secondary}>

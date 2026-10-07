@@ -76,6 +76,15 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  text-shadow:
+    0 1px 2px rgb(255 252 248 / 0.92),
+    0 0 12px rgb(255 252 248 / 0.6);
+}
+
+:global([data-theme="dark"]) .eyebrow {
+  text-shadow:
+    0 1px 3px rgb(0 0 0 / 0.55),
+    0 0 14px rgb(0 0 0 / 0.4);
 }
 
 .eyebrow::after {
@@ -228,6 +237,55 @@
 
   .eyebrow::after {
     width: 2.25rem;
+  }
+}
+
+/*
+ * Soft local veils keep copy ≥4.5:1 where it overlaps the busy part of the wave:
+ * the subcopy on desktop/tablet, and the CTAs once they stack below ~388px.
+ */
+.subcopy::before,
+.actions::before {
+  --veil-mask: linear-gradient(to right, transparent, #000 8%, #000 70%, transparent),
+    linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+
+  content: "";
+  position: absolute;
+  z-index: -1;
+  display: none;
+  background: color-mix(in srgb, var(--background) 72%, transparent);
+  -webkit-mask-image: var(--veil-mask);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--veil-mask);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+
+@media (min-width: 48.0625rem) {
+  .subcopy {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .subcopy::before {
+    display: block;
+    inset: -1.5rem -4rem -1.5rem -2rem;
+  }
+}
+
+@media (max-width: 24.25rem) {
+  .actions {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .actions::before {
+    --veil-mask: linear-gradient(to right, #000 65%, transparent),
+      linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
+
+    display: block;
+    inset: -1.75rem -2rem -1.75rem calc(-1 * var(--gutter));
+    background: color-mix(in srgb, var(--background) 80%, transparent);
   }
 }
 

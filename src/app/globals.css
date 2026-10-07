@@ -12,9 +12,10 @@
   --foreground: #111827;
   --text-primary: #111827;
   --text-secondary: #4b5563;
-  --text-muted: #6b7280;
-  /* Slate-500 — meets ~4.5:1 on warm off-white for small labels */
-  --text-subtle: #64748b;
+  /* Keeps ≥4.5:1 on --background-secondary/-tertiary, where #6b7280 drops to ~4.2:1 */
+  --text-muted: #646b78;
+  /* Slate tone that keeps ≥4.5:1 on every light background and surface */
+  --text-subtle: #5c6b80;
   --text-on-brand: #ffffff;
 
   --border: rgba(17, 24, 39, 0.1);
@@ -43,7 +44,12 @@
   --warning: #f59e0b;
   --error: #ef4444;
 
+  /* Purple for text and white-on-purple fills; --primary alone is below 4.5:1 */
+  --primary-solid: #7c3aed;
+
   --gradient-brand: linear-gradient(90deg, #8b5cf6 0%, #6366f1 35%, #06b6d4 65%, #10b981 100%);
+  /* Cyan/green stops deepened so every portion of gradient headlines keeps ≥3:1 on light surfaces */
+  --gradient-brand-text: linear-gradient(90deg, #8b5cf6 0%, #6366f1 35%, #0891b2 65%, #059669 100%);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
@@ -85,6 +91,8 @@
   --border-strong: rgba(255, 255, 255, 0.18);
 
   --focus: #a78bfa;
+
+  --gradient-brand-text: var(--gradient-brand);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.28);
@@ -201,14 +209,9 @@ button {
   outline-offset: 3px;
 }
 
-/* Sticky header clearance for in-page anchors */
-#solucoes,
-#processo,
-#tecnologia,
-#projetos,
-#sobre,
-#contato {
-  scroll-margin-top: 5.5rem;
+/* Keeps anchor targets and keyboard-focused elements clear of the sticky header */
+html {
+  scroll-padding-top: 5.5rem;
 }
 
 .skipLink {
