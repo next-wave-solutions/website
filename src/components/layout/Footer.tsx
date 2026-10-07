@@ -17,8 +17,8 @@ export function Footer() {
                 className={styles.mark}
                 src="/brand/nextwave-mark.png"
                 alt=""
-                width={571}
-                height={313}
+                width={124}
+                height={68}
               />
               <span className={styles.brandName}>Next Wave Solutions</span>
             </Link>

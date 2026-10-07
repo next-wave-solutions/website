@@ -29,9 +29,10 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   applicationName: "Next Wave Solutions",
+  // Icon-sized variants via the image optimizer; the source mark is a ~500 KB 1774px PNG
   icons: {
-    icon: [{ url: "/brand/nextwave-mark.png", type: "image/png" }],
-    apple: [{ url: "/brand/nextwave-mark.png", type: "image/png" }],
+    icon: [{ url: "/_next/image?url=%2Fbrand%2Fnextwave-mark.png&w=64&q=75" }],
+    apple: [{ url: "/_next/image?url=%2Fbrand%2Fnextwave-mark.png&w=256&q=75" }],
   },
   openGraph: {
     type: "website",

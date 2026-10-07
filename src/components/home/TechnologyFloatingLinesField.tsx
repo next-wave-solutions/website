@@ -1,8 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useRef } from "react";
 import {
   useIsCompactViewport,
+  useIsNearViewport,
   usePrefersReducedMotion,
   useResolvedTheme,
 } from "@/components/lab/motion/use-motion-lab";
@@ -22,6 +24,8 @@ export function TechnologyFloatingLinesField() {
   const theme = useResolvedTheme();
   const reduced = usePrefersReducedMotion();
   const compact = useIsCompactViewport(1024);
+  const slotRef = useRef<HTMLDivElement>(null);
+  const near = useIsNearViewport(slotRef, !reduced && !compact);
   const light = theme === "light";
 
   if (reduced && !compact) {
@@ -31,21 +35,23 @@ export function TechnologyFloatingLinesField() {
   if (reduced || compact) return null;
 
   return (
-    <div className={styles.linesSlot} aria-hidden="true">
-      <FloatingLines
-        className={styles.lines}
-        linesGradient={BRAND_GRADIENT}
-        enabledWaves={["middle", "bottom"]}
-        lineCount={[3, 3]}
-        lineDistance={[7, 6]}
-        animationSpeed={0.28}
-        interactive={false}
-        parallax={false}
-        mixBlendMode={light ? "multiply" : "screen"}
-        lightMode={light}
-        backgroundColor={light ? "#faf9f7" : "#0d1017"}
-        maxPixelRatio={1.75}
-      />
+    <div ref={slotRef} className={styles.linesSlot} aria-hidden="true">
+      {near ? (
+        <FloatingLines
+          className={styles.lines}
+          linesGradient={BRAND_GRADIENT}
+          enabledWaves={["middle", "bottom"]}
+          lineCount={[3, 3]}
+          lineDistance={[7, 6]}
+          animationSpeed={0.28}
+          interactive={false}
+          parallax={false}
+          mixBlendMode={light ? "multiply" : "screen"}
+          lightMode={light}
+          backgroundColor={light ? "#faf9f7" : "#0d1017"}
+          maxPixelRatio={1.75}
+        />
+      ) : null}
     </div>
   );
 }

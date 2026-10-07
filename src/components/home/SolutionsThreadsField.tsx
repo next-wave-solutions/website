@@ -1,8 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useRef } from "react";
 import {
   useIsCompactViewport,
+  useIsNearViewport,
   usePrefersReducedMotion,
   useResolvedTheme,
 } from "@/components/lab/motion/use-motion-lab";
@@ -33,6 +35,8 @@ export function SolutionsThreadsField() {
   const theme = useResolvedTheme();
   const reduced = usePrefersReducedMotion();
   const compact = useIsCompactViewport(1024);
+  const fieldRef = useRef<HTMLDivElement>(null);
+  const near = useIsNearViewport(fieldRef, !reduced && !compact);
   const light = theme === "light";
 
   if (reduced && !compact) {
@@ -52,19 +56,21 @@ export function SolutionsThreadsField() {
     : ([0.2, 0.78, 0.7] as [number, number, number]);
 
   return (
-    <div className={styles.threadsField} aria-hidden="true">
-      <Threads
-        className={styles.threads}
-        color={colorStart}
-        colorMid={colorMid}
-        colorEnd={colorEnd}
-        amplitude={1.32}
-        distance={0.46}
-        lineCount={15}
-        timeScale={0.55}
-        chromaBoost={light ? 0.32 : 0.06}
-        enableMouseInteraction
-      />
+    <div ref={fieldRef} className={styles.threadsField} aria-hidden="true">
+      {near ? (
+        <Threads
+          className={styles.threads}
+          color={colorStart}
+          colorMid={colorMid}
+          colorEnd={colorEnd}
+          amplitude={1.32}
+          distance={0.46}
+          lineCount={15}
+          timeScale={0.55}
+          chromaBoost={light ? 0.32 : 0.06}
+          enableMouseInteraction
+        />
+      ) : null}
     </div>
   );
 }

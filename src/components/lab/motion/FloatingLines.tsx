@@ -333,7 +333,8 @@ export default function FloatingLines({
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
     camera.position.z = 1;
 
-    const renderer = new WebGLRenderer({ antialias: true, alpha: false });
+    // Single full-screen quad with shader-drawn lines: MSAA only costs GPU memory/bandwidth here
+    const renderer = new WebGLRenderer({ antialias: false, alpha: false, powerPreference: "low-power" });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxPixelRatio));
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';

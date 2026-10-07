@@ -1,7 +1,36 @@
+import { preload } from "react-dom";
 import { GradientText } from "@/components/ui/GradientText";
 import styles from "./hero.module.css";
 
+/*
+ * The plate is a CSS background (the LCP element), so the browser only finds it after CSS.
+ * These URLs must stay identical to the ones in hero.module.css.
+ * Theme is approximated by the system scheme; a manual override costs one unused preload.
+ */
+const PLATE_PRELOADS = [
+  {
+    href: "/_next/image?url=%2Fhero%2Fhero-plate-light-mobile.png&w=1200&q=75",
+    media: "(max-width: 48rem) and (prefers-color-scheme: light)",
+  },
+  {
+    href: "/_next/image?url=%2Fhero%2Fhero-plate-dark-mobile.png&w=1200&q=75",
+    media: "(max-width: 48rem) and (prefers-color-scheme: dark)",
+  },
+  {
+    href: "/_next/image?url=%2Fhero%2Fhero-plate-light-desktop.png&w=1920&q=75",
+    media: "(min-width: 48.0625rem) and (prefers-color-scheme: light)",
+  },
+  {
+    href: "/_next/image?url=%2Fhero%2Fhero-plate-dark-desktop.png&w=1920&q=75",
+    media: "(min-width: 48.0625rem) and (prefers-color-scheme: dark)",
+  },
+];
+
 export function Hero() {
+  for (const plate of PLATE_PRELOADS) {
+    preload(plate.href, { as: "image", fetchPriority: "high", media: plate.media });
+  }
+
   return (
     <section className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.plate} aria-hidden="true" />

@@ -23,8 +23,8 @@ export function Header({ tone = "default" }: HeaderProps) {
             className={styles.mark}
             src="/brand/nextwave-mark.png"
             alt=""
-            width={571}
-            height={313}
+            width={124}
+            height={68}
             priority
           />
           <span>Next Wave</span>

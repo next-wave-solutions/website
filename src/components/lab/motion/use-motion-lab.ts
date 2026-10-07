@@ -1,6 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type RefObject, useEffect, useState } from "react";
+
+/**
+ * Flips to true (once) when the element comes within `rootMargin` of the viewport.
+ * Used to defer heavy WebGL chunks until their section is about to be seen.
+ */
+export function useIsNearViewport<T extends Element>(
+  ref: RefObject<T | null>,
+  enabled = true,
+  rootMargin = "100% 0px",
+) {
+  const [near, setNear] = useState(false);
+
+  useEffect(() => {
+    if (!enabled || near) return;
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        setNear(true);
+        observer.disconnect();
+      },
+      { rootMargin },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [enabled, near, ref, rootMargin]);
+
+  return near;
+}
 
 export function usePrefersReducedMotion() {
   // Assume reduced until measured — avoids briefly starting WebGL for reduced-motion users.
