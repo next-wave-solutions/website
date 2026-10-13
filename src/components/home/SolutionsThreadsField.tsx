@@ -7,10 +7,10 @@ import {
   useIsNearViewport,
   usePrefersReducedMotion,
   useResolvedTheme,
-} from "@/components/lab/motion/use-motion-lab";
+} from "@/components/effects/use-effect-env";
 import styles from "./solutions.module.css";
 
-const Threads = dynamic(() => import("@/components/lab/motion/Threads"), {
+const Threads = dynamic(() => import("@/components/effects/Threads"), {
   ssr: false,
 });
 

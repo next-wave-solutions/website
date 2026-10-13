@@ -5,3 +5,26 @@
   background-clip: text;
   color: transparent;
 }
+
+/*
+ * The flow animation owns `animation` on this element, so entrance classes
+ * (`motion-reveal`) belong on a wrapper, never on GradientText itself.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .text {
+    background-image: var(--gradient-brand-text-loop);
+    background-size: 300% 100%;
+    animation: gradient-text-flow 6s linear infinite;
+  }
+}
+
+/* One full tile width (300% of the box) so the mirrored loop never jumps */
+@keyframes gradient-text-flow {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 150% 50%;
+  }
+}

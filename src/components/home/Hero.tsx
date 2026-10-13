@@ -44,7 +44,7 @@ export function Hero() {
   }
 
   return (
-    <section className={styles.hero} aria-labelledby="hero-heading">
+    <section className={styles.hero} aria-labelledby="hero-heading" data-scroll-progress="exit">
       <div className={styles.plate} aria-hidden="true" />
       <div className={styles.scrim} aria-hidden="true" />
       <div className={styles.copy}>
@@ -53,15 +53,15 @@ export function Hero() {
         </p>
         <h1 id="hero-heading" className={styles.headline}>
           <span className={`${styles.line} motion-reveal ${styles.delay1}`}>Cada ideia tem</span>
-          <GradientText className={`${styles.flow} motion-reveal ${styles.delay2}`}>
-            seu próprio fluxo.
-          </GradientText>
+          <span className={`${styles.flow} motion-reveal ${styles.delay2}`}>
+            <GradientText>seu próprio fluxo.</GradientText>
+          </span>
         </h1>
         <p className={`${styles.subcopy} motion-reveal ${styles.delay3}`}>
           Transformamos ideias em produtos digitais que evoluem com o seu negócio.
         </p>
         <div className={`${styles.actions} motion-reveal ${styles.delay4}`}>
-          <a className={styles.primary} href="#contato">
+          <a className={styles.primary} href="#contato" data-magnetic data-hero-cta>
             Falar com a Next Wave
             <span aria-hidden="true">↗</span>
           </a>

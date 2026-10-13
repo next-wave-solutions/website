@@ -330,7 +330,32 @@
 
   .primary,
   .secondary {
-    transition: color var(--duration-fast) var(--ease-standard);
+    transition:
+      color var(--duration-fast) var(--ease-standard),
+      translate var(--duration-normal) var(--ease-standard);
+  }
+
+  .primary span,
+  .secondary span {
+    display: inline-block;
+    transition: translate var(--duration-normal) var(--ease-enter);
+  }
+
+  .primary:hover span,
+  .secondary:hover span,
+  .primary:focus-visible span,
+  .secondary:focus-visible span {
+    translate: 2px -2px;
+  }
+
+  /* Scroll exit: the plate lags behind and the copy drifts up as the Hero leaves */
+  .plate {
+    translate: 0 calc(var(--exit, 0) * 14%);
+  }
+
+  .copy {
+    translate: 0 calc(var(--exit, 0) * -2.5rem);
+    opacity: calc(1 - var(--exit, 0) * 0.8);
   }
 }
 

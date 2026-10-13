@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const SELECTOR = ".motion-reveal, .motion-draw";
+const SELECTOR = ".motion-reveal, .motion-draw, .motion-words";
 
 /**
  * Progressive-enhancement observer for `.motion-reveal` elements.

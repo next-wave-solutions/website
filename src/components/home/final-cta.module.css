@@ -40,11 +40,145 @@
   pointer-events: none;
 }
 
+/* Soft light that follows the cursor (MotionEffectsRoot sets --spot-x / --spot-y) */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(
+    32rem circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    color-mix(in srgb, var(--primary) 12%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 5%, transparent) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.cta[data-spot] .spotlight {
+  opacity: 1;
+}
+
+/* Interactive sea: strongest across the middle band, fading behind headline and buttons */
+.wavesField {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(0 0 0 / 0.25) 22%,
+    black 42%,
+    black 62%,
+    rgb(0 0 0 / 0.3) 82%,
+    transparent 100%
+  );
+}
+
+.waves {
+  opacity: 0;
+  animation: cta-waves-in 1.6s var(--ease-enter) 0.2s forwards;
+}
+
+@keyframes cta-waves-in {
+  to {
+    opacity: 1;
+  }
+}
+
+/* The SVG wave is the fallback: it steps aside once the WebGL sea is on screen */
+.cta:has(.wavesField canvas) .wave {
+  opacity: 0;
+}
+
 .inner {
   position: relative;
   z-index: 1;
   display: grid;
   gap: clamp(2rem, 4.5vw, 3.5rem);
+}
+
+/* "Seu próximo ___ começa com uma conversa." */
+.rotator {
+  margin: 0 0 0.85rem;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.rotatorStage {
+  position: relative;
+  display: inline-block;
+  height: 1.3em;
+  vertical-align: bottom;
+  overflow: hidden;
+  padding-inline: 0.04em;
+}
+
+.rotatorWord {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.rotatorWord:not([data-exiting]) {
+  position: relative;
+}
+
+.rotatorChar {
+  display: inline-block;
+  background-image: var(--gradient-brand-text-loop);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.rotatorStatic {
+  color: color-mix(in srgb, var(--text-primary) 82%, var(--primary));
+}
+
+/* Primary CTA: a slow gradient ring around the button */
+@property --cta-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.halo {
+  position: relative;
+  display: inline-flex;
+  border-radius: calc(var(--radius-lg) + 2px);
+  isolation: isolate;
+}
+
+.halo::before,
+.halo::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--cta-angle),
+    var(--primary),
+    var(--accent),
+    color-mix(in srgb, var(--primary) 30%, transparent),
+    var(--primary)
+  );
+  pointer-events: none;
+}
+
+.halo::after {
+  inset: -6px;
+  filter: blur(14px);
+  opacity: 0.35;
 }
 
 .intro {
@@ -172,6 +306,44 @@
       background-color var(--duration-fast) var(--ease-standard);
   }
 
+  .spotlight {
+    transition: opacity var(--duration-slow) var(--ease-standard);
+  }
+
+  .halo::before,
+  .halo::after {
+    animation: cta-ring 5s linear infinite;
+  }
+
+  .halo:hover::after {
+    opacity: 0.6;
+  }
+
+  .halo::after {
+    transition: opacity var(--duration-normal) var(--ease-standard);
+  }
+
+  .rotatorChar {
+    animation:
+      cta-char-in 0.6s var(--ease-enter) both,
+      cta-gradient-flow 6s linear infinite;
+    animation-delay: calc(0.2s + var(--c) * 30ms), 0s;
+  }
+
+  .rotatorWord[data-exiting] .rotatorChar {
+    animation: cta-char-out 0.28s cubic-bezier(0.55, 0, 0.75, 0.25) both;
+    animation-delay: calc(var(--c) * 14ms);
+  }
+
+  .rotatorStage {
+    transition: width 0.55s var(--ease-enter);
+  }
+
+  /* Mobile / fallback wave keeps breathing after it draws */
+  :global(html[data-motion="ready"]) .waveStage:global(.is-revealed) .wave {
+    animation: cta-wave-breathe 6s ease-in-out 1.2s infinite;
+  }
+
   .primary:hover:not(:disabled) {
     transform: translateY(-1px);
   }
@@ -184,6 +356,64 @@
 @keyframes cta-wave-draw {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes cta-wave-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+
+  50% {
+    transform: translateY(4px) scaleY(1.18);
+  }
+}
+
+@keyframes cta-ring {
+  to {
+    --cta-angle: 360deg;
+  }
+}
+
+@keyframes cta-gradient-flow {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 150% 50%;
+  }
+}
+
+@keyframes cta-char-in {
+  from {
+    opacity: 0;
+    transform: translateY(105%);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cta-char-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-105%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waves {
+    opacity: 1;
+    animation: none;
   }
 }
 
@@ -240,6 +470,7 @@
     align-items: stretch;
   }
 
+  .halo,
   .primary,
   .secondary {
     width: 100%;

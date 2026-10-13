@@ -1,4 +1,7 @@
+import type { CSSProperties } from "react";
+import { SplitWords, WordUnit } from "@/components/motion/SplitWords";
 import { Container } from "@/components/ui/Container";
+import { GradientText } from "@/components/ui/GradientText";
 import { Section } from "@/components/ui/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SolutionsThreadsField } from "@/components/home/SolutionsThreadsField";
@@ -34,17 +37,20 @@ const services = [
 export function Solutions() {
   return (
     <Section id="solucoes" className={styles.solutions} aria-labelledby="solutions-heading">
-      <Container className={styles.layout}>
-        <SolutionsThreadsField />
+      <SolutionsThreadsField />
 
+      <Container className={styles.layout}>
         <header className={styles.intro}>
           <SectionLabel className={`motion-reveal ${styles.label}`}>Soluções</SectionLabel>
-          <h2 id="solutions-heading" className={`${styles.headline} motion-reveal ${styles.delay1}`}>
-            Tecnologia feita
+          <h2 id="solutions-heading" className={`${styles.headline} motion-words`}>
+            <SplitWords text="Tecnologia feita" />
             <br />
-            para acompanhar
+            <SplitWords text="para acompanhar" start={2} />
             <br />
-            o seu negócio.
+            <SplitWords text="o seu" start={4} />{" "}
+            <WordUnit index={6}>
+              <GradientText>negócio.</GradientText>
+            </WordUnit>
           </h2>
           <p className={`${styles.lead} motion-reveal ${styles.delay2}`}>
             Criamos soluções digitais sob medida, simples de usar e construídas a partir das
@@ -52,22 +58,35 @@ export function Solutions() {
           </p>
         </header>
 
-        <ol className={styles.list}>
-          {services.map((service, index) => {
-            const delayClass = [styles.delay3, styles.delay4, styles.delay5, styles.delay6][index];
-
-            return (
-              <li key={service.index} className={`${styles.item} motion-reveal ${delayClass}`}>
-                <span className={styles.index} aria-hidden="true">
-                  {service.index}
-                </span>
-                <div className={styles.body}>
-                  <h3 className={styles.title}>{service.title}</h3>
-                  <p className={styles.description}>{service.description}</p>
-                </div>
-              </li>
-            );
-          })}
+        <ol className={styles.list} data-active-group="">
+          {services.map((service, index) => (
+            <li
+              key={service.index}
+              className={`${styles.item} motion-reveal`}
+              style={{ "--n": index + 3 } as CSSProperties}
+              data-active-item=""
+              data-spotlight=""
+            >
+              <span className={styles.index} aria-hidden="true">
+                {service.index}
+              </span>
+              <div className={styles.body}>
+                <h3 className={styles.title}>
+                  <span className={styles.titleText}>{service.title}</span>
+                  <svg
+                    className={styles.wave}
+                    viewBox="0 0 48 8"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M1 4Q7 0 13 4T25 4T37 4T47 4" pathLength="1" />
+                  </svg>
+                </h3>
+                <p className={styles.description}>{service.description}</p>
+              </div>
+            </li>
+          ))}
         </ol>
       </Container>
     </Section>

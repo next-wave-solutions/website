@@ -18,9 +18,43 @@
     transparent 100%
   );
   pointer-events: none;
+  z-index: 1;
+}
+
+.wavesField {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image:
+    linear-gradient(180deg, transparent 0%, black 20%, black 80%, transparent 100%),
+    linear-gradient(90deg, rgb(0 0 0 / 0.3) 0%, rgb(0 0 0 / 0.55) 40%, black 70%, black 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.waves {
+  opacity: 0;
+  animation: about-waves-in 1.6s var(--ease-enter) 0.2s forwards;
+}
+
+@keyframes about-waves-in {
+  to {
+    opacity: 0.32;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waves {
+    opacity: 0.32;
+    animation: none;
+  }
 }
 
 .layout {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: clamp(3rem, 6vw, 5rem);
   align-items: start;
@@ -69,20 +103,26 @@
 
 .flow {
   display: none;
-  position: absolute;
-  left: 0.15rem;
-  top: 0.35rem;
-  bottom: 0.35rem;
-  width: 1.75rem;
-  height: auto;
-  pointer-events: none;
   z-index: 0;
 }
 
-.flowStroke {
-  stroke: url(#about-flow-gradient);
-  stroke-width: 1.35;
-  stroke-linecap: round;
+.node {
+  display: none;
+  position: absolute;
+  left: -1.85rem;
+  top: calc(50% - 0.1rem);
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-top: -0.3rem;
+  border-radius: 999px;
+  background: var(--background);
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, var(--border-strong));
+}
+
+.node[data-reached] {
+  border-color: transparent;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .principles {
@@ -113,6 +153,9 @@
 }
 
 .index {
+  position: relative;
+  align-self: start;
+  justify-self: start;
   margin-top: 0.2rem;
   color: var(--text-muted);
   font-family: var(--font-heading);
@@ -165,28 +208,92 @@
   animation-delay: calc(var(--stagger) * 4);
 }
 
+.principle:has(.node[data-reached]) .index {
+  color: var(--text-primary);
+}
+
+/* Current principle: the one the travelling pulse last reached (or the hovered one) */
+.principle:has(.node[data-current]) .index,
+.principle:hover .index {
+  background-size: 2.25rem 1px;
+}
+
+.principle:has(.node[data-current]) .principleTitle,
+.principle:hover .principleTitle {
+  color: color-mix(in srgb, var(--text-primary) 82%, var(--primary));
+}
+
+:global([data-theme="dark"]) .principle:has(.node[data-current]) .principleTitle,
+:global([data-theme="dark"]) .principle:hover .principleTitle {
+  color: color-mix(in srgb, var(--text-primary) 80%, var(--primary-muted));
+}
+
+.principle:has(.node[data-current]) .principleCopy,
+.principle:hover .principleCopy {
+  color: var(--text-primary);
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  :global(html[data-motion="ready"]) .flowStroke {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
+  .principleTitle,
+  .principleCopy {
+    transition:
+      color var(--duration-normal) var(--ease-standard),
+      translate var(--duration-slow) var(--ease-enter);
   }
 
-  :global(html[data-motion="ready"]) .flow:global(.is-revealed) .flowStroke {
-    animation: about-flow-draw 1.2s var(--ease-enter) both;
+  .index {
+    transition:
+      color var(--duration-normal) var(--ease-standard),
+      background-size var(--duration-slow) var(--ease-enter);
   }
 
-  .principleTitle {
-    transition: color var(--duration-fast) var(--ease-standard);
-  }
-
+  .principle:has(.node[data-current]) .principleTitle,
   .principle:hover .principleTitle {
-    color: color-mix(in srgb, var(--text-primary) 88%, var(--primary));
+    translate: 0 -0.2rem;
+  }
+
+  /* Ripple each time the pulse arrives */
+  .node::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 1px solid var(--primary);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .node[data-current]::after {
+    animation: about-node-ripple 1.4s var(--ease-enter);
+  }
+
+  .node {
+    transition:
+      background-color var(--duration-normal) var(--ease-standard),
+      border-color var(--duration-normal) var(--ease-standard),
+      box-shadow var(--duration-slow) var(--ease-enter);
+  }
+
+  .node[data-reached] {
+    animation: about-node-reach 0.7s var(--ease-enter);
   }
 }
 
-@keyframes about-flow-draw {
+@keyframes about-node-ripple {
+  from {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
   to {
-    stroke-dashoffset: 0;
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+@keyframes about-node-reach {
+  40% {
+    transform: scale(1.35);
   }
 }
 
@@ -206,7 +313,8 @@
     padding-left: 2.25rem;
   }
 
-  .flow {
+  .flow,
+  .node {
     display: block;
   }
 

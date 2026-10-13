@@ -7,13 +7,14 @@ import { Solutions } from "@/components/home/Solutions";
 import { Technology } from "@/components/home/Technology";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { MotionEffectsRoot } from "@/components/motion/MotionEffectsRoot";
 import { MotionRevealRoot } from "@/components/motion/MotionRevealRoot";
 
-/** Full Home composition, rendered at `/` and in the `/dev/home` lab. */
 export function Home() {
   return (
     <>
       <MotionRevealRoot />
+      <MotionEffectsRoot />
       <Header tone="hero" />
       <main id="conteudo">
         <Hero />

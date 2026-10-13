@@ -7,17 +7,17 @@ import {
   useIsNearViewport,
   usePrefersReducedMotion,
   useResolvedTheme,
-} from "@/components/lab/motion/use-motion-lab";
+} from "@/components/effects/use-effect-env";
 import styles from "./technology.module.css";
 
-const FloatingLines = dynamic(() => import("@/components/lab/motion/FloatingLines"), {
+const FloatingLines = dynamic(() => import("@/components/effects/FloatingLines"), {
   ssr: false,
 });
 
 const BRAND_GRADIENT = ["#8b5cf6", "#6366f1", "#06b6d4", "#10b981"];
-const ENABLED_WAVES: Array<"top" | "middle" | "bottom"> = ["middle", "bottom"];
-const LINE_COUNT = [3, 3];
-const LINE_DISTANCE = [7, 6];
+const ENABLED_WAVES: Array<"top" | "middle" | "bottom"> = ["top", "middle", "bottom"];
+const LINE_COUNT = [4, 6, 5];
+const LINE_DISTANCE = [6, 5, 5];
 
 /**
  * Localized Floating Lines inside the Technology principles panel.

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { applyThemePreference, type ThemePreference } from "@/lib/theme";
 import { useThemePreference } from "@/components/theme/use-theme-preference";
 import styles from "./theme-toggle.module.css";
@@ -23,13 +23,45 @@ const announcement: Record<ThemePreference, string> = {
   system: "Tema do sistema ativado.",
 };
 
+/** Circular reveal of the new theme from the toggle, where View Transitions are available. */
+function revealTheme(origin: HTMLElement, apply: () => void) {
+  const root = document.documentElement;
+  const before = root.dataset.theme;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reduced || typeof document.startViewTransition !== "function") {
+    apply();
+    return;
+  }
+
+  const rect = origin.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
+  const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+
+  const transition = document.startViewTransition(apply);
+  transition.ready
+    .then(() => {
+      if (root.dataset.theme === before) return;
+      root.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        {
+          duration: 620,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+    })
+    .catch(() => {});
+}
+
 export function ThemeToggle() {
   const preference = useThemePreference();
   const [status, setStatus] = useState("");
 
-  function cycle() {
+  function cycle(event: MouseEvent<HTMLButtonElement>) {
     const next = nextPreference[preference];
-    applyThemePreference(next);
+    revealTheme(event.currentTarget, () => applyThemePreference(next));
     setStatus(announcement[next]);
   }
 

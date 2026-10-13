@@ -1,8 +1,11 @@
+import { SplitWords, WordUnit } from "@/components/motion/SplitWords";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { GradientText } from "@/components/ui/GradientText";
 import { Section } from "@/components/ui/Section";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { CtaRotator } from "./CtaRotator";
+import { CtaWavesField } from "./CtaWavesField";
 import styles from "./final-cta.module.css";
 
 function getWhatsAppHref(): string | undefined {
@@ -19,16 +22,21 @@ export function FinalCta() {
   const whatsappHref = getWhatsAppHref();
 
   return (
-    <Section id="contato" className={styles.cta} aria-labelledby="cta-heading">
+    <Section id="contato" className={styles.cta} aria-labelledby="cta-heading" data-spotlight>
       <div className={styles.atmosphere} aria-hidden="true" />
+      <div className={styles.spotlight} aria-hidden="true" />
+      <CtaWavesField className={styles.wavesField} wavesClassName={styles.waves} />
 
       <Container className={styles.inner}>
         <header className={styles.intro}>
           <SectionLabel className={`motion-reveal ${styles.label}`}>Próximo passo</SectionLabel>
-          <h2 id="cta-heading" className={`${styles.headline} motion-reveal ${styles.delay1}`}>
-            Toda <GradientText>próxima onda</GradientText>
+          <h2 id="cta-heading" className={`${styles.headline} motion-words`}>
+            <SplitWords text="Toda" />{" "}
+            <WordUnit index={1}>
+              <GradientText>próxima onda</GradientText>
+            </WordUnit>
             <br />
-            começa com uma ideia.
+            <SplitWords text="começa com uma ideia." start={2} />
           </h2>
         </header>
 
@@ -72,33 +80,42 @@ export function FinalCta() {
         </div>
 
         <div className={styles.closing}>
-          <p className={`${styles.lead} motion-reveal ${styles.delay3}`}>
-            Conte o que você tem em mente. Ajudamos a transformar a ideia em um plano claro para
-            tirar do papel.
-          </p>
+          <div className={styles.closingCopy}>
+            <div className={`motion-reveal ${styles.delay2}`}>
+              <CtaRotator />
+            </div>
+            <p className={`${styles.lead} motion-reveal ${styles.delay3}`}>
+              Conte o que você tem em mente. Ajudamos a transformar a ideia em um plano claro para
+              tirar do papel.
+            </p>
+          </div>
 
           <div className={`${styles.actions} motion-reveal ${styles.delay4}`}>
             {whatsappHref ? (
-              <Button
-                href={whatsappHref}
-                variant="primary"
-                className={styles.primary}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Falar com a Next Wave
-              </Button>
-            ) : (
-              <>
+              <span className={styles.halo} data-magnetic>
                 <Button
-                  type="button"
+                  href={whatsappHref}
                   variant="primary"
                   className={styles.primary}
-                  aria-disabled="true"
-                  aria-describedby="cta-contact-pending"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Falar com a Next Wave
                 </Button>
+              </span>
+            ) : (
+              <>
+                <span className={styles.halo}>
+                  <Button
+                    type="button"
+                    variant="primary"
+                    className={styles.primary}
+                    aria-disabled="true"
+                    aria-describedby="cta-contact-pending"
+                  >
+                    Falar com a Next Wave
+                  </Button>
+                </span>
                 <span id="cta-contact-pending" className="sr-only">
                   Contato por WhatsApp será configurado em breve.
                 </span>

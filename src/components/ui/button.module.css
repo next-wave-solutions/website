@@ -65,11 +65,34 @@
       background-color var(--duration-fast) var(--ease-standard),
       color var(--duration-fast) var(--ease-standard),
       border-color var(--duration-fast) var(--ease-standard),
-      transform var(--duration-fast) var(--ease-standard);
+      transform var(--duration-fast) var(--ease-standard),
+      translate var(--duration-normal) var(--ease-standard);
   }
 
   .primary:hover:not(:disabled) {
     transform: translateY(-1px);
+  }
+
+  /* Soft sheen crossing the button on hover */
+  .primary {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.24) 50%, transparent 70%);
+    transform: translateX(-120%);
+    pointer-events: none;
+  }
+
+  .primary:hover:not(:disabled):not([aria-disabled="true"])::after {
+    transform: translateX(120%);
+    transition: transform 0.7s var(--ease-enter);
   }
 
   .primary:active:not(:disabled) {

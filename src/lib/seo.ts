@@ -7,7 +7,6 @@ export const HOME_TITLE = "Next Wave Solutions | Soluções digitais sob medida"
 export const HOME_DESCRIPTION =
   "Criamos sistemas web, aplicativos mobile, automações e integrações sob medida para as necessidades reais do seu negócio, prontos para evoluir com ele.";
 
-/** Never applied to `/dev/*`; only the public root may claim the canonical URL. */
 export function publicRootMetadata({
   title,
   description,

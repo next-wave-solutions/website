@@ -19,10 +19,6 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-/*
- * Inherited by every route. Canonical, Open Graph and Twitter live on the public root page only,
- * so `/dev/*` never inherits an official URL.
- */
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {

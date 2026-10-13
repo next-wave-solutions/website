@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { GlassFilter } from "./GlassFilter";
+import { HeaderScrollState } from "./HeaderScrollState";
 import { MobileMenu } from "./MobileMenu";
 import { headerCta, headerLinks } from "./nav";
 import styles from "./header.module.css";
@@ -13,7 +15,12 @@ type HeaderProps = {
 
 export function Header({ tone = "default" }: HeaderProps) {
   return (
-    <header className={[styles.header, tone === "hero" ? styles.onHero : ""].filter(Boolean).join(" ")}>
+    <header
+      className={[styles.header, tone === "hero" ? styles.onHero : ""].filter(Boolean).join(" ")}
+      data-site-header
+    >
+      <HeaderScrollState />
+      <GlassFilter />
       <a className="skipLink" href="#conteudo">
         Ir para o conteúdo
       </a>
@@ -38,7 +45,7 @@ export function Header({ tone = "default" }: HeaderProps) {
         </nav>
         <div className={styles.actions}>
           <ThemeToggle />
-          <Button href={headerCta.href} className={styles.desktopCta}>
+          <Button href={headerCta.href} className={styles.desktopCta} data-magnetic>
             {headerCta.label}
           </Button>
           <MobileMenu />

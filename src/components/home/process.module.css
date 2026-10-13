@@ -18,9 +18,45 @@
     transparent 100%
   );
   pointer-events: none;
+  z-index: 1;
+}
+
+.silkField {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image:
+    linear-gradient(180deg, transparent 0%, black 22%, black 80%, transparent 100%),
+    linear-gradient(90deg, rgb(0 0 0 / 0.55) 0%, black 30%, black 75%, rgb(0 0 0 / 0.7) 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.silk {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: process-silk-in 1.6s var(--ease-enter) 0.2s forwards;
+}
+
+@keyframes process-silk-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .silk {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: clamp(2.75rem, 5vw, 4.25rem);
@@ -57,19 +93,7 @@
 }
 
 .path {
-  display: none;
-  position: absolute;
-  inset: 0.35rem 0 auto;
-  width: 100%;
-  height: auto;
-  pointer-events: none;
-  opacity: 1;
-}
-
-.pathStroke {
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  z-index: 1;
 }
 
 .steps {
@@ -88,22 +112,52 @@
   border-left: 1px solid var(--border);
 }
 
-.step::before {
-  content: "";
+/* The drawn FlowPath replaces the static rail once it is laid out */
+.flow[data-flow-ready] .step {
+  border-left-color: transparent;
+}
+
+.node {
   position: absolute;
-  left: -0.28rem;
+  z-index: 2;
+  left: calc(-0.325rem - 0.5px);
   top: 1.55rem;
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 0.65rem;
+  height: 0.65rem;
   border-radius: 999px;
   background: var(--background-secondary);
   border: 1px solid color-mix(in srgb, var(--primary) 45%, var(--border-strong));
 }
 
+.node[data-reached] {
+  border-color: transparent;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent);
+}
+
+.stepHead {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.55rem;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  overflow: visible;
+}
+
+.icon path {
+  stroke: color-mix(in srgb, var(--text-muted) 75%, transparent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .index {
   display: inline-block;
-  margin: 0 0 0.55rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-family: var(--font-heading);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -169,23 +223,106 @@
   animation-delay: calc(var(--stagger) * 7);
 }
 
+.step:has(.node[data-reached]) .index {
+  color: var(--text-primary);
+}
+
+/* Current step: the one the travelling pulse last reached (or the hovered one) */
+.step:has(.node[data-current]) .index,
+.step:hover .index {
+  background-size: 2.25rem 1px;
+}
+
+.step:has(.node[data-current]) .icon path,
+.step:hover .icon path {
+  stroke: var(--primary);
+}
+
+.step:has(.node[data-current]) .title,
+.step:hover .title {
+  color: color-mix(in srgb, var(--text-primary) 82%, var(--primary));
+}
+
+.step:has(.node[data-current]) .description,
+.step:hover .description {
+  color: var(--text-primary);
+}
+
+:global([data-theme="dark"]) .step:has(.node[data-current]) .icon path,
+:global([data-theme="dark"]) .step:hover .icon path {
+  stroke: var(--primary-muted);
+}
+
+:global([data-theme="dark"]) .step:has(.node[data-current]) .title,
+:global([data-theme="dark"]) .step:hover .title {
+  color: color-mix(in srgb, var(--text-primary) 80%, var(--primary-muted));
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  :global(html[data-motion="ready"]) .pathStroke {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-  }
-
-  :global(html[data-motion="ready"]) .path:global(.is-revealed) .pathStroke {
-    animation: process-path 1.35s var(--ease-enter) both;
-  }
-
   .step {
     transition: border-color var(--duration-fast) var(--ease-standard);
   }
 
-  .index,
-  .title {
-    transition: color var(--duration-fast) var(--ease-standard);
+  .index {
+    transition:
+      color var(--duration-normal) var(--ease-standard),
+      background-size var(--duration-slow) var(--ease-enter);
+  }
+
+  .title,
+  .description,
+  .stepHead,
+  .icon path {
+    transition:
+      color var(--duration-normal) var(--ease-standard),
+      stroke var(--duration-normal) var(--ease-standard),
+      translate var(--duration-slow) var(--ease-enter);
+  }
+
+  .step:has(.node[data-current]) .stepHead,
+  .step:has(.node[data-current]) .title,
+  .step:hover .stepHead,
+  .step:hover .title {
+    translate: 0 -0.2rem;
+  }
+
+  .step:has(.node[data-current]) .icon path {
+    stroke-dasharray: 1;
+    animation: process-icon-draw 0.9s var(--ease-enter) both;
+  }
+
+  .step:has(.node[data-current]) .icon path:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+
+  .step:has(.node[data-current]) .icon path:nth-child(3) {
+    animation-delay: 0.24s;
+  }
+
+  /* Ripple each time the pulse arrives */
+  .node::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 1px solid var(--primary);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .node[data-current]::after {
+    animation: process-node-ripple 1.4s var(--ease-enter);
+  }
+
+  .node {
+    transition:
+      background-color var(--duration-normal) var(--ease-standard),
+      border-color var(--duration-normal) var(--ease-standard),
+      box-shadow var(--duration-slow) var(--ease-enter);
+  }
+
+  .node[data-reached] {
+    animation: process-node-reach 0.7s var(--ease-enter);
   }
 
   .step:hover .index {
@@ -193,9 +330,41 @@
   }
 }
 
-@keyframes process-path {
+@keyframes process-icon-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes process-node-ripple {
+  from {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes process-node-reach {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 40%, transparent);
+  }
+
+  40% {
+    transform: scale(1.35);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent);
   }
 }
 
@@ -204,14 +373,10 @@
     max-width: 42rem;
   }
 
-  .path {
-    display: block;
-  }
-
   .steps {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1.25rem 1.5rem;
-    padding-top: 3.75rem;
+    padding-top: 4.25rem;
   }
 
   .step {
@@ -219,34 +384,32 @@
     border-left: 0;
   }
 
-  .step::before {
+  .node {
     left: 0;
-    top: -2.35rem;
-    width: 0.65rem;
-    height: 0.65rem;
-    background: var(--background-secondary);
+    top: -2.6rem;
+    width: 0.75rem;
+    height: 0.75rem;
     border-color: color-mix(in srgb, var(--accent) 40%, var(--primary) 35%);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--background-secondary) 88%, transparent);
   }
 
   .offset0 {
-    margin-top: 0.35rem;
+    margin-top: 0.5rem;
   }
 
   .offset1 {
-    margin-top: -0.85rem;
+    margin-top: -1.25rem;
   }
 
   .offset2 {
-    margin-top: 0.95rem;
+    margin-top: 1.35rem;
   }
 
   .offset3 {
-    margin-top: -0.55rem;
+    margin-top: -0.85rem;
   }
 
   .offset4 {
-    margin-top: 0.65rem;
+    margin-top: 0.85rem;
   }
 
   .description {
@@ -261,13 +424,5 @@
 
   .steps {
     margin-left: 0.35rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pathStroke {
-    animation: none;
-    stroke-dasharray: none;
-    stroke-dashoffset: 0;
   }
 }

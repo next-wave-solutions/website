@@ -50,6 +50,17 @@
   --gradient-brand: linear-gradient(90deg, #8b5cf6 0%, #6366f1 35%, #06b6d4 65%, #10b981 100%);
   /* Cyan/green stops deepened so every portion of gradient headlines keeps ≥3:1 on light surfaces */
   --gradient-brand-text: linear-gradient(90deg, #8b5cf6 0%, #6366f1 35%, #0891b2 65%, #059669 100%);
+  /* Mirrored brand-text stops so a 200%-wide tile repeats seamlessly while it flows */
+  --gradient-brand-text-loop: linear-gradient(
+    90deg,
+    #8b5cf6 0%,
+    #6366f1 17.5%,
+    #0891b2 32.5%,
+    #059669 50%,
+    #0891b2 67.5%,
+    #6366f1 82.5%,
+    #8b5cf6 100%
+  );
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
@@ -93,6 +104,16 @@
   --focus: #a78bfa;
 
   --gradient-brand-text: var(--gradient-brand);
+  --gradient-brand-text-loop: linear-gradient(
+    90deg,
+    #8b5cf6 0%,
+    #6366f1 17.5%,
+    #06b6d4 32.5%,
+    #10b981 50%,
+    #06b6d4 67.5%,
+    #6366f1 82.5%,
+    #8b5cf6 100%
+  );
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.28);
@@ -255,8 +276,12 @@ footer :focus {
     transform: translateY(var(--reveal-distance));
   }
 
+  /* Longhands, so component `animation-delay` classes keep their stagger */
   html[data-motion="ready"] .motion-reveal.is-revealed {
-    animation: motion-reveal var(--duration-slow) var(--ease-enter) both;
+    animation-name: motion-reveal;
+    animation-duration: var(--duration-slow);
+    animation-timing-function: var(--ease-enter);
+    animation-fill-mode: both;
   }
 }
 
@@ -276,6 +301,112 @@ footer :focus {
   :root {
     --reveal-distance: var(--reveal-distance-mobile);
   }
+}
+
+/* Headlines revealed word by word (`SplitWords`), focusing in from a soft blur */
+.word {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-motion="ready"] .motion-words:not(.is-revealed) .word {
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(8px);
+  }
+
+  html[data-motion="ready"] .motion-words.is-revealed .word {
+    animation: word-in 0.75s var(--ease-enter) both;
+    animation-delay: calc(var(--stagger) + var(--i, 0) * 55ms);
+  }
+
+  /* Reading progress (`--read`, 0–1) lights words up in order */
+  .motion-read .word {
+    opacity: clamp(0.28, calc((var(--read, 1) * (var(--words) + 4) - var(--i)) / 4), 1);
+  }
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+/* FlowPath: line measured through `[data-flow-node]` elements */
+[data-flow-path] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+[data-flow-track] {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+[data-flow-line] {
+  stroke-width: 1.75;
+  stroke-linecap: round;
+}
+
+[data-flow-head] {
+  transition: opacity var(--duration-slow) var(--ease-standard);
+}
+
+[data-flow-pulse] {
+  stroke-width: 5;
+  stroke-opacity: 0.4;
+  stroke-linecap: round;
+  transition: opacity var(--duration-slow) var(--ease-standard);
+}
+
+/* Pointer spotlight (`MotionEffectsRoot`) */
+[data-spotlight]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    22rem circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    color-mix(in srgb, var(--primary) 11%, transparent),
+    color-mix(in srgb, var(--accent) 5%, transparent) 45%,
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+
+[data-spotlight][data-spot]::after {
+  opacity: 1;
+}
+
+[data-theme="dark"] [data-spotlight]::after {
+  background: radial-gradient(
+    22rem circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    color-mix(in srgb, var(--primary) 16%, transparent),
+    color-mix(in srgb, var(--accent) 7%, transparent) 45%,
+    transparent 70%
+  );
+}
+
+/* Theme switch: circular reveal from the toggle (View Transitions) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 @media (prefers-reduced-motion: reduce) {
