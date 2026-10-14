@@ -8,6 +8,9 @@ import { CtaRotator } from "./CtaRotator";
 import { CtaWavesField } from "./CtaWavesField";
 import styles from "./final-cta.module.css";
 
+const WHATSAPP_MESSAGE =
+  "Olá! Vim pelo site da Next Wave e gostaria de conversar sobre um projeto.";
+
 function getWhatsAppHref(): string | undefined {
   const raw = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim();
   if (!raw) return undefined;
@@ -15,7 +18,7 @@ function getWhatsAppHref(): string | undefined {
   const digits = raw.replace(/\D/g, "");
   if (!digits) return undefined;
 
-  return `https://wa.me/${digits}`;
+  return `https://wa.me/${digits}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 }
 
 export function FinalCta() {

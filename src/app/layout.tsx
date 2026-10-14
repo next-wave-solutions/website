@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   description: HOME_DESCRIPTION,
   applicationName: SITE_NAME,
-  // Icon-sized variants via the image optimizer; the source mark is a ~500 KB 1774px PNG
+  // Apple icon via the image optimizer; the source mark is a ~500 KB 1774px PNG
   icons: {
-    icon: [{ url: "/_next/image?url=%2Fbrand%2Fnextwave-mark.png&w=64&q=75" }],
+    icon: [{ url: "/brand/favicon.ico", sizes: "any" }],
     apple: [{ url: "/_next/image?url=%2Fbrand%2Fnextwave-mark.png&w=256&q=75" }],
   },
   robots: {
