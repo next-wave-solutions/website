@@ -78,6 +78,82 @@
   background: linear-gradient(90deg, rgb(6 8 14 / 0.28) 0%, transparent 42%);
 }
 
+/* The light plate as video: the static plate stays underneath as poster and fallback */
+.videoPlate {
+  position: absolute;
+  inset: -4.5rem 0 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.videoPlate[data-playing] {
+  opacity: 1;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Some frames of the clip are darker than the plate behind the copy */
+.scrim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgb(250 249 247 / 0.62) 0%,
+    rgb(250 249 247 / 0.45) 30%,
+    rgb(250 249 247 / 0.1) 52%,
+    transparent 64%
+  );
+  opacity: 0;
+}
+
+:global([data-theme="dark"]) .scrim::after {
+  background: linear-gradient(
+    90deg,
+    rgb(6 8 14 / 0.5) 0%,
+    rgb(6 8 14 / 0.32) 30%,
+    rgb(6 8 14 / 0.08) 52%,
+    transparent 64%
+  );
+}
+
+.hero:has(.videoPlate[data-playing]) .scrim::after {
+  opacity: 1;
+}
+
+.videoToggle {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(1.25rem, 4vh, 2rem);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.videoToggle:hover {
+  background: var(--surface-hover);
+}
+
+.videoToggleIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
 .copy {
   position: relative;
   z-index: 1;
@@ -349,8 +425,18 @@
   }
 
   /* Scroll exit: the plate lags behind and the copy drifts up as the Hero leaves */
-  .plate {
+  .plate,
+  .videoPlate {
     translate: 0 calc(var(--exit, 0) * 14%);
+  }
+
+  .videoPlate,
+  .scrim::after {
+    transition: opacity 0.8s var(--ease-standard);
+  }
+
+  .videoToggle {
+    transition: background-color var(--duration-fast) var(--ease-standard);
   }
 
   .copy {

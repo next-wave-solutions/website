@@ -1,6 +1,7 @@
 import { preload } from "react-dom";
 import { GradientText } from "@/components/ui/GradientText";
 import styles from "./hero.module.css";
+import { HeroVideo } from "./HeroVideo";
 
 /*
  * The plate is a CSS background (the LCP element), so the browser only finds it after CSS.
@@ -46,6 +47,7 @@ export function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-heading" data-scroll-progress="exit">
       <div className={styles.plate} aria-hidden="true" />
+      <HeroVideo />
       <div className={styles.scrim} aria-hidden="true" />
       <div className={styles.copy}>
         <p className={`${styles.eyebrow} motion-reveal`}>
